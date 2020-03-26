@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}COVID-19 Training{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="column2" style="background-color:#bbb;">
+    <form  method="POST">
+    {{ form.csrf_token }}
+    <p>
+        {{ form.type_of_diag.label }}{{ form.type_of_diag }}
+    </p>
+    <p>
+    Age: {{ edad }} <br>
+    Sex: {{ sex }}
+    </p>
+    <input type="submit" name="button_next" value="Continue">
+    </form>
+    <p><a href="/results">Finish and evaluate</a></p>
+    </div>    
+    
+    <div class="column1">
+    <a href={{ img }} class="zoom"> <img src={{ img }} alt={{ img_id }} width="150" height="200" /></a>
+   
+    </div>
+</div>
+{% endblock %}

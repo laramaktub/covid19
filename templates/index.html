@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the training application for COVID-19 X-Ray imaging</h1>
+   
+    <form action="/training" method="post">
+    <label for="nimages">On how many images do you want to train </label>
+    <input id="nimages" type="int" name="nimages" value="{{ nimages }}">
+    <input type="submit" value="OK">
+    </form>
+   
+    <ul>
+    <li><a href="/training">COVID-19 Training</a></li>
+    </ul>
+{% endblock %}

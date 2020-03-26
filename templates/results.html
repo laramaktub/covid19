@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Thanks{% endblock %}
+
+{% block content %}
+    <h1>Results</h1>
+
+    <ul>
+<div class="row">
+  <div class="column2">
+      <h2>Thanks for your answer</h2>
+  </div>
+  <div class="column1" style="background-color:#bbb;">
+     Total Score: {{res[0]}}% <br>
+     Sensitivity: {{res[1]}} <br>
+     Specificity: {{res[2]}} <br>
+     <br>
+    <p>Do you want to try another one?</p>
+
+   <p><a href="/training">Next</a></p>
+  </div>
+</div>
+{% endblock %}
