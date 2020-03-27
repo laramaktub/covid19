@@ -87,6 +87,7 @@ def results():
     info = oidc.user_getinfo(['email', 'openid_id'])
     user = info.get('email')
     x=c.execute("SELECT * FROM user_answers WHERE user = '%s'" % user).fetchall()
+    failed_answers=c.execute("SELECT * FROM user_answers WHERE user = '%s' AND answer != true_answer " % user).fetchall()
     total_answered=len(x)
     right_answered=0
     badly_answered=0
@@ -110,14 +111,25 @@ def results():
             TN+=1
 
 
-    total_score=int(100.*right_answered/total_answered)
-    sensitivity=TP/(TP+FN)
-    specificity=TN/(TN+FP)
+    if (total_answered==0):
+        total_score="You have to try with more samples. Your total number of answered questions is 0"
+    else:
+        total_score=int(100.*right_answered/total_answered)
+    try:
+        sensitivity='%.2f'%(TP/(TP+FN))
+    except:
+        sensitivity="NaN --> Try again with more samples"
+    try:
+        specificity='%.2f'%(TN/(TN+FP))
+    except:
+        specificity="NaN --> Try again with more samples"
 
-    res=[total_score,'%.2f'%(sensitivity),'%.2f'%(specificity)]
+    res=[total_score, sensitivity,specificity]
+
     print("Deleting the answers for this session")
     delete_answers(user)
-    return render_template('results.html', res=res,  image=session['messages']['img'])
+    
+    return render_template('results.html', res=res, failed_answers=failed_answers,  image=session['messages']['img'])
 
 class TrainingForm(Form):
  
