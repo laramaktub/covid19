@@ -21,20 +21,20 @@
 <center> <h2><font face="verdana"><b>Check your incorrect answers:</b></font></h2> </center><br><br>
     {% for answer in failed_answers %}
     {% if answer[2]==1  %}
-    <font face="verdana"> <b> Report result:</b></font> <font face="verdana" color="green">Patological compatible with COVID-19 ---</font>
+    <center><font face="verdana"> <b> Report result:</b></font> <font face="verdana" color="green">Patological compatible with COVID-19</font><br></center>
     {% elif answer[2]==0  %} 
-    <font face="verdana"><b> Report result:</b></font> <font face="verdana" color="green">Non patological ---</font>
+    <center><font face="verdana"><b> Report result:</b></font> <font face="verdana" color="green">Non patological</font><br></center>
     {% elif answer[2]==2  %} 
-    <font face="verdana"><b> Report result:</b><font face="verdana" color="green">Patological NON compatible with COVID-19 ---</font> 
+    <center><font face="verdana"><b> Report result:</b><font face="verdana" color="green">Patological NON compatible with COVID-19</font><br></center>
     {% endif %}
 
 
     {% if answer[3]==1  %}
-     <font face="verdana"><b> User answer:</b></font><font face="verdana" color="red">Patological compatible with COVID-19</font> <br>
+    <center><font face="verdana"><b> User answer:</b></font><font face="verdana" color="red">Patological compatible with COVID-19</font><br></center>
     {% elif answer[3]==0  %} 
-     <font face="verdana"><b> User answer:</b></font><font face="verdana" color="red"> Non patological</font> <br>
+    <center><font face="verdana"><b> User answer:</b></font><font face="verdana" color="red"> Non patological</font> <br></center>
     {% elif answer[3]==2  %} 
-     <font face="verdana"><b> User answer:</b></font><font face="verdana" color="red"> Patological NON compatible with COVID-19</font> <br>
+    <center><font face="verdana"><b> User answer:</b></font><font face="verdana" color="red"> Patological NON compatible with COVID-19</font> <br></center>
     {% endif %}
      <img src="static/img/{{answer[1]}}.DCM.JPG" width="100%" height="100%">
      <br><br><br>
