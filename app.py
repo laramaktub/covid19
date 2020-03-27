@@ -53,7 +53,6 @@ def results():
     #user=session('user_id')
     user="lara"
     x=c.execute("SELECT * FROM user_answers WHERE user = '%s'" % user).fetchall()
-    print("x -----------> ", x)
     total_answered=len(x)
     right_answered=0
     badly_answered=0
@@ -82,6 +81,8 @@ def results():
     specificity=TN/(TN+FP)
 
     res=[total_score,'%.2f'%(sensitivity),'%.2f'%(specificity)]
+    print("Deleting the answers for this session")
+    delete_answers(user)
     return render_template('results.html', res=res,  image=session['messages']['img'])
 
 class TrainingForm(Form):
@@ -98,11 +99,6 @@ def training():
     error = ""
     edad, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
-    print("edad",edad)
-    print("sexo", sex)
-    print("img_id",img_id)
-    print("img ", img)
-    print("codigo ", informe)
     if request.method == 'POST':
         type_of_diag = form.type_of_diag.data
         if type_of_diag=="pat_covid_com":
