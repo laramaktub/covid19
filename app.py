@@ -22,7 +22,6 @@ def get_random_img():
     c = conn.cursor()
     x = c.execute("SELECT edad, sexo,codigo, informe FROM images ORDER BY random() LIMIT 20;").fetchall()
     for row in x:
-        print(row[2])
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
         edad = int(row[0])
@@ -117,7 +116,6 @@ def training():
                 print("Try insert")
                 conn = sqlite3.connect('db/covid19.db')
                 c = conn.cursor()
-                print("type of diag ---> ", type_of_diag)
                 print("INSERT INTO user_answers(user, image, true_answer, answer) VALUES ('%s', '%s', '%i', '%i')" % (session['user_id'], img_id, int(informe), int(answer)))
                 c.execute("INSERT INTO user_answers(user, image, true_answer,answer) VALUES ('%s', '%s', '%i', '%i')" % (session['user_id'], img_id, int(informe), int(answer)))
                 conn.commit()
