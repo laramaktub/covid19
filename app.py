@@ -20,19 +20,19 @@ def check_user_answer(id_image, user_answer):
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
     c = conn.cursor()
-    x = c.execute("SELECT edad, id,sexo, codigo FROM images ORDER BY random() LIMIT 1;").fetchall()
-    print(x)
+    x = c.execute("SELECT edad, sexo,codigo, informe FROM images ORDER BY random() LIMIT 20;").fetchall()
     for row in x:
         print(row[2])
-        img = IMG_FOLDER + row[3] +'.DCM.JPG'
+        img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
-        edad = row[0]
+        edad = int(row[0])
         sex="Man"
-        if row[1]=="2":
+        if int(row[1])==2:
            sex= "Woman"
+        informe=int(row[3])
 
     conn.close()
-    return edad, sex, img_id, img
+    return edad, sex, img_id, img, informe
 
 def delete_answers(user):
     conn =sqlite3.connect('db/covid19.db')
@@ -50,46 +50,36 @@ def results():
     #res = check_user_answer(session['messages']['id_image'], session['messages']['user_answer'])
     conn =sqlite3.connect('db/covid19.db')
     c= conn.cursor()
-    user='lara'
+    #user=session('user_id')
+    user="lara"
     x=c.execute("SELECT * FROM user_answers WHERE user = '%s'" % user).fetchall()
+    print("x -----------> ", x)
     total_answered=len(x)
     right_answered=0
     badly_answered=0
     TP, TN, FP, FN= 0,0,0,0
     for row in x:
-        answer = row[2]
-        true_answer= row[1]
-        if (true_answer==1):
-            true_answer="pat_covid_com"
-        elif (true_answer==0):
-            true_answer="no_pat"
-        elif (true_answer==2):
-            true_answer="pat_no_covid_com"
-        #Counter for the total score
-
+        answer = row[3]
+        true_answer= row[2]
+        #counter for the total score
         if (true_answer==answer):
             right_answered+=1
         else:
             badly_answered+=1
         #Counter for the specificity and sensibility
-        if (true_answer=="pat_covid_com" and (answer=="pat_no_covid_com" or answer=="no_pat")):
+        if (true_answer==1 and (answer==2 or answer==0)):
             FN+=1
-        elif(true_answer=="pat_covid_com" and answer=="pat_covid_com"):
+        elif(true_answer==1 and answer==1):
             TP+=1
-        elif((true_answer=="pat_no_covid_com" or true_answer=="no_pat") and answer=="pat_covid_com"):
+        elif((true_answer==2 or true_answer==0) and answer==1):
             FP+=1
-        elif((true_answer=="pat_no_covid_com" or true_answer=="no_pat") and (answer=="pat_no_covid_com" or answer=="no_pat")):
+        elif((true_answer==2 or true_answer==0) and (answer==2 or answer==0)):
             TN+=1
 
 
     total_score=int(100.*right_answered/total_answered)
     sensitivity=TP/(TP+FN)
-    specificity=1.
-    #descomentar cuando tengamos imagenes no patologicas en el dataset
-    #specificity=TN/(TN+FP)
-    #print("Total Score : % 1i " % (total_score) + "%")
-    #print("Your specificity is : % 0.2f " % specificity)
-    #print("Your sensitivity is: % 0.2f " % sensitivity)
+    specificity=TN/(TN+FP)
 
     res=[total_score,'%.2f'%(sensitivity),'%.2f'%(specificity)]
     return render_template('results.html', res=res,  image=session['messages']['img'])
@@ -106,11 +96,22 @@ class TrainingForm(Form):
 @app.route('/training', methods=['GET', 'POST'])
 def training():
     error = ""
-    edad, sex,  img_id, img = get_random_img() #get_random
+    edad, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
-
+    print("edad",edad)
+    print("sexo", sex)
+    print("img_id",img_id)
+    print("img ", img)
+    print("codigo ", informe)
     if request.method == 'POST':
         type_of_diag = form.type_of_diag.data
+        if type_of_diag=="pat_covid_com":
+            answer=1
+        elif type_of_diag=="non_pat":
+            answer=0
+        elif type_of_diag=="pat_no_covid_com":
+            answer=2
+
         session['user_id'] = 'lara'
         session['messages'] = {'id_image': img_id, 'img': img, 'user_answer' : form.type_of_diag.data}
         if len(type_of_diag) == 0:
@@ -120,8 +121,9 @@ def training():
                 print("Try insert")
                 conn = sqlite3.connect('db/covid19.db')
                 c = conn.cursor()
-                print("INSERT INTO user_answers(user, image, answer) VALUES ('%s', %i, '%s')" % (session['user_id'], img_id, type_of_diag))
-                c.execute("INSERT INTO user_answers(user, image, answer) VALUES ('%s', %i, '%s')" % (session['user_id'], img_id, type_of_diag))
+                print("type of diag ---> ", type_of_diag)
+                print("INSERT INTO user_answers(user, image, true_answer, answer) VALUES ('%s', '%s', '%i', '%i')" % (session['user_id'], img_id, int(informe), int(answer)))
+                c.execute("INSERT INTO user_answers(user, image, true_answer,answer) VALUES ('%s', '%s', '%i', '%i')" % (session['user_id'], img_id, int(informe), int(answer)))
                 conn.commit()
                 conn.close()
             except Exception as e:
