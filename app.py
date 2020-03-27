@@ -1,12 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_wtf import Form
+from flask_oidc import OpenIDConnect
 from wtforms import SelectField, TextField
+from datetime import datetime
 import sqlite3
 import pandas as pd
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'our very hard to guess secretfir'
-
+app.config.update({
+    'SECRET_KEY': 'SomethingNotEntirelySecret',
+    'TESTING': True,
+    'DEBUG': True,
+    'OIDC_CLIENT_SECRETS': 'client_secrets.json',
+    'OIDC_ID_TOKEN_COOKIE_SECURE': False,
+    'OIDC_REQUIRE_VERIFIED_EMAIL': False,
+    'OIDC_OPENID_REALM': 'http://localhost:5000/oidc_callback'
+})
+oidc = OpenIDConnect(app)
 IMG_FOLDER = '/static/img/'
 
 def check_user_answer(id_image, user_answer):
@@ -34,23 +44,48 @@ def get_random_img():
     return edad, sex, img_id, img, informe
 
 def delete_answers(user):
-    conn =sqlite3.connect('db/covid19.db')
-    c= conn.cursor()
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    conn = sqlite3.connect('db/covid19.db')
+    c = conn.cursor()
+    x = c.execute("SELECT user, image, true_answer,  answer FROM user_answers WHERE user = '%s'" % user).fetchall()
+    for row in x:
+        print("INSERT INTO historic_answers(user, image, ans_date, true_answer, answer) VALUES('%s', '%s', '%s', %i, %i)" % (row[0], row[1], dt_string, row[2], row[3]))
+        c.execute("INSERT INTO historic_answers(user, image, ans_date, true_answer, answer) VALUES('%s', '%s', '%s', %i, %i)" % (row[0], row[1], dt_string, row[2], row[3]))
     c.execute("DELETE FROM user_answers WHERE user = '%s'" % user)
+    conn.commit()
     conn.close()
     return
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if oidc.user_loggedin:
+        return ('Hello, %s, <a href="/logged">See private</a> '
+                '<a href="/logout">Log out</a>') % \
+            oidc.user_getfield('email')
+    else:
+        return 'Welcome anonymous, <a href="/logged">Log in</a>'
+
+@app.route('/logged')
+@oidc.require_login
+def logged():
+    info = oidc.user_getinfo(['email', 'openid_id'])
+    return render_template('logged.html', email=info.get('email'), openid_id=info.get('openid_id'))
+
+@app.route('/logout')
+def logout():
+    oidc.logout()
+    return 'Hi, you have been logged out! <a href="/">Return</a>'
 
 @app.route('/results')
+@oidc.require_login
 def results():
     #res = check_user_answer(session['messages']['id_image'], session['messages']['user_answer'])
     conn =sqlite3.connect('db/covid19.db')
     c= conn.cursor()
     #user=session('user_id')
-    user="lara"
+    info = oidc.user_getinfo(['email', 'openid_id'])
+    user = info.get('email')
     x=c.execute("SELECT * FROM user_answers WHERE user = '%s'" % user).fetchall()
     total_answered=len(x)
     right_answered=0
@@ -94,6 +129,7 @@ class TrainingForm(Form):
 
 
 @app.route('/training', methods=['GET', 'POST'])
+@oidc.require_login
 def training():
     error = ""
     edad, sex,  img_id, img, informe = get_random_img() #get_random
@@ -106,8 +142,9 @@ def training():
             answer=0
         elif type_of_diag=="pat_no_covid_com":
             answer=2
-
-        session['user_id'] = 'lara'
+        type_of_diag = form.type_of_diag.data
+        info = oidc.user_getinfo(['email', 'openid_id'])
+        session['user_id'] = info.get('email')
         session['messages'] = {'id_image': img_id, 'img': img, 'user_answer' : form.type_of_diag.data}
         if len(type_of_diag) == 0:
             error = "Please supply data"
@@ -125,7 +162,22 @@ def training():
                 print(e)
 #            return redirect(url_for('training'))
 
-    return render_template('training.html', form=form, message=error, edad=edad, sex=sex, img=img, img_id=img_id)
+    try:
+        info = oidc.user_getinfo(['email', 'openid_id'])
+        conn = sqlite3.connect('db/covid19.db')
+        c = conn.cursor()
+        print("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
+        x = c.execute("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
+        row = c.fetchone()
+        if row[0] > 0:
+            return render_template('training.html', form=form, message=error, edad=edad, sex=sex, img=img, img_id=img_id)
+        else:
+            return 'You are not an allowed user'
+        conn.close()
+    except Exception as e:
+        conn.close()
+        print(e)
+        return 'Ooops!, <a href="/logged">Log in</a>'
 
 # Run the application
 #app.run(debug=True)
