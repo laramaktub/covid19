@@ -19,20 +19,13 @@ app.config.update({
 oidc = OpenIDConnect(app)
 IMG_FOLDER = '/static/img/'
 
-def check_user_answer(id_image, user_answer):
-    print("Select id_image and get type")
-    print("IF user answer is equal to image type")
-    result = "Result is OK"
-    print("IF not")
-    result = "This image is type Patological (covid-19 compatible)"
-    return result 
 
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
     c = conn.cursor()
     info = oidc.user_getinfo(['email', 'openid_id'])
     user = info.get('email')
-    x=c.execute("SELECT edad, sexo, codigo, informe FROM images WHERE codigo NOT IN (SELECT image FROM user_answers WHERE  user='%s') ORDER BY random() LIMIT 1;" % user).fetchall()
+    x = c.execute("SELECT edad, sexo, codigo, informe FROM images WHERE codigo NOT IN (SELECT image FROM user_answers WHERE  user='%s') ORDER BY random() LIMIT 1;" % user).fetchall()
     for row in x:
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
@@ -44,6 +37,20 @@ def get_random_img():
 
     conn.close()
     return edad, sex, img_id, img, informe
+
+
+def check_images_left():
+    conn = sqlite3.connect('db/covid19.db')
+    c = conn.cursor()
+    info = oidc.user_getinfo(['email', 'openid_id'])
+    user = info.get('email')
+    x = c.execute("SELECT COUNT(*) FROM (SELECT edad, sexo, codigo, informe FROM images WHERE codigo NOT IN (SELECT image FROM user_answers WHERE  user='%s'))" % user).fetchone()
+    conn.close()
+    if x[0] < 1:
+        return False
+    else:
+        return True
+
 
 def delete_answers(user):
     now = datetime.now()
@@ -88,14 +95,14 @@ def logout():
 @app.route('/results')
 @oidc.require_login
 def results():
-    #res = check_user_answer(session['messages']['id_image'], session['messages']['user_answer'])
     conn =sqlite3.connect('db/covid19.db')
-    c= conn.cursor()
+    c = conn.cursor()
     #user=session('user_id')
     info = oidc.user_getinfo(['email', 'openid_id'])
     user = info.get('email')
-    x=c.execute("SELECT * FROM user_answers WHERE user = '%s'" % user).fetchall()
+    x = c.execute("SELECT * FROM user_answers WHERE user = '%s'" % user).fetchall()
     failed_answers=c.execute("SELECT * FROM user_answers WHERE user = '%s' AND answer != true_answer " % user).fetchall()
+    conn.close()
     total_answered=len(x)
     right_answered=0
     badly_answered=0
@@ -178,10 +185,7 @@ def send_results():
             answer=2
 
         conn = sqlite3.connect('db/covid19.db')
-        print("Connected to DB")
         c = conn.cursor()
-        print("Cursor C")
-        print(session['messages'])
         info = oidc.user_getinfo(['email', 'openid_id'])
         c.execute("INSERT INTO user_answers(user, image, true_answer,answer) VALUES ('%s', '%s', %i, %i)" % (
             info.get('email'),
@@ -201,6 +205,9 @@ def training():
     info = oidc.user_getinfo(['email', 'openid_id'])
     user=info.get('email')
     error = ""
+    if check_images_left() == False:
+        print("No images left. Redirecting to results---")
+        return redirect(url_for('results'))
     edad, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
     profile= ProfileForm(request.form)
