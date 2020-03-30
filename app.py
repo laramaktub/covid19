@@ -30,7 +30,9 @@ def check_user_answer(id_image, user_answer):
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
     c = conn.cursor()
-    x = c.execute("SELECT edad, sexo,codigo, informe FROM images ORDER BY random() LIMIT 20;").fetchall()
+    info = oidc.user_getinfo(['email', 'openid_id'])
+    user = info.get('email')
+    x=c.execute("SELECT edad, sexo, codigo, informe FROM images WHERE codigo NOT IN (SELECT image FROM user_answers WHERE  user='%s') ORDER BY random() LIMIT 1;" % user).fetchall()
     for row in x:
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
