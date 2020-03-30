@@ -73,11 +73,12 @@ def index():
     else:
         return 'Welcome anonymous, <a href="/logged">Log in</a>'
 
-@app.route('/logged')
+@app.route('/logged', methods=['GET'])
 @oidc.require_login
 def logged():
     info = oidc.user_getinfo(['email', 'openid_id'])
-    return render_template('logged.html', email=info.get('email'), openid_id=info.get('openid_id'))
+    form = ProfileForm(request.form)
+    return render_template('logged.html', email=info.get('email'), openid_id=info.get('openid_id'), form=form)
 
 @app.route('/logout')
 def logout():
@@ -147,6 +148,19 @@ class TrainingForm(Form):
                  ('non_pat', 'Non Patological')])
     img_id = TextField(u'IMG ID','')
 
+
+class ProfileForm(Form):
+    type_of_profile = SelectField(
+        u'Profile',
+        choices=[('noanswer', 'N/A'),
+                 ('student', 'Student'),
+                 ('radred', 'Radiology resident'),
+                 ('resnorad', 'Resident (non radiologist)'),
+                 ('torrad', 'Torax radiologist'),
+                 ('genrad', 'General radiologist'),
+                 ('breastrad', 'Breast radiologist')])
+
+
 @app.route('/send_results', methods=['POST'])
 @oidc.require_login
 def send_results():
@@ -181,7 +195,7 @@ def send_results():
         print(e)
     return redirect(url_for('training'))
 
-@app.route('/training', methods=['GET'])
+@app.route('/training', methods=['GET','POST'])
 @oidc.require_login
 def training():
     info = oidc.user_getinfo(['email', 'openid_id'])

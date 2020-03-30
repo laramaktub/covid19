@@ -3,23 +3,17 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the training application for COVID-19 X-Ray imaging</h1>
-   
-    If this is your first time in the system, please choose your profile:
-    <form action="/training" method="post">
-    <select name="my_html_select_box">
-    <option>Student </option>
-    <option selected="yes">Radiology resident</option>
-    <option>Resident (non radiologist)</option>
-    <option>Torax radiologist</option>
-    <option>General radiologist</option>
-    <option>Breast radiologist</option>
-  
-     </select>  
 
+<h1>Welcome to the training application for COVID-19 X-Ray imaging</h1>
+
+
+    If this is your first time in the system, please choose your profile:
+    <form action="/training" method="POST">
+    {{ form.csrf_token }}
+    <p>
+        {{ form.type_of_profile.label }}{{ form.type_of_profile }}
+    </p>
+    <input type="submit" name="button_start" value="Continue">
     </form>
    
-    <ul>
-    <li><a href="/training">COVID-19 Training</a></li>
-    </ul>
 {% endblock %}
