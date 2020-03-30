@@ -143,9 +143,43 @@ class TrainingForm(Form):
         choices=[('pat_covid_com', 'Patological (covid-19 compatible)'),
                  ('pat_no_covid_com', 'Patological (NO covid-19 compatible)'),
                  ('non_pat', 'Non Patological')])
+    img_id = TextField(u'IMG ID','')
 
+@app.route('/send_results', methods=['POST'])
+@oidc.require_login
+def send_results():
+    try:
+        
+        form = TrainingForm(request.form)
+        type_of_diag = form['type_of_diag'].data
+        answer = 0
+        print("RESULT: %s" % type_of_diag)
+        if type_of_diag=="pat_covid_com":
+            answer=1
+        elif type_of_diag=="non_pat":
+            answer=0
+        elif type_of_diag=="pat_no_covid_com":
+            answer=2
 
-@app.route('/training', methods=['GET', 'POST'])
+        conn = sqlite3.connect('db/covid19.db')
+        print("Connected to DB")
+        c = conn.cursor()
+        print("Cursor C")
+        print(session['messages'])
+        info = oidc.user_getinfo(['email', 'openid_id'])
+        c.execute("INSERT INTO user_answers(user, image, true_answer,answer) VALUES ('%s', '%s', %i, %i)" % (
+            info.get('email'),
+            session['messages']['id_image'],
+            session['messages']['informe'],
+            int(answer)))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print("Ooops! We had a problem")
+        print(e)
+    return redirect(url_for('training'))
+
+@app.route('/training', methods=['GET'])
 @oidc.require_login
 def training():
     info = oidc.user_getinfo(['email', 'openid_id'])
@@ -153,6 +187,8 @@ def training():
     error = ""
     edad, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
+    form.img_id = img_id
+    session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe)}
     if request.method == 'POST':
         type_of_diag = form.type_of_diag.data
         if type_of_diag=="pat_covid_com":
@@ -163,22 +199,8 @@ def training():
             answer=2
         type_of_diag = form.type_of_diag.data
         session['user_id'] = info.get('email')
-        session['messages'] = {'id_image': img_id, 'img': img, 'user_answer' : form.type_of_diag.data}
         if len(type_of_diag) == 0:
             error = "Please supply data"
-        else:
-            try:
-                print("Try insert")
-                conn = sqlite3.connect('db/covid19.db')
-                c = conn.cursor()
-                print("INSERT INTO user_answers(user, image, true_answer, answer) VALUES ('%s', '%s', '%i', '%i')" % (session['user_id'], img_id, int(informe), int(answer)))
-                c.execute("INSERT INTO user_answers(user, image, true_answer,answer) VALUES ('%s', '%s', '%i', '%i')" % (session['user_id'], img_id, int(informe), int(answer)))
-                conn.commit()
-                conn.close()
-            except Exception as e:
-                print("Ooops! We had a problem")
-                print(e)
-#            return redirect(url_for('training'))
 
     try:
         info = oidc.user_getinfo(['email', 'openid_id'])
