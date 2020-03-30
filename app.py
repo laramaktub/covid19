@@ -3,7 +3,6 @@ from flask_wtf import Form
 from flask_oidc import OpenIDConnect
 from wtforms import SelectField, TextField
 from datetime import datetime
-import json
 import sqlite3
 import pandas as pd
 
