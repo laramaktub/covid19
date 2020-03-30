@@ -5,10 +5,18 @@
 {% block content %}
     <h1>Welcome to the training application for COVID-19 X-Ray imaging</h1>
    
+    If this is your first time in the system, please choose your profile:
     <form action="/training" method="post">
-    <label for="nimages">On how many images do you want to train </label>
-    <input id="nimages" type="int" name="nimages" value="{{ nimages }}">
-    <input type="submit" value="OK">
+    <select name="my_html_select_box">
+    <option>Student </option>
+    <option selected="yes">Radiology resident</option>
+    <option>Resident (non radiologist)</option>
+    <option>Torax radiologist</option>
+    <option>General radiologist</option>
+    <option>Breast radiologist</option>
+  
+     </select>  
+
     </form>
    
     <ul>

@@ -59,7 +59,12 @@ def delete_answers(user):
 
 @app.route('/')
 def index():
+
     if oidc.user_loggedin:
+        info = oidc.user_getinfo(['email', 'openid_id'])
+        user = info.get('email')
+        print ("Deleting answers before starting the session")
+        delete_answers(user)
         return ('Hello, %s, <a href="/logged">See private</a> '
                 '<a href="/logout">Log out</a>') % \
             oidc.user_getfield('email')
@@ -87,6 +92,7 @@ def results():
     info = oidc.user_getinfo(['email', 'openid_id'])
     user = info.get('email')
     x=c.execute("SELECT * FROM user_answers WHERE user = '%s'" % user).fetchall()
+    failed_answers=c.execute("SELECT * FROM user_answers WHERE user = '%s' AND answer != true_answer " % user).fetchall()
     total_answered=len(x)
     right_answered=0
     badly_answered=0
@@ -110,14 +116,25 @@ def results():
             TN+=1
 
 
-    total_score=int(100.*right_answered/total_answered)
-    sensitivity=TP/(TP+FN)
-    specificity=TN/(TN+FP)
+    if (total_answered==0):
+        total_score="You have to try with more samples. Your total number of answered questions is 0"
+    else:
+        total_score=int(100.*right_answered/total_answered)
+    try:
+        sensitivity='%.2f'%(TP/(TP+FN))
+    except:
+        sensitivity="NaN --> Try again with more samples"
+    try:
+        specificity='%.2f'%(TN/(TN+FP))
+    except:
+        specificity="NaN --> Try again with more samples"
 
-    res=[total_score,'%.2f'%(sensitivity),'%.2f'%(specificity)]
+    res=[total_score, sensitivity,specificity]
+
     print("Deleting the answers for this session")
     delete_answers(user)
-    return render_template('results.html', res=res,  image=session['messages']['img'])
+    
+    return render_template('results.html', res=res, failed_answers=failed_answers,  image=session['messages']['img'])
 
 class TrainingForm(Form):
  
@@ -131,6 +148,8 @@ class TrainingForm(Form):
 @app.route('/training', methods=['GET', 'POST'])
 @oidc.require_login
 def training():
+    info = oidc.user_getinfo(['email', 'openid_id'])
+    user=info.get('email')
     error = ""
     edad, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
@@ -143,7 +162,6 @@ def training():
         elif type_of_diag=="pat_no_covid_com":
             answer=2
         type_of_diag = form.type_of_diag.data
-        info = oidc.user_getinfo(['email', 'openid_id'])
         session['user_id'] = info.get('email')
         session['messages'] = {'id_image': img_id, 'img': img, 'user_answer' : form.type_of_diag.data}
         if len(type_of_diag) == 0:

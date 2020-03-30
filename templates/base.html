@@ -20,6 +20,16 @@ $(function () {
   width: 20%;
   padding: 10px;
 }
+.column3 {
+  float: left;
+  width: 90%;
+  padding: 10px;
+}
+.column4 {
+  float: left;
+  width: 10%;
+  padding: 10px;
+}
 
 /* Clear floats after the columns */
 .row:after {
@@ -35,7 +45,7 @@ img {
     <meta charset="UTF-8">
     <title>{% block title %}Title{% endblock %}</title>
 </head>
-<body>
+<body bgcolor="#E6E6FA">
     {% if message %}
         <p>Note: {{ message }}</p>
     {% endif %}
