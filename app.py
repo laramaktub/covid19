@@ -30,7 +30,9 @@ def check_user_answer(id_image, user_answer):
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
     c = conn.cursor()
-    x = c.execute("SELECT edad, sexo,codigo, informe FROM images ORDER BY random() LIMIT 20;").fetchall()
+    info = oidc.user_getinfo(['email', 'openid_id'])
+    user = info.get('email')
+    x=c.execute("SELECT edad, sexo, codigo, informe FROM images WHERE codigo NOT IN (SELECT image FROM user_answers WHERE  user='%s') ORDER BY random() LIMIT 1;" % user).fetchall()
     for row in x:
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
@@ -71,11 +73,12 @@ def index():
     else:
         return 'Welcome anonymous, <a href="/logged">Log in</a>'
 
-@app.route('/logged')
+@app.route('/logged', methods=['GET'])
 @oidc.require_login
 def logged():
     info = oidc.user_getinfo(['email', 'openid_id'])
-    return render_template('logged.html', email=info.get('email'), openid_id=info.get('openid_id'))
+    form = ProfileForm(request.form)
+    return render_template('logged.html', email=info.get('email'), openid_id=info.get('openid_id'), form=form)
 
 @app.route('/logout')
 def logout():
@@ -145,6 +148,19 @@ class TrainingForm(Form):
                  ('non_pat', 'Non Patological')])
     img_id = TextField(u'IMG ID','')
 
+
+class ProfileForm(Form):
+    type_of_profile = SelectField(
+        u'Profile',
+        choices=[('noanswer', 'N/A'),
+                 ('student', 'Student'),
+                 ('radred', 'Radiology resident'),
+                 ('resnorad', 'Resident (non radiologist)'),
+                 ('torrad', 'Torax radiologist'),
+                 ('genrad', 'General radiologist'),
+                 ('breastrad', 'Breast radiologist')])
+    user_profile=TextField(u'USER PROFILE','')
+
 @app.route('/send_results', methods=['POST'])
 @oidc.require_login
 def send_results():
@@ -179,7 +195,7 @@ def send_results():
         print(e)
     return redirect(url_for('training'))
 
-@app.route('/training', methods=['GET'])
+@app.route('/training', methods=['GET','POST'])
 @oidc.require_login
 def training():
     info = oidc.user_getinfo(['email', 'openid_id'])
@@ -187,6 +203,11 @@ def training():
     error = ""
     edad, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
+    profile= ProfileForm(request.form)
+    type_of_profile = profile['type_of_profile'].data
+    conn = sqlite3.connect('db/covid19.db')
+    c = conn.cursor()
+    c.execute("UPDATE users set profile = '%s' WHERE id  ='%s' and profile is null or profile = 'noanswer' " % (type_of_profile, user)).fetchall()
     form.img_id = img_id
     session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe)}
     if request.method == 'POST':
@@ -204,8 +225,6 @@ def training():
 
     try:
         info = oidc.user_getinfo(['email', 'openid_id'])
-        conn = sqlite3.connect('db/covid19.db')
-        c = conn.cursor()
         print("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
         x = c.execute("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
         row = c.fetchone()

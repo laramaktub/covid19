@@ -18,6 +18,9 @@
 
    <p><a href="/training">Try again</a></p>
 <br>
+{%if res[0]==100%}
+<center> <h2><font face="verdana"><b>Congratulations! You have no incorrect answers!</b></font></h2> </center><br><br>
+{% else  %}
 <center> <h2><font face="verdana"><b>Check your incorrect answers:</b></font></h2> </center><br><br>
     {% for answer in failed_answers %}
     {% if answer[2]==1  %}
@@ -41,7 +44,7 @@
      
      
     {% endfor %}
-
+  {% endif%}
  </div>
 </div>
 {% endblock %}
