@@ -159,7 +159,7 @@ class ProfileForm(Form):
                  ('torrad', 'Torax radiologist'),
                  ('genrad', 'General radiologist'),
                  ('breastrad', 'Breast radiologist')])
-
+    user_profile=TextField(u'USER PROFILE','')
 
 @app.route('/send_results', methods=['POST'])
 @oidc.require_login
@@ -203,6 +203,11 @@ def training():
     error = ""
     edad, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
+    profile= ProfileForm(request.form)
+    type_of_profile = profile['type_of_profile'].data
+    conn = sqlite3.connect('db/covid19.db')
+    c = conn.cursor()
+    c.execute("UPDATE users set profile = '%s' WHERE id  ='%s' and profile is null or profile = 'noanswer' " % (type_of_profile, user)).fetchall()
     form.img_id = img_id
     session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe)}
     if request.method == 'POST':
@@ -220,8 +225,6 @@ def training():
 
     try:
         info = oidc.user_getinfo(['email', 'openid_id'])
-        conn = sqlite3.connect('db/covid19.db')
-        c = conn.cursor()
         print("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
         x = c.execute("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
         row = c.fetchone()
