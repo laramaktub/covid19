@@ -138,8 +138,17 @@ def results():
         specificity='%.2f'%(TN/(TN+FP))
     except:
         specificity="NaN --> Try again with more samples"
+    try:
+        pos_predval='%.2f'%(TP/(TP+FP))
+    except:
+        pos_predval="NaN --> Try again with more samples"
+    try:
+        neg_predval='%.2f'%(TN/(TN+FN))
+    except:
+        neg_predval="NaN --> Try again with more samples"
 
-    res=[total_score, sensitivity,specificity]
+
+    res=[total_score, sensitivity,specificity, pos_predval, neg_predval]
 
     print("Deleting the answers for this session")
     delete_answers(user)
