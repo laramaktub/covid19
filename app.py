@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_wtf import Form
+from flask_assets import Environment, Bundle
 from flask_oidc import OpenIDConnect
+from flask_wtf import Form
 from wtforms import SelectField, TextField
 from datetime import datetime
+
 import sqlite3
 import pandas as pd
 
@@ -11,6 +13,7 @@ app.config.update({
     'SECRET_KEY': 'SomethingNotEntirelySecret',
     'TESTING': True,
     'DEBUG': True,
+    'FLASK_DEBUG': 1,
     'OIDC_CLIENT_SECRETS': 'client_secrets.json',
     'OIDC_ID_TOKEN_COOKIE_SECURE': False,
     'OIDC_REQUIRE_VERIFIED_EMAIL': False,
@@ -19,6 +22,17 @@ app.config.update({
 oidc = OpenIDConnect(app)
 IMG_FOLDER = '/static/img/'
 
+assets = Environment(app)
+assets.url = app.static_url_path
+assets.debug = True
+
+scss = Bundle(
+  'styles/base.scss',
+  'styles/login.scss',
+  filters='pyscss',
+  output='styles/main.css'
+)
+assets.register('scss_all', scss)
 
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
@@ -74,11 +88,7 @@ def index():
         user = info.get('email')
         print ("Deleting answers before starting the session")
         delete_answers(user)
-        return ('Hello, %s, <a href="/logged">See private</a> '
-                '<a href="/logout">Log out</a>') % \
-            oidc.user_getfield('email')
-    else:
-        return 'Welcome anonymous, <a href="/logged">Log in</a>'
+    return render_template('login.html', loggedin=oidc.user_loggedin, user=user if oidc.user_loggedin else None)
 
 @app.route('/logged', methods=['GET'])
 @oidc.require_login
