@@ -84,7 +84,7 @@ def delete_answers(user):
 def login():
 
     if oidc.user_loggedin:
-        info = oidc.user_getinfo(['email', 'openid_id'])
+        info = oidc.user_getinfo(['email'])
         user = info.get('email')
         print ("Deleting answers before starting the session")
         delete_answers(user)
