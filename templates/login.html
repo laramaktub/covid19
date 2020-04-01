@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block head %}
+  {{ super() }}
+  <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/login.css') }}"> -->
+{% endblock %}
+
+{% block content %}
+  <div class="login">
+    {% if loggedin  %}
+    <div>
+      Hello, bitchi {{ user }}, <a href="/logged">See private</a> 
+    </div>
+    {% else %}
+    <div>
+      Iniciar sesión en COVID-19 training:
+    </div>
+    {% endif %}
+    <div>
+      <a href="/logged">
+        <button class="login__button">
+          Log in
+        </button>
+      </a>
+    </div>
+    {% if loggedin %}
+    <div>
+      <a href="/logout">Log out</a>
+    </div>
+    {% endif %}
+  </div>
+{% endblock %}
