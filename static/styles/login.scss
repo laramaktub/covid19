@@ -1,6 +1,49 @@
 .login {
+  padding-top: 1rem;
+
+  &__avatar {
+    margin: auto;
+    width: 120px;
+    img {
+      border-radius: 8px;
+      border: 1px solid grey;
+    }
+  }
+
+  &__label {
+    margin-top: 2rem;
+  }
+
   &__button {
-    padding: 10px;
+    font-weight: bold;
+    margin: 1rem;
+    position: relative;
     width: 50%;
+  }
+
+  &__error {
+    background-color: #C54842;
+    color: whitesmoke;
+    font-size: 12px;
+    font-weight: bold;
+    left: 3px;
+    position: absolute;
+    top: 36px;
+  }
+  
+  &__terms {
+    margin: 1rem;
+    font-size: 14px;
+  }
+
+  &__logout {
+    font-size: 14px;
+    a {
+      color: #ffc000;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   }
 }

@@ -1,14 +1,63 @@
+body {
+  background-image: url('https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA12066_hires.jpg');
+  background-attachment: fixed;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid #ffc000;
+  border-radius: 4px;
+  color: whitesmoke;
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+  outline: none;
+  padding: 0.75rem;
+  &:hover {
+    background-color: rgba(255, 192, 0, 0.75);
+    color: rgb(39, 39, 39);
+  }
+  &:active {
+    background-color: #ffc000;
+    color: black;
+  }
+}
+
 .page-wrapper {
+  color: whitesmoke;
+  font-family: Calibri, sans-serif;
+  font-size: 24px;
   margin: auto;
+  min-height: 98vh;
+  position: relative;
   text-align: center;
-  width: 75%;
+  width: 50%;
 
   .content {
-    font-size: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffc000;
+    border-radius: 4px;
+    padding: 1rem;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    left: 0;
+    right: 0;
+    top: 5rem;
   }
 
   .footer {
-    font-size: 14px;
+    bottom: 0;
+    font-size: 16px;
+    position: absolute;
+    width: 100%;
+    a {
+      color: whitesmoke;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   }
 }
 
