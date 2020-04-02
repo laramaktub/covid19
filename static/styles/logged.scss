@@ -1,4 +1,4 @@
-.login {
+.logged {
   padding-top: 1rem;
 
   &__avatar {
@@ -10,8 +10,12 @@
     }
   }
 
-  &__label {
-    margin-top: 2rem;
+  &__select {
+    margin: 0.5rem;
+
+    label {
+      display: none;
+    }
   }
 
   &__button {
@@ -19,7 +23,7 @@
     position: relative;
     width: 50%;
 
-    button {
+    input {
       width: 100%;
     }
   }
@@ -32,21 +36,5 @@
     left: 3px;
     position: absolute;
     top: 36px;
-  }
-  
-  &__terms {
-    margin: 2rem 1rem 1rem;
-    font-size: 14px;
-  }
-
-  &__logout {
-    font-size: 14px;
-    a {
-      color: #ffc000;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
   }
 }
