@@ -1,19 +1,29 @@
 {% extends 'base.html' %}
-
-{% block title %}Home{% endblock %}
+{% block title %}Bienvenido{% endblock %}
+{% block head %}
+  {{ super() }}
+  <script src="{{ url_for('static',filename='controller/logged.js') }}"></script>
+{% endblock %}
 
 {% block content %}
+  <div class="logged">
+    <div class="logged__avatar">
+      <img
+        src="{{ url_for('static',filename='assets/logo.png') }}"
+        alt="Covid-19 Avatar"
+      >
+    </div>
+    <h2>Bienvenido al training COVID-19 de Rayos-X</h2>
 
-<h1>Welcome to the training application for COVID-19 X-Ray imaging</h1>
-
-
-    If this is your first time in the system, please choose your profile:
+    Por favor, selecciona tu especialidad para continuar:
     <form action="/training" method="POST">
-    {{ form.csrf_token }}
-    <p>
+      {{ form.csrf_token }}
+      <div class="logged__select">
         {{ form.type_of_profile.label }}{{ form.type_of_profile }}
-    </p>
-    <input type="submit" name="button_start" value="Continue">
+      </div>
+      <div class="logged__button">
+        <input class="covid-button" type="submit" name="button_start" value="Continuar">
+      </div>
     </form>
-   
+  </div>
 {% endblock %}
