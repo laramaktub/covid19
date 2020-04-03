@@ -42,7 +42,7 @@ def get_random_img():
     c = conn.cursor()
     info = oidc.user_getinfo(['email', 'openid_id'])
     user = info.get('email')
-    x = c.execute("SELECT edad, sexo, codigo, informe FROM images WHERE codigo NOT IN (SELECT image FROM user_answers WHERE  user='%s') ORDER BY random() LIMIT 1;" % user).fetchall()
+    x = c.execute("SELECT edad, sexo, codigo, informe, diagnostico, diagnosis FROM images WHERE codigo NOT IN (SELECT image FROM user_answers WHERE  user='%s') ORDER BY random() LIMIT 1;" % user).fetchall()
     for row in x:
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
@@ -51,9 +51,11 @@ def get_random_img():
         if int(row[1])==2:
            sex= "Woman"
         informe=int(row[3])
+        diagnostico=row[4]
+        diagnosis=row[5]
 
     conn.close()
-    return age, sex, img_id, img, informe
+    return age, sex, img_id, img, informe, diagnostico, diagnosis
 
 
 def check_images_left():
@@ -138,7 +140,6 @@ def results():
         elif((true_answer==2 or true_answer==0) and (answer==2 or answer==0)):
             TN+=1
 
-
     if (total_answered==0):
         total_score="You have to try with more samples. Your total number of answered questions is 0"
     else:
@@ -218,11 +219,13 @@ def send_results():
         conn = sqlite3.connect('db/covid19.db')
         c = conn.cursor()
         info = oidc.user_getinfo(['email', 'openid_id'])
-        c.execute("INSERT INTO user_answers(user, image, true_answer,answer) VALUES ('%s', '%s', %i, %i)" % (
+        c.execute("INSERT INTO user_answers(user, image, true_answer,answer, diagnostico, diagnosis) VALUES ('%s', '%s', %i, %i, '%s', '%s')" % (
             info.get('email'),
             session['messages']['id_image'],
             session['messages']['informe'],
-            int(answer)))
+            int(answer),
+            session['messages']['diagnostico'],
+            session['messages']['diagnosis']))
         conn.commit()
         conn.close()
     except Exception as e:
@@ -239,7 +242,7 @@ def training():
     if check_images_left() == False:
         print("No images left. Redirecting to results---")
         return redirect(url_for('results'))
-    age, sex,  img_id, img, informe = get_random_img() #get_random
+    age, sex,  img_id, img, informe, diagnostico, diagnosis = get_random_img() #get_random
     form = TrainingForm(request.form)
     profile= ProfileForm(request.form)
     type_of_profile = profile['type_of_profile'].data
@@ -247,7 +250,7 @@ def training():
     c = conn.cursor()
     c.execute("UPDATE users set profile = '%s' WHERE id  ='%s' and profile is null or profile = 'noanswer' " % (type_of_profile, user)).fetchall()
     form.img_id = img_id
-    session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe)}
+    session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe), 'diagnostico': diagnostico, 'diagnosis': diagnosis}
     if request.method == 'POST':
         type_of_diag = form.type_of_diag.data
         if type_of_diag=="pat_covid_com":

@@ -48,7 +48,7 @@
             </div>
             {% elif answer[2]==2  %} 
               <div class="results__answer">
-                <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">Patológico (NO compatible con COVID-19)</p>
+                <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">Patológico ({{answer[4]}})</p>
               </div>
             {% endif %}
 
@@ -62,7 +62,7 @@
               </div>
             {% elif answer[3]==2  %} 
               <div class="results__answer">
-                <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">Patológico (NO compatible con COVID-19)</p>
+                <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">Patológico ({{answer[4]}})</p>
               </div>
             {% endif %}
           </div>
