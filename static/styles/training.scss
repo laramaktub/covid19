@@ -2,7 +2,7 @@
   display: flex;
 
   &__actions {
-    width: 30%;
+    width: 35%;
     padding: 0.75rem;
   }
 
@@ -30,7 +30,7 @@
     border: 1px solid grey;
     border-radius: 4px;
     margin: 0.75rem;
-    width: 70%;
+    width: 65%;
 
     img {
       border: 1px solid grey;
@@ -39,4 +39,25 @@
       max-height:100%;
     }
   }
+}
+
+.zoom parent-zoom {
+  height: auto;
+  width: auto;
+}
+
+label {
+  font-size: 20px;
+}
+
+#type_of_diag {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 1px solid #ffc000;
+  color: whitesmoke;
+  font-size: 14px;
+  height: 1.75rem;
+  margin-top: 0.5rem;
+  outline: none;
+  text-align: center;
+  width: 100%;
 }
