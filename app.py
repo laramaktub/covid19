@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from flask_wtf import Form
+from flask_assets import Environment, Bundle
 from flask_oidc import OpenIDConnect
+from flask_wtf import FlaskForm
 from wtforms import SelectField, TextField
 from datetime import datetime
+
 import sqlite3
 import pandas as pd
 
@@ -11,6 +13,7 @@ app.config.update({
     'SECRET_KEY': 'SomethingNotEntirelySecret',
     'TESTING': True,
     'DEBUG': True,
+    'FLASK_DEBUG': 1,
     'OIDC_CLIENT_SECRETS': 'client_secrets.json',
     'OIDC_ID_TOKEN_COOKIE_SECURE': False,
     'OIDC_REQUIRE_VERIFIED_EMAIL': False,
@@ -19,6 +22,20 @@ app.config.update({
 oidc = OpenIDConnect(app)
 IMG_FOLDER = '/static/img/'
 
+assets = Environment(app)
+assets.url = app.static_url_path
+assets.debug = True
+
+scss = Bundle(
+  'styles/base.scss',
+  'styles/login.scss',
+  'styles/logged.scss',
+  'styles/training.scss',
+  'styles/results.scss',
+  filters='pyscss',
+  output='styles/main.css'
+)
+assets.register('scss_all', scss)
 
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
@@ -29,14 +46,14 @@ def get_random_img():
     for row in x:
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
-        edad = int(row[0])
+        age = int(row[0])
         sex="Man"
         if int(row[1])==2:
            sex= "Woman"
         informe=int(row[3])
 
     conn.close()
-    return edad, sex, img_id, img, informe
+    return age, sex, img_id, img, informe
 
 
 def check_images_left():
@@ -67,18 +84,14 @@ def delete_answers(user):
     return
 
 @app.route('/')
-def index():
+def login():
 
     if oidc.user_loggedin:
-        info = oidc.user_getinfo(['email', 'openid_id'])
+        info = oidc.user_getinfo(['email'])
         user = info.get('email')
         print ("Deleting answers before starting the session")
         delete_answers(user)
-        return ('Hello, %s, <a href="/logged">See private</a> '
-                '<a href="/logout">Log out</a>') % \
-            oidc.user_getfield('email')
-    else:
-        return 'Welcome anonymous, <a href="/logged">Log in</a>'
+    return render_template('login.html', loggedin=oidc.user_loggedin, user=user if oidc.user_loggedin else None)
 
 @app.route('/logged', methods=['GET'])
 @oidc.require_login
@@ -90,7 +103,7 @@ def logged():
 @app.route('/logout')
 def logout():
     oidc.logout()
-    return 'Hi, you have been logged out! <a href="/">Return</a>'
+    return render_template('login.html')
 
 @app.route('/results')
 @oidc.require_login
@@ -133,19 +146,19 @@ def results():
     try:
         sensitivity='%.2f'%(TP/(TP+FN))
     except:
-        sensitivity="NaN --> Try again with more samples"
+        sensitivity="Muestras insuficientes"
     try:
         specificity='%.2f'%(TN/(TN+FP))
     except:
-        specificity="NaN --> Try again with more samples"
+        specificity="Muestras insuficientes"
     try:
         pos_predval='%.2f'%(TP/(TP+FP))
     except:
-        pos_predval="NaN --> Try again with more samples"
+        pos_predval="Muestras insuficientes"
     try:
         neg_predval='%.2f'%(TN/(TN+FN))
     except:
-        neg_predval="NaN --> Try again with more samples"
+        neg_predval="Muestras insuficientes"
 
 
     res=[total_score, sensitivity,specificity, pos_predval, neg_predval]
@@ -155,35 +168,35 @@ def results():
     
     return render_template('results.html', res=res, failed_answers=failed_answers,  image=session['messages']['img'])
 
-class TrainingForm(Form):
+class TrainingForm(FlaskForm):
  
     type_of_diag = SelectField(
-        u'Type of Diagnosis',
-        choices=[('pat_covid_com', 'Patological (covid-19 compatible)'),
-                 ('pat_no_covid_com', 'Patological (NO covid-19 compatible)'),
-                 ('non_pat', 'Non Patological')])
+        u'Selecciona diagnóstico',
+        choices=[('pat_covid_com', 'Patológico (compatible con COVID-19)'),
+                 ('pat_no_covid_com', 'Patológico (NO compatible con COVID-19)'),
+                 ('non_pat', 'No Patológico')])
     img_id = TextField(u'IMG ID','')
 
 
-class ProfileForm(Form):
+class ProfileForm(FlaskForm):
     type_of_profile = SelectField(
         u'Profile',
-        choices=[('noanswer','N/A'),
-                 ('abdradio','Abdominal radiologist'),
-                 ('Neuroradio','Neuroradiologist'),
-                 ('breastradio','Breast radiologist'),
-                 ('muscradio','Musculoskeletal radiologist'),
-                 ('generalradio','General radiologist'),
-                 ('interradio','Interventional radiologist'),
-                 ('pediradio',' Pediatric radiologist'),
-                 ('thoraradio',' Thoracic radiologist'),
-                 ('radioresi','Radiology resident'),
-                 ('resiother','Resident (other than radiology)'),
-                 ('medicalstudent','Medical student'),
-                 ('assophypulmo', 'Associate Physician of Pulmonology'),
-                 ('internassisphysi','Internist Assistant Physician'),
-                 ('deputyemerg', 'Deputy emergency physician'),
-                 ('assodoctorother', 'Associate doctor of another specialty')])
+        choices=[('noanswer','Click para seleccionar especialidad'),
+                 ('abdradio','Radiólogo abdominal'),
+                 ('Neuroradio','Neurorradiólogo'),
+                 ('breastradio','Radiólogo de mama'),
+                 ('muscradio','Radiólogo de músculo-esquelético'),
+                 ('generalradio','Radiólogo general'),
+                 ('interradio','Radiólogo intervencionista'),
+                 ('pediradio','Radiólogo pediátrico'),
+                 ('thoraradio','Radiólogo torácico'),
+                 ('radioresi','Residente de radiología'),
+                 ('resiother','Residente (especialidad distinta a la radiología)'),
+                 ('medicalstudent','Estudiante de medicina'),
+                 ('assophypulmo', 'Médico adjunto de neumología'),
+                 ('internassisphysi','Médico adjunto internista'),
+                 ('deputyemerg', 'Médico adjunto de urgencias'),
+                 ('assodoctorother', 'Médico adjunto de otra especialidad')])
     user_profile=TextField(u'USER PROFILE','')
 
 @app.route('/send_results', methods=['POST'])
@@ -226,7 +239,7 @@ def training():
     if check_images_left() == False:
         print("No images left. Redirecting to results---")
         return redirect(url_for('results'))
-    edad, sex,  img_id, img, informe = get_random_img() #get_random
+    age, sex,  img_id, img, informe = get_random_img() #get_random
     form = TrainingForm(request.form)
     profile= ProfileForm(request.form)
     type_of_profile = profile['type_of_profile'].data
@@ -254,7 +267,7 @@ def training():
         x = c.execute("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
         row = c.fetchone()
         if row[0] > 0:
-            return render_template('training.html', form=form, message=error, edad=edad, sex=sex, img=img, img_id=img_id)
+            return render_template('training.html', form=form, message=error, age=age, sex=sex, img=img, img_id=img_id)
         else:
             return 'You are not an allowed user'
         conn.close()
