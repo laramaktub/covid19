@@ -47,9 +47,9 @@ def get_random_img():
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
         age = int(row[0])
-        sex="Man"
+        sex="Hombre"
         if int(row[1])==2:
-           sex= "Woman"
+           sex= "Mujer"
         informe=int(row[3])
         diagnostico=row[4]
         diagnosis=row[5]
