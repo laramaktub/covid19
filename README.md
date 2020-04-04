@@ -36,12 +36,16 @@ $ pip install flask-assets flask-oidc flask-wtf pandas pyscss
 ```
 > **Note:** Here are included only the dependencies required at the time this file was written. If more dependencies would be required, just refer to the [app.py](https://github.com/laramaktub/covid19/blob/master/app.py) file and check the modules imported.
 
+### Client secret
+A file (client_secret.json) must be included with the OAuth credentials.  
+
 ## Running the app
 Now that we have installed all dependencies and we have our virtual environment activated, it's time to run the project:
 ```bash
 $ flask run
 ```
 > **Note:** The project will most probably be running in http://localhost:5000/
+
 
 ### Detecting changes
 Sometimes, while running and making changes, the app does not refresh automatically, specially if changes relate to `template` or `static` files (`.js`, `.css`, etc).
@@ -57,7 +61,7 @@ These are some well known editors which can be used to edit the project:
 
 
 ## Further Information
-For more abut Flask and Jinja, you can refer to the [user's guide](https://flask.palletsprojects.com/en/1.1.x/)
+For more about Flask and Jinja, you can refer to the [user's guide](https://flask.palletsprojects.com/en/1.1.x/)
 
 
 ### Contact us
