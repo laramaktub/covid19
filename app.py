@@ -162,7 +162,7 @@ def results():
         neg_predval="Muestras insuficientes"
 
 
-    res=[total_score, sensitivity,specificity, pos_predval, neg_predval]
+    res=[total_score, sensitivity,specificity, pos_predval, neg_predval, total_answered]
 
     print("Deleting the answers for this session")
     delete_answers(user)
