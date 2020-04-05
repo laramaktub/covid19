@@ -1,8 +1,7 @@
-.logged {
-  padding-top: 1rem;
-
+.start {
   &__avatar {
     margin: auto;
+    margin-top: 1rem;
     width: 120px;
     img {
       border-radius: 8px;
@@ -36,6 +35,17 @@
     left: 3px;
     position: absolute;
     top: 36px;
+  }
+
+  &__logout {
+    font-size: 14px;
+    a {
+      color: #ffc000;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   }
 }
 

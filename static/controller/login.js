@@ -7,9 +7,9 @@ function isChecked() {
 function checkTerms() {
   document.getElementById('error').innerHTML = !document.getElementById("terms").checked && this.submitted ? this.errorMessage : "";
 }
-function submit() {
+function onLogin() {
   if (document.getElementById("terms").checked) {
-    document.location.href = "/logged"
+    document.location.href = "/start"
   }
   else {
     document.getElementById('error').innerHTML = this.errorMessage

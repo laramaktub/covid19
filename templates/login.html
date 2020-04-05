@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 {% block title %}Inicio{% endblock %}
 {% block head %}
   {{ super() }}
@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="login">
+  <div class="content login">
     <div class="login__avatar">
       <img
         src="{{ url_for('static',filename='assets/logo.png') }}"
@@ -21,7 +21,7 @@
       {% endif %}
     </div>
     <div class="login__button">
-      <button class="covid-button" onclick="submit()">
+      <button class="covid-button" onclick="onLogin()">
         {% if loggedin  %}
           Entrar
         {% else %}

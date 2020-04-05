@@ -27,9 +27,11 @@ assets.url = app.static_url_path
 assets.debug = True
 
 scss = Bundle(
-  'styles/base.scss',
+  'styles/styles.scss',
+  'styles/home.scss',
+  'styles/about.scss',
   'styles/login.scss',
-  'styles/logged.scss',
+  'styles/start.scss',
   'styles/training.scss',
   'styles/results.scss',
   filters='pyscss',
@@ -57,7 +59,6 @@ def get_random_img():
     conn.close()
     return age, sex, img_id, img, informe, diagnostico, diagnosis
 
-
 def check_images_left():
     conn = sqlite3.connect('db/covid19.db')
     c = conn.cursor()
@@ -69,7 +70,6 @@ def check_images_left():
         return False
     else:
         return True
-
 
 def delete_answers(user):
     now = datetime.now()
@@ -85,27 +85,115 @@ def delete_answers(user):
     conn.close()
     return
 
+
 @app.route('/')
+def home():
+    return render_template('home.html', loggedin=oidc.user_loggedin)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/login')
 def login():
-
     if oidc.user_loggedin:
-        info = oidc.user_getinfo(['email'])
-        user = info.get('email')
-        print ("Deleting answers before starting the session")
-        delete_answers(user)
-    return render_template('login.html', loggedin=oidc.user_loggedin, user=user if oidc.user_loggedin else None)
+        print('User already logged in. Redirecting to next page...')
+        return redirect(url_for('start'))
+    print('User not logged in. Rendering login page...')
+    return render_template('login.html')
 
-@app.route('/logged', methods=['GET'])
+@app.route('/start', methods=['GET'])
 @oidc.require_login
-def logged():
-    info = oidc.user_getinfo(['email', 'openid_id'])
+def start():
+    info = oidc.user_getinfo(['email'])
+    user = info.get('email')
+    print ("Deleting answers before starting the session")
+    delete_answers(user)
     form = ProfileForm(request.form)
-    return render_template('logged.html', email=info.get('email'), openid_id=info.get('openid_id'), form=form)
+    return render_template('start.html', email=info.get('email'), form=form)
 
 @app.route('/logout')
 def logout():
     oidc.logout()
-    return render_template('login.html')
+    return redirect(url_for('home'))
+
+@app.route('/training', methods=['GET','POST'])
+@oidc.require_login
+def training():
+    info = oidc.user_getinfo(['email', 'openid_id'])
+    user=info.get('email')
+    error = ""
+    if check_images_left() == False:
+        print("No images left. Redirecting to results---")
+        return redirect(url_for('results'))
+    age, sex,  img_id, img, informe, diagnostico, diagnosis = get_random_img() #get_random
+    form = TrainingForm(request.form)
+    profile= ProfileForm(request.form)
+    type_of_profile = profile['type_of_profile'].data
+    conn = sqlite3.connect('db/covid19.db')
+    c = conn.cursor()
+    c.execute("UPDATE users set profile = '%s' WHERE id  ='%s' and profile is null or profile = 'noanswer' " % (type_of_profile, user)).fetchall()
+    form.img_id = img_id
+    session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe), 'diagnostico': diagnostico, 'diagnosis': diagnosis}
+    if request.method == 'POST':
+        type_of_diag = form.type_of_diag.data
+        if type_of_diag=="pat_covid_com":
+            answer=1
+        elif type_of_diag=="non_pat":
+            answer=0
+        elif type_of_diag=="pat_no_covid_com":
+            answer=2
+        type_of_diag = form.type_of_diag.data
+        session['user_id'] = info.get('email')
+        if len(type_of_diag) == 0:
+            error = "Please supply data"
+
+    try:
+        info = oidc.user_getinfo(['email', 'openid_id'])
+        print("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
+        x = c.execute("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
+        row = c.fetchone()
+        if row[0] > 0:
+            return render_template('training.html', form=form, message=error, age=age, sex=sex, img=img, img_id=img_id)
+        else:
+            return 'You are not an allowed user'
+        conn.close()
+    except Exception as e:
+        conn.close()
+        print(e)
+        return 'Ooops!, <a href="/start">Log in</a>'
+
+@app.route('/send_results', methods=['POST'])
+@oidc.require_login
+def send_results():
+    try:
+        form = TrainingForm(request.form)
+        type_of_diag = form['type_of_diag'].data
+        answer = 0
+        print("RESULT: %s" % type_of_diag)
+        if type_of_diag=="pat_covid_com":
+            answer=1
+        elif type_of_diag=="non_pat":
+            answer=0
+        elif type_of_diag=="pat_no_covid_com":
+            answer=2
+
+        conn = sqlite3.connect('db/covid19.db')
+        c = conn.cursor()
+        info = oidc.user_getinfo(['email', 'openid_id'])
+        c.execute("INSERT INTO user_answers(user, image, true_answer,answer, diagnostico, diagnosis) VALUES ('%s', '%s', %i, %i, '%s', '%s')" % (
+            info.get('email'),
+            session['messages']['id_image'],
+            session['messages']['informe'],
+            int(answer),
+            session['messages']['diagnostico'],
+            session['messages']['diagnosis']))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print("Ooops! We had a problem")
+        print(e)
+    return redirect(url_for('training'))
 
 @app.route('/results')
 @oidc.require_login
@@ -178,7 +266,6 @@ class TrainingForm(FlaskForm):
                  ('non_pat', 'No Patológico')])
     img_id = TextField(u'IMG ID','')
 
-
 class ProfileForm(FlaskForm):
     type_of_profile = SelectField(
         u'Profile',
@@ -199,85 +286,3 @@ class ProfileForm(FlaskForm):
                  ('deputyemerg', 'Médico adjunto de urgencias'),
                  ('assodoctorother', 'Médico adjunto de otra especialidad')])
     user_profile=TextField(u'USER PROFILE','')
-
-@app.route('/send_results', methods=['POST'])
-@oidc.require_login
-def send_results():
-    try:
-        
-        form = TrainingForm(request.form)
-        type_of_diag = form['type_of_diag'].data
-        answer = 0
-        print("RESULT: %s" % type_of_diag)
-        if type_of_diag=="pat_covid_com":
-            answer=1
-        elif type_of_diag=="non_pat":
-            answer=0
-        elif type_of_diag=="pat_no_covid_com":
-            answer=2
-
-        conn = sqlite3.connect('db/covid19.db')
-        c = conn.cursor()
-        info = oidc.user_getinfo(['email', 'openid_id'])
-        c.execute("INSERT INTO user_answers(user, image, true_answer,answer, diagnostico, diagnosis) VALUES ('%s', '%s', %i, %i, '%s', '%s')" % (
-            info.get('email'),
-            session['messages']['id_image'],
-            session['messages']['informe'],
-            int(answer),
-            session['messages']['diagnostico'],
-            session['messages']['diagnosis']))
-        conn.commit()
-        conn.close()
-    except Exception as e:
-        print("Ooops! We had a problem")
-        print(e)
-    return redirect(url_for('training'))
-
-@app.route('/training', methods=['GET','POST'])
-@oidc.require_login
-def training():
-    info = oidc.user_getinfo(['email', 'openid_id'])
-    user=info.get('email')
-    error = ""
-    if check_images_left() == False:
-        print("No images left. Redirecting to results---")
-        return redirect(url_for('results'))
-    age, sex,  img_id, img, informe, diagnostico, diagnosis = get_random_img() #get_random
-    form = TrainingForm(request.form)
-    profile= ProfileForm(request.form)
-    type_of_profile = profile['type_of_profile'].data
-    conn = sqlite3.connect('db/covid19.db')
-    c = conn.cursor()
-    c.execute("UPDATE users set profile = '%s' WHERE id  ='%s' and profile is null or profile = 'noanswer' " % (type_of_profile, user)).fetchall()
-    form.img_id = img_id
-    session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe), 'diagnostico': diagnostico, 'diagnosis': diagnosis}
-    if request.method == 'POST':
-        type_of_diag = form.type_of_diag.data
-        if type_of_diag=="pat_covid_com":
-            answer=1
-        elif type_of_diag=="non_pat":
-            answer=0
-        elif type_of_diag=="pat_no_covid_com":
-            answer=2
-        type_of_diag = form.type_of_diag.data
-        session['user_id'] = info.get('email')
-        if len(type_of_diag) == 0:
-            error = "Please supply data"
-
-    try:
-        info = oidc.user_getinfo(['email', 'openid_id'])
-        print("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
-        x = c.execute("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
-        row = c.fetchone()
-        if row[0] > 0:
-            return render_template('training.html', form=form, message=error, age=age, sex=sex, img=img, img_id=img_id)
-        else:
-            return 'You are not an allowed user'
-        conn.close()
-    except Exception as e:
-        conn.close()
-        print(e)
-        return 'Ooops!, <a href="/logged">Log in</a>'
-
-# Run the application
-#app.run(debug=True)
