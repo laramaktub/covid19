@@ -1,9 +1,8 @@
-static/
+.vscode/
+.DS_Store
 db/
 client_secrets.json
 prueba.py
-.vscode/
-venv/
-.DS_Store
 static/.webassets-cache/
 static/img/
+venv/
