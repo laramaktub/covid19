@@ -1,7 +1,7 @@
-.vscode/
 .DS_Store
-db/
+.vscode/
 client_secrets.json
+db/
 prueba.py
 static/.webassets-cache/
 static/img/
