@@ -37,11 +37,11 @@ $ pip install flask-assets flask-oidc flask-wtf pandas pyscss
 > **Note:** Here are included only the dependencies required at the time this file was written. If more dependencies would be required, just refer to the [app.py](https://github.com/laramaktub/covid19/blob/master/app.py) file and check the modules imported.
 
 ### File dependencies
-Same as happened with the [Library dependencies](https://github.com/laramaktub/covid19/tree/19-create-about-screen#library-dependencies), certain additional files are required for the project to be able to run correctly:
+Same as happened with the [Library dependencies](#library-dependencies), certain additional files are required for the project to be able to run correctly:
 * `client_secret.json` which contains `OAuth` credentials. Should be placed in the `root` folder
 * `covid19.db` is a database file which contains test examples to work locally. Should be placed in the `./db` folder.
 * An `img` folder which shall contain a set of X-Ray images to test the cases stored in the  _covid19.db_ file. This folder should be placed in the `./static` folder.
-> **Note:** In order to get those files, please request them through the email shared in the [contact us](https://github.com/laramaktub/covid19/tree/19-create-about-screen#contact-us) section.
+> **Note:** In order to get those files, please request them through the email shared in the [contact us](#contact-us) section.
 
 ## Running the app
 Now that we have installed all dependencies and we have our virtual environment activated, it's time to run the project:
