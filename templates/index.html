@@ -2,13 +2,6 @@
 <html lang="es">
   <head>
     {% block head %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="https://www.jose-aguilar.com/scripts/jquery/zoomy/zoomy.min.js"></script>
-    <script type="text/javascript">
-      $(function () {
-        $('.zoom').zoomy();
-      });
-    </script>
     {% assets "scss_all" %}
       <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
     {% endassets %}
@@ -20,13 +13,13 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <div class="content">
+      <div class="content__wrapper">
         {% block content %}
         {% endblock %}
       </div>
       <div class="footer">
         {% block footer %}
-        <a href="https://drive.google.com/file/d/15F7yiFtvUZLpIxU1s6TXd_Ni1K3adqYL/view?usp=sharing" target="_blank">Política de privacidad y aviso legal</a>
+        <a href="/about">Acerca de este proyecto y su finalidad</a>
          | <a href="https://drive.google.com/file/d/15F7yiFtvUZLpIxU1s6TXd_Ni1K3adqYL/view?usp=sharing" target="_blank">Términos y condiciones de uso</a>
          | <a href="mailto:covid19trainingapp@gmail.com">Contacta con nosotros</a>
          | Copyright &copy; IFCA - CSIC
