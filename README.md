@@ -70,4 +70,4 @@ For more about Flask and Jinja, you can refer to the [user's guide](https://flas
 
 ### Contact us
 
-* Generic mail: covid19trainingapp@gmail.com
+* Generic mail: covid19training@ifca.unican.es
