@@ -6,3 +6,4 @@ prueba.py
 static/.webassets-cache/
 static/img/
 venv/
+nohup.out

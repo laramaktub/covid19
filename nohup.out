@@ -2761,3 +2761,119 @@ INSERT INTO historic_answers(user, image, ans_date, true_answer, answer) VALUES(
 127.0.0.1 - - [07/Apr/2020 17:37:21] "[36mGET /static/controller/login.js HTTP/1.0[0m" 304 -
 127.0.0.1 - - [07/Apr/2020 17:37:21] "[36mGET /static/assets/logo.png HTTP/1.0[0m" 304 -
 127.0.0.1 - - [07/Apr/2020 17:37:32] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:10] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:14] "[37mGET /login HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:23] "[37mGET /login HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:23] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:24] "[37mGET /login HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:25] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:26] "[37mGET /login HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:26] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:28] "[37mGET /login HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:28] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:28] "[37mGET /static/controller/login.js HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:28] "[37mGET /static/assets/logo.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:40:29] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/bin/flask", line 11, in <module>
+    sys.exit(main())
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/flask/cli.py", line 894, in main
+    cli.main(args=args, prog_name=name)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/flask/cli.py", line 557, in main
+    return super(FlaskGroup, self).main(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/click/decorators.py", line 64, in new_func
+    return ctx.invoke(f, obj, *args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/flask/cli.py", line 771, in run_command
+    threaded=with_threads, ssl_context=cert)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/werkzeug/serving.py", line 990, in run_simple
+    inner()
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/werkzeug/serving.py", line 943, in inner
+    fd=fd,
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/werkzeug/serving.py", line 786, in make_server
+    host, port, app, request_handler, passthrough_errors, ssl_context, fd=fd
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/werkzeug/serving.py", line 679, in __init__
+    HTTPServer.__init__(self, server_address, handler)
+  File "/usr/lib/python3.5/socketserver.py", line 440, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.5/http/server.py", line 138, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.5/socketserver.py", line 454, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+127.0.0.1 - - [07/Apr/2020 17:41:08] "[32mGET /start HTTP/1.0[0m" 302 -
+127.0.0.1 - - [07/Apr/2020 17:41:14] "[32mGET /oidc_callback?state=eyJkZXN0aW5hdGlvbiI6ICJleUpoYkdjaU9pSklVelV4TWlKOS5JbWgwZEhBNkx5OTRjbUY1TG1OdmRtbGtMbWxtWTJFdVpYTXZjM1JoY25RaS56U0JJUUFEbE9Cdk9aMllsSkFtV3FOTTgzNzI5MlltNHZjQ2hIUTNMazFoT3NuYlJ1am1kNm41XzRIX1ZVLWhScWdBZnMwbGd3QU1WV09NTW10WnV1QSIsICJjc3JmX3Rva2VuIjogIkNva0hna0h6R1ZKWHBsRDlZd3dRNGEwRUFTWUZJN1l0In0%3D&session_state=81d8c5b2-5bd2-40b2-b4e7-a10c08a20254&code=ff907082-7617-4399-b81c-ca95c87a8dbe.81d8c5b2-5bd2-40b2-b4e7-a10c08a20254.0f47f3b5-8537-4a41-a8f6-33e4feac45f4 HTTP/1.0[0m" 302 -
+127.0.0.1 - - [07/Apr/2020 17:41:14] "[37mGET /start HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:14] "[36mGET /static/styles/main.css HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:41:14] "[33mGET /static/controller/start.js HTTP/1.0[0m" 404 -
+127.0.0.1 - - [07/Apr/2020 17:41:22] "[37mGET /start HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:22] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:22] "[33mGET /static/controller/start.js HTTP/1.0[0m" 404 -
+127.0.0.1 - - [07/Apr/2020 17:41:23] "[37mGET /static/assets/logo.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:23] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:24] "[37mGET /start HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:24] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:24] "[33mGET /static/controller/start.js HTTP/1.0[0m" 404 -
+127.0.0.1 - - [07/Apr/2020 17:41:24] "[37mGET /static/assets/logo.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:24] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:41:33] "[37mGET /about HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:42:03] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:42:03] "[36mGET /static/styles/main.css HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:42:04] "[36mGET /static/assets/doctor.png HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:42:04] "[36mGET /static/assets/radiologist.png HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:42:04] "[36mGET /static/assets/student.png HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:42:09] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:42:11] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:43:41] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:43:42] "[36mGET /static/assets/radiologist.png HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:43:42] "[36mGET /static/assets/doctor.png HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:43:42] "[36mGET /static/assets/student.png HTTP/1.0[0m" 304 -
+127.0.0.1 - - [07/Apr/2020 17:43:54] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:43:54] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:43:56] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:43:56] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:43:57] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:43:57] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:45:07] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:45:07] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:45:07] "[37mGET /static/assets/doctor.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:45:07] "[37mGET /static/assets/radiologist.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:45:07] "[37mGET /static/assets/student.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 17:45:07] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:43:00] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:53:38] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:53:38] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:53:38] "[37mGET /static/assets/doctor.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:53:38] "[37mGET /static/assets/radiologist.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:53:38] "[37mGET /static/assets/student.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:56:15] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:56:15] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:56:15] "[37mGET /static/assets/doctor.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:56:15] "[37mGET /static/assets/student.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 18:56:15] "[37mGET /static/assets/radiologist.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:12:02] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:31:24] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:31:24] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:31:24] "[37mGET /static/assets/student.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:31:24] "[37mGET /static/assets/doctor.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:31:24] "[37mGET /static/assets/radiologist.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:36:06] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:36:07] "[37mGET /static/styles/main.css HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:36:07] "[37mGET /static/assets/doctor.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:36:07] "[37mGET /static/assets/radiologist.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:36:07] "[37mGET /static/assets/student.png HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:36:08] "[37mGET /static/assets/favicon.ico HTTP/1.0[0m" 200 -
+127.0.0.1 - - [07/Apr/2020 19:36:55] "[37mGET / HTTP/1.0[0m" 200 -
