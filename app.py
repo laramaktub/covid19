@@ -27,13 +27,16 @@ assets.url = app.static_url_path
 assets.debug = True
 
 scss = Bundle(
-  'styles/styles.scss',
-  'styles/home.scss',
   'styles/about.scss',
+  'styles/home.scss',
   'styles/login.scss',
-  'styles/start.scss',
-  'styles/training.scss',
   'styles/results.scss',
+  'styles/start.scss',
+  'styles/styles.scss',
+  'styles/training.scss',
+  '../templates/snippets/back-button/back-button.scss',
+  '../templates/snippets/footer/footer.scss',
+  '../templates/snippets/home-button/home-button.scss',
   filters='pyscss',
   output='styles/main.css'
 )
