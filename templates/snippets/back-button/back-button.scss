@@ -1,0 +1,25 @@
+.back-button {
+  background-color: rgba(0,0,0,0);
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+  font-size: 1.5rem;
+  left: 0.5rem;
+  outline: none;
+  position: fixed;
+  top: 1rem;
+
+  &:hover {
+    color: #ffc000;
+
+    svg {
+      fill: #ffc000;
+    }
+  }
+
+  svg {
+    fill: whitesmoke;
+    height: 21px;
+    width: 23px;
+  }
+}

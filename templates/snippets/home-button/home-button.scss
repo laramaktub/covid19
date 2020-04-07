@@ -1,0 +1,32 @@
+.home-button {
+  background-color: rgba(0,0,0,0);
+  border: none;
+  color: whitesmoke;
+  cursor: pointer;
+  font-size: 1.5rem;
+  left: 0.5rem;
+  outline: none;
+  position: fixed;
+  top: 1rem;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+  
+  svg path,
+  svg polygon,
+  svg rect {
+    fill: whitesmoke;
+  }
+
+  &:hover {
+    color: #ffc000;
+
+    svg path,
+    svg polygon,
+    svg rect {
+      fill: #ffc000;
+    }
+  }
+}
