@@ -5,7 +5,7 @@
 {% block content %}
 <div class="content results">
   <h1>Resultados del test</h1>
-  {% if failed_answers|length==0 %}
+  {% if res[5]==0 %}
     <p>No ha contestado a ninguna pregunta del test</p>
   {% else %}
     <div class="results__details">
@@ -14,10 +14,11 @@
       <p><b>Especificidad:</b>&nbsp;{{res[2]}}</p>
       <p><b>Valor predictivo positivo:</b>&nbsp;{{res[3]}}</p>
       <p><b>Valor predictivo negativo:</b>&nbsp;{{res[4]}}</p>
+      <p>Nota: Valores calculados respecto al dignóstico de covid19</p>
     </div>
   {% endif %}
   <br>
-  <p>¿Quieres volverlo a intentar?</p>
+  <p>¿Quieres intentarlo de nuevo?</p>
 
   <div class="results__try-again" >
     <button
