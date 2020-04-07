@@ -149,15 +149,18 @@ def training():
             error = "Please supply data"
 
     try:
-        info = oidc.user_getinfo(['email', 'openid_id'])
+        info = oidc.user_getinfo(['email', 'openid_id', 'name'])
         print("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
         x = c.execute("SELECT COUNT(*) FROM users WHERE id='%s'" % (info.get('email')))
         row = c.fetchone()
-        if row[0] > 0:
-            return render_template('training.html', form=form, message=error, age=age, sex=sex, img=img, img_id=img_id)
-        else:
-            return 'You are not an allowed user'
-        conn.close()
+        if row[0] == 0:
+            c.execute("INSERT INTO users(id, name, email, profile) VALUES('%s', '%s', '%s', '')" % (
+            info.get('email'),
+            info.get('name'),
+            info.get('email')))
+        conn.commit()
+        conn.close()        
+        return render_template('training.html', form=form, message=error, age=age, sex=sex, img=img, img_id=img_id)
     except Exception as e:
         conn.close()
         print(e)
