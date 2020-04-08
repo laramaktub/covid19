@@ -6,8 +6,10 @@
   a {
     color: whitesmoke;
     text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
+
+    &:hover {
+      color: #ffc000;
+      text-decoration: underline;
+    }
   }
 }

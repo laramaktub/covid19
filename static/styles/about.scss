@@ -19,9 +19,23 @@
 
   &__column {
     padding: 2rem;
+
+    h4 {
+      color: #ffc000;
+    }
   }
 
   &__paragraph {
     font-size: 20px;
+
+    a {
+      color: #ffc000;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
