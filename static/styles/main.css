@@ -258,7 +258,7 @@
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\000031}}
 body {
-  background-image: url('https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA12066_hires.jpg');
+  background: #090909;
   background-attachment: fixed;
   margin: 0; }
 
