@@ -1,12 +1,10 @@
 .about {
-  background-color: #212121;
-  border-radius: 8px;
   margin: 4rem 2rem;
   padding: 3rem 2rem;
-  text-align: justify;
 
   &__title {
     padding-left: 2rem;
+    text-align: left;
 
     h2 {
       margin: 0;
@@ -22,11 +20,13 @@
 
     h4 {
       color: #ff9900;
+      text-align: left;
     }
   }
 
   &__paragraph {
     font-size: 20px;
+    text-align: justify;
 
     a {
       color: #ff9900;
@@ -36,6 +36,35 @@
       &:hover {
         text-decoration: underline;
       }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+
+  .about {
+    margin: 4rem 1rem 1rem;
+    padding: 2rem 1rem;
+
+    &__title {
+      font-size: 6vw;
+      padding-left: 0;
+    }
+
+    &__row {
+      flex-direction: column;
+    }
+
+    &__column {
+      padding: 0;
+
+      h4 {
+        font-size: 6.2vw;
+      }
+    }
+
+    &__paragraph {
+      line-height: 1.6rem;
     }
   }
 }
