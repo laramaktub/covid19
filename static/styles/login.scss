@@ -1,14 +1,4 @@
 .login {
-  &__avatar {
-    margin: auto;
-    margin-top: 1rem;
-    width: 120px;
-    img {
-      border-radius: 8px;
-      border: 1px solid grey;
-    }
-  }
-
   &__label {
     margin-top: 2rem;
   }
@@ -25,7 +15,7 @@
 
   &__error {
     background-color: #C54842;
-    color: whitesmoke;
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
     left: 3px;

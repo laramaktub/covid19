@@ -1,0 +1,10 @@
+.avatar {
+  margin: auto;
+  margin-top: 1rem;
+  width: 120px;
+
+  &__image {
+    border-radius: 8px;
+    border: 1px solid grey;
+  }
+}

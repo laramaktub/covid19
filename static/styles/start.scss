@@ -1,14 +1,4 @@
 .start {
-  &__avatar {
-    margin: auto;
-    margin-top: 1rem;
-    width: 120px;
-    img {
-      border-radius: 8px;
-      border: 1px solid grey;
-    }
-  }
-
   &__select {
     margin: 0.5rem;
 
@@ -29,7 +19,7 @@
 
   &__error {
     background-color: #C54842;
-    color: whitesmoke;
+    color: #fff;
     font-size: 12px;
     font-weight: bold;
     left: 3px;
@@ -40,7 +30,7 @@
   &__logout {
     font-size: 14px;
     a {
-      color: #ffc000;
+      color: #ff9900;
       text-decoration: none;
     }
     a:hover {

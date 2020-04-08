@@ -1,14 +1,15 @@
 .footer {
+  font-family: Calibri, sans-serif;
   font-size: 16px;
   height: 2rem;
   margin-top: auto;
   width: 100%;
   a {
-    color: whitesmoke;
+    color: #fff;
     text-decoration: none;
 
     &:hover {
-      color: #ffc000;
+      color: #ff9900;
       text-decoration: underline;
     }
   }
