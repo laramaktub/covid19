@@ -24,8 +24,11 @@
 
 @media (max-width: 800px) {
   .footer {
+    background-color: #191919;
+    border-top: 2px solid #666;
     flex-direction: column;
-    height: 6rem;
+    height: 7rem;
+    padding-top: 0.75rem;
 
     &__separator {
       display: none;

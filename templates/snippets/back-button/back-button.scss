@@ -5,10 +5,8 @@
   cursor: pointer;
   font-family: Calibri, sans-serif;
   font-size: 1.5rem;
-  left: 0.5rem;
+  margin-left: 0.5rem;
   outline: none;
-  position: fixed;
-  top: 1rem;
 
   &:hover {
     color: #ff9900;
@@ -18,9 +16,30 @@
     }
   }
 
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    height: 4rem;
+    left: 0;
+    position: fixed;
+    top: 0;
+  }
+
   svg {
     fill: #fff;
     height: 21px;
     width: 23px;
+  }
+}
+
+@media (max-width: 750px) {
+  .back-button {
+    margin-left: 0.25rem;
+
+    &__wrapper {
+      background-color: #333;
+      border-bottom: 1px solid #666;
+      width: 100%;
+    }
   }
 }
