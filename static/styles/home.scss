@@ -1,5 +1,5 @@
 .home {
-  background: #090909;
+  background-color: #212121;
   margin: 0px auto 2rem;
   margin: 0px auto 2.9vh;
 
@@ -11,7 +11,7 @@
   }
 
   &__title {
-    color: #ffc000;
+    color: #ff9900;
     font-size: 2.5vw;
     margin: 2.5rem auto 0;
     margin: 3.7vh auto 0;
@@ -57,12 +57,12 @@
     }
 
     a {
-      color: whitesmoke;
+      color: #fff;
       font-size: 20px;
       font-size: 1.2vw;
 
       &:hover {
-        color: #ffc000;
+        color: #ff9900;
       }
     }
   }
@@ -79,7 +79,7 @@
     width: 30%;
 
     h3 {
-      color: #ffc000;
+      color: #ff9900;
       font-size: 1.4vw;
       margin: 2.4vh auto;
     }

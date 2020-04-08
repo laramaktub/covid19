@@ -8,12 +8,7 @@
 {% block content %}
 {% include "snippets/back-button/back-button.html" %}
   <div class="content login">
-    <div class="login__avatar">
-      <img
-        src="{{ url_for('static',filename='assets/logo.png') }}"
-        alt="Covid-19 Avatar"
-      >
-    </div>
+    {% include "snippets/avatar/avatar.html" %}
     <div class="login__label">
       Inicia sesión en COVID-19 training
     </div>

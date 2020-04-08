@@ -1,8 +1,9 @@
 .back-button {
   background-color: rgba(0,0,0,0);
   border: none;
-  color: whitesmoke;
+  color: #fff;
   cursor: pointer;
+  font-family: Calibri, sans-serif;
   font-size: 1.5rem;
   left: 0.5rem;
   outline: none;
@@ -10,15 +11,15 @@
   top: 1rem;
 
   &:hover {
-    color: #ffc000;
+    color: #ff9900;
 
     svg {
-      fill: #ffc000;
+      fill: #ff9900;
     }
   }
 
   svg {
-    fill: whitesmoke;
+    fill: #fff;
     height: 21px;
     width: 23px;
   }

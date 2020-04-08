@@ -1,14 +1,13 @@
 body {
-  background-image: url('https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA12066_hires.jpg');
-  background-attachment: fixed;
+  background-color: #212121;
   margin: 0;
 }
 
 select {
-  background-color: #555;
-  border: 1px solid #ffc000;
+  background-color: #636363;
+  border: 2px solid #ff9900;
   border-radius: 4px;
-  color: whitesmoke;
+  color: #fff;
   cursor: pointer;
   font-size: 16px;
   height: 1.75rem;
@@ -16,23 +15,23 @@ select {
   outline: none;
 
   &:hover {
-    background-color: rgba(255, 192, 0, 0.75);
-    color: #272727;
+    background-color: rgba(255, 153, 0, 0.75);
+    color: #212121;
   }
 
   option {
     &:hover {
-      background-color: #ffc000;
-      color: #272727;
+      background-color: #ff9900;
+      color: #212121;
     }
   }
 }
 
 .covid-button {
-  background: rgba(255, 255, 255, 0.25);
-  border: 1px solid #ffc000;
+  background-color: #636363;
+  border: 2px solid #ff9900;
   border-radius: 4px;
-  color: whitesmoke;
+  color: #fff;
   cursor: pointer;
   font-family: Calibri, sans-serif;
   font-size: 20px;
@@ -42,18 +41,18 @@ select {
   text-decoration: none;
 
   &:hover {
-    background-color: rgba(255, 192, 0, 0.75);
-    color: #272727;
+    background-color: rgba(255, 153, 0, 0.75);
+    color: #212121;
   }
 
   &:active {
-    background-color: #ffc000;
-    color: black;
+    background-color: #ff9900;
+    color: #212121;
   }
 }
 
 .page-wrapper {
-  color: whitesmoke;
+  color: #fff;
   display: flex;
   flex-direction: column;
   font-family: Calibri, sans-serif;
@@ -63,8 +62,8 @@ select {
   text-align: center;
 
   .content {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #ffc000;
+    background-color: #353535;
+    border: 1px solid #ff9900;
     border-radius: 4px;
     margin: 3.5rem auto 2rem;
     padding: 1rem;
