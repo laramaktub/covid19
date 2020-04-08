@@ -82,8 +82,6 @@ img {
 
 @media (max-width: 800px) {
   .page-wrapper {
-    .content {
-      width: 100%;
-    }
+    min-height: 100vh;
   }
 } 
