@@ -98,8 +98,18 @@ img {
       background-color: unset;
       border: unset;
       border-radius: unset;
-      margin: 4rem auto 7rem;
+      margin: 4rem auto auto;
       width: unset;
+    }
+  }
+
+  select {
+    background-color: #666;
+    border-color: #666;
+  
+    &:hover {
+      background-color: #666;
+      color: #fff;
     }
   }
 
