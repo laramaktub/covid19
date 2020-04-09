@@ -20,7 +20,7 @@
     font-weight: bold;
     left: 3px;
     position: absolute;
-    top: 34px;
+    top: 35px;
   }
   
   &__terms {
@@ -30,6 +30,41 @@
     &__checkbox {
       width: 1rem;
       height: 1rem;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+
+  .login {
+    &__label {
+      margin-top: 3rem;
+      font-size: 5.8vw;
+    }
+
+    &__button {
+      margin: 1.5rem auto;
+      width: unset;
+    }
+
+    &__error {
+      font-size: 4.1vw;
+    }
+
+    &__terms {
+      margin: unset;
+      display: flex;
+      align-items: center;
+  
+      &__checkbox {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      label {
+        font-size: 4.5vw;
+        margin-left: 0.25rem;
+      }
     }
   }
 }
