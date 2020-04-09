@@ -1,5 +1,6 @@
 body {
   background-color: #212121;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
@@ -33,7 +34,7 @@ select {
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-family: Calibri, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: bold;
   outline: none;
@@ -55,7 +56,6 @@ select {
   color: #fff;
   display: flex;
   flex-direction: column;
-  font-family: Calibri, sans-serif;
   font-size: 24px;
   margin: auto;
   min-height: 98vh;
@@ -81,7 +81,29 @@ img {
 }
 
 @media (max-width: 800px) {
+  .covid-button {
+    background-color: #ff9900;
+    width: 100%;
+
+    &:hover {
+      background-color: #ff9900;
+      color: unset;
+    }
+  }
+
   .page-wrapper {
     min-height: 100vh;
+
+    .content {
+      background-color: unset;
+      border: unset;
+      border-radius: unset;
+      margin: 4rem auto 7rem;
+      width: unset;
+    }
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
   }
 } 
