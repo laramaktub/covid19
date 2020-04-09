@@ -291,5 +291,6 @@ class ProfileForm(FlaskForm):
                  ('assophypulmo', 'Médico adjunto de neumología'),
                  ('internassisphysi','Médico adjunto internista'),
                  ('deputyemerg', 'Médico adjunto de urgencias'),
-                 ('assodoctorother', 'Médico adjunto de otra especialidad')])
+                 ('assodoctorother', 'Médico adjunto de otra especialidad'),
+                 ('others', 'Otros')])
     user_profile=TextField(u'USER PROFILE','')
