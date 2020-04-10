@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block content %}
+{% include "snippets/back-button/back-button.html" %}
 <div class="content training">
   <div class="training__actions">
     <div class="training__end" >
@@ -25,11 +26,11 @@
     <div class="training__container">
       <form action="/send_results" method="POST">
         {{ form.csrf_token }}
-        <div>
-          Sexo: {{ sex }}<br>
-          Edad: {{ age }}<br>
+        <div class="training__data">
+          <p class="field"><strong>Sexo:</strong> {{ sex }}</p>
+          <p class="field"><strong>Edad:</strong> {{ age }}</p>
         </div>
-        <div>
+        <div class="training__select">
           <br>{{ form.type_of_diag.label }}
           <br>{{ form.type_of_diag }}
         </div>
@@ -43,10 +44,13 @@
     </div>
   </div>    
     
-  <div class="training__images">
+  <div class="training__images--desktop">
     <a href={{ img }} class="zoom">
-      <img src={{ img }} alt={{ img_id }} width="150" height="200" />
+      <img src={{ img }} alt={{ img_id }} width="150" height="200"/>
     </a>
+  </div>
+  <div class="training__images--mobile">
+    <img src={{ img }} alt={{ img_id }} width="150" height="200"/>
   </div>
 </div>
 {% endblock %}

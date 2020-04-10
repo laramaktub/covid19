@@ -6,6 +6,12 @@
     padding: 0.75rem;
   }
 
+  &__data {
+    p {
+      margin: unset;
+    }
+  }
+
   &__end {
     margin-bottom: 1rem;
     button {
@@ -25,9 +31,10 @@
     width: 100%;
   }
 
-  &__images {
+  &__images--desktop {
     border: 1px solid #999;
     border-radius: 4px;
+    display: unset;
     margin: 0.75rem;
     width: 65%;
 
@@ -37,6 +44,10 @@
       width:100%;
       height:100%;
     }
+  }
+
+  &__images--mobile {
+    display: none;
   }
 }
 
@@ -52,4 +63,82 @@ label {
 #type_of_diag {
   font-size: 14px;
   width: 100%;
+}
+
+@media (max-width: 750px) {
+  .page-wrapper .content .training {
+    padding: unset;
+  }
+
+  .training {
+    flex-direction: column-reverse;
+
+    &__actions {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding: unset;
+      width: unset;
+    }
+
+    &__images--mobile {
+      border: unset;
+      border-radius: unset;
+      display: unset;
+      margin: -1rem -1rem -6px -1rem;
+      width: unset;
+  
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  
+    &__images--desktop {
+      display: none;
+    }
+
+    &__container {
+      background-color: #333;
+      border: unset;
+      border-top: 2px solid #666;
+      border-bottom: 2px solid #666;
+      border-radius: unset;
+      padding: 1rem;
+
+      .covid-button {
+        border: 2px solid #888;
+        background-color: #666;
+      }
+    }
+
+    &__data {
+      display: flex;
+
+      .field {
+        font-size: 6.4vw;
+        width: 50%;
+
+        strong {
+          color: #ff9900;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &__select label {
+      float: left;
+    }
+
+    &__end {
+      margin: 0.5rem 0;
+      padding: 1rem;
+    }
+  }
+
+  #type_of_diag {
+    font-size: 4.45vw;
+    margin: 0;
+  }
 }

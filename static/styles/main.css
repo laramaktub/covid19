@@ -1,28 +1,28 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\000031}}
 .about {
-  background-color: #212121;
-  border-radius: 8px;
   margin: 4rem 2rem;
-  padding: 3rem 2rem;
-  text-align: justify; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\000037}}
+  padding: 3rem 2rem; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\000034}}
   .about__title {
-    padding-left: 2rem; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\000039}}
+    padding-left: 2rem;
+    text-align: left; }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\000037}}
     .about__title h2 {
       margin: 0; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000315}}
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000313}}
   .about__row {
     display: flex; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000319}}
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000317}}
     .about__column {
       padding: 2rem; }
-      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000321}}
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000319}}
       .about__column h4 {
-        color: #ff9900; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000327}}
+        color: #ff9900;
+        text-align: left; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000326}}
   .about__paragraph {
-    font-size: 20px; }
+    font-size: 20px;
+    text-align: justify; }
     @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000329}}
     .about__paragraph a {
       color: #ff9900;
@@ -31,6 +31,30 @@
       @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000333}}
       .about__paragraph a:hover {
         text-decoration: underline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000343}}
+@media (max-width: 750px) {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000343}}
+  .about {
+    margin: 4rem 1rem 1rem;
+    padding: 2rem 1rem;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000346}}
+    .about__title {
+      font-size: 6vw;
+      padding-left: 0;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000351}}
+      .about__row {
+        flex-direction: column;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000355}}
+        .about__column {
+          padding: 0;   }
+          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000357}}
+          .about__column h4 {
+            font-size: 6.2vw;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/about\.scss}line{font-family:\0000363}}
+    .about__paragraph {
+      line-height: 1.6rem;   }
+}
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\000031}}
 .home {
@@ -119,6 +143,54 @@
       font-size: 18px;
       font-size: 0.96vw; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003104}}
+@media (max-width: 750px) {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003104}}
+  .home__title {
+    font-size: 8vw;
+    margin: 1rem auto 0;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003109}}
+    .home__paragraph {
+      font-size: 20px;
+      margin: 4rem auto 3rem;
+      text-align: justify;
+      width: 92%;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003116}}
+      .home__row {
+        flex-direction: column;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003120}}
+        .home__button, .home__info {
+          padding: 0;
+          text-align: unset;
+          width: 100%;   }
+          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003124}}
+          .home__button button, .home__info button {
+            float: unset;
+            width: 100%;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003129}}
+            .home__button a, .home__info a {
+              font-size: 4.6vw;   }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003135}}
+  .home__subtitle {
+    font-size: 7.7vw;
+    margin: 2.5rem auto;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003140}}
+    .home__column {
+      padding: 1rem;
+      width: 100%;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003143}}
+      .home__column h3 {
+        font-size: 7vw;
+        margin-bottom: 0.5rem;   }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003150}}
+  .home__circle {
+    width: 75%;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/home\.scss}line{font-family:\00003154}}
+    .home__text {
+      font-size: 4.96vw;
+      margin-top: 0.5rem;   }
+}
+
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\000031}}
 .login__label {
   margin-top: 2rem; }
@@ -138,7 +210,7 @@
   font-weight: bold;
   left: 3px;
   position: absolute;
-  top: 34px; }
+  top: 35px; }
   @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000325}}
   .login__terms {
     margin: 2rem 1rem 1rem;
@@ -147,6 +219,37 @@
     .login__terms__checkbox {
       width: 1rem;
       height: 1rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000337}}
+@media (max-width: 750px) {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000337}}
+  .login {
+    padding: 1rem;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000339}}
+    .login__label {
+      margin-top: 3rem;
+      font-size: 5.8vw;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000344}}
+      .login__button {
+        margin: 1.5rem auto;
+        width: unset;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000349}}
+        .login__error {
+          font-size: 4.1vw;   }
+          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000353}}
+          .login__terms {
+            margin: unset;
+            display: flex;
+            align-items: center;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000357}}
+            .login__terms__checkbox {
+              width: 1rem;
+              height: 1rem;   }
+              @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/login\.scss}line{font-family:\0000362}}
+              .login__terms label {
+                font-size: 4.5vw;
+                margin-left: 0.25rem;   }
+}
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\000031}}
 .results__details {
@@ -157,18 +260,34 @@
   margin: auto;
   width: 75%; }
   @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000310}}
-  .results__try-again {
-    margin-bottom: 1rem; }
+  .results__note {
+    padding: 1rem; }
     @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000312}}
-    .results__try-again button {
-      width: 50%; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000318}}
+    .results__note a {
+      color: #ff9900;
+      text-decoration: none; }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000315}}
+      .results__note a:hover {
+        text-decoration: underline; }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000321}}
+    .results__note p {
+      margin: 0; }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000325}}
+      .results__note strong {
+        color: #ff9900; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000332}}
+.results__try-again {
+  margin-bottom: 1rem; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000334}}
+  .results__try-again button {
+    width: 50%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000340}}
 .results__separator {
   height: 1px;
   background-color: #ff9900;
   width: 90%;
   margin: 3rem auto; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000325}}
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000347}}
   .results__card {
     background-color: #545454;
     border: 1px solid #999;
@@ -176,28 +295,128 @@
     width: 70%;
     margin: auto;
     padding: 1rem; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000334}}
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000356}}
     .results__element {
       display: inline-grid;
       margin-bottom: 1rem; }
-      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000339}}
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000361}}
       .results__answer {
         display: inline-flex;
         font-size: 18px;
         margin: 0.25rem 0; }
-        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000345}}
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000367}}
         .results__correct {
           color: green;
           margin: 0; }
-          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000350}}
+          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000372}}
           .results__wrong {
             color: red;
             margin: 0; }
-            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000355}}
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000377}}
             .results__image img {
               border-radius: 0.5rem;
               height: 100%;
               width: 100%; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000385}}
+@media (max-width: 750px) {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000385}}
+  .results__title {
+    color: #ff9900;
+    font-size: 8vw;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-top: 1rem;
+    text-transform: uppercase;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\0000394}}
+    .results__details {
+      background-color: unset;
+      border: unset;
+      border-radius: unset;
+      font-size: 20px;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: 100%;
+      text-align: left;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003103}}
+      .results__details .list {
+        color: #ff9900;
+        line-height: 1.8rem;
+        padding-left: 1.5rem;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003107}}
+        .results__details .list b {
+          color: #fff;   }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003115}}
+  .results__note {
+    background-color: #424242;
+    border: 2px solid #666;
+    font-size: 4.4vw;
+    margin-right: -2rem;
+    padding: 0.5rem;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003121}}
+    .results__note a {
+      color: #ff9900;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003125}}
+      .results__note p {
+        margin: 0;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003129}}
+        .results__note strong {
+          color: #ff9900;   }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003136}}
+  .results__paragraph-first, .results__paragraph-again {
+    margin: 2rem 0 0;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003140}}
+    .results__paragraph-first {
+      color: #d9d9d9;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003144}}
+      .results__paragraph-again {
+        font-size: 4.7vw;   }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003150}}
+  .results__try-again {
+    margin-bottom: 2rem;
+    padding: 1rem 0;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003153}}
+    .results__try-again button {
+      width: 100%;   }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003159}}
+  .results__separator {
+    display: none;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003163}}
+    .results__wrong-answers {
+      background-color: #424242;
+      border-top: 2px solid #ff9900;
+      margin: 0 -1rem -1rem -1rem;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003169}}
+      .results__subtitle {
+        font-size: 7vw;
+        margin-bottom: 3rem;
+        padding-top: 0.25rem;
+        text-transform: uppercase;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003176}}
+        .results__card {
+          background-color: unset;
+          border: unset;
+          border-radius: unset;
+          border-top: 2px solid #666;
+          padding: unset;
+          width: unset;   }
+          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003185}}
+          .results__element {
+            margin-bottom: unset;
+            background-color: #333;
+            padding: 1rem;
+            text-align: left;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003192}}
+            .results__image img {
+              border-radius: unset;   }
+              @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003196}}
+              .results__correct {
+                color: #ff9900;   }
+                @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/results\.scss}line{font-family:\00003200}}
+                .results__wrong {
+                  color: #d9d9d9;
+                  margin: 0;   }
+}
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\000031}}
 .start__select {
@@ -229,21 +448,55 @@
     .start__logout a {
       color: #ff9900;
       text-decoration: none; }
-      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000334}}
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000333}}
       .start__logout a:hover {
         text-decoration: underline; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000343}}
 #type_of_profile {
   margin-bottom: 1rem;
   width: 40%; }
 
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000348}}
+  @media (max-width: 750px) {
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000348}}
+    .start {
+      padding: 1rem;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000350}}
+      .start__title {
+        color: #ff9900;
+        font-size: 9.2vw;
+        text-transform: uppercase;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000356}}
+        .start__label {
+          font-size: 5.5vw;
+          text-align: justify;   }
+          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000361}}
+          .start__select {
+            margin: unset;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000365}}
+            .start__button {
+              width: unset;   }
+              @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000369}}
+              .start__logout {
+                color: #d9d9d9;
+                font-size: 3.75vw;   }
+                @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000372}}
+                .start__logout strong {
+                  color: #fff;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/start\.scss}line{font-family:\0000380}}
+    #type_of_profile {
+      margin-bottom: 0.5rem;
+      width: 100%;   }
+}
+
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\000031}}
 body {
   background-color: #212121;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0; }
 
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\000036}}
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\000037}}
   select {
     background-color: #636363;
     border: 2px solid #ff9900;
@@ -254,43 +507,42 @@ body {
     height: 1.75rem;
     margin-top: 0.5rem;
     outline: none; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000316}}
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000317}}
     select:hover {
       background-color: rgba(255, 153, 0, 0.75);
       color: #212121; }
-      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000321}}
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000322}}
       select option:hover {
         background-color: #ff9900;
         color: #212121; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000331}}
 .covid-button {
   background-color: #636363;
   border: 2px solid #ff9900;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-family: Calibri, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: bold;
   outline: none;
   padding: 0.75rem;
   text-decoration: none; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000342}}
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000343}}
   .covid-button:hover {
     background-color: rgba(255, 153, 0, 0.75);
     color: #212121; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000347}}
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000348}}
     .covid-button:active {
       background-color: #ff9900;
       color: #212121; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000355}}
 .page-wrapper {
   color: #fff;
   display: flex;
   flex-direction: column;
-  font-family: Calibri, sans-serif;
   font-size: 24px;
   margin: auto;
   min-height: 98vh;
@@ -315,8 +567,34 @@ img {
   @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000383}}
   @media (max-width: 800px) {
     @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000383}}
-    .page-wrapper .content {
+    .covid-button {
+      background-color: #ff9900;
       width: 100%;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000386}}
+      .covid-button:hover {
+        background-color: #ff9900;
+        color: unset;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000393}}
+    .page-wrapper {
+      min-height: 100vh;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\0000395}}
+      .page-wrapper .content {
+        background-color: unset;
+        border: unset;
+        border-radius: unset;
+        margin: 4rem auto auto;
+        width: unset;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\00003105}}
+    select {
+      background-color: #666;
+      border-color: #666;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\00003108}}
+      select:hover {
+        background-color: #666;
+        color: #fff;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/styles\.scss}line{font-family:\00003115}}
+    a, button {
+      -webkit-tap-highlight-color: transparent;   }
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\000031}}
@@ -327,57 +605,131 @@ img {
     width: 35%;
     padding: 0.75rem; }
     @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\000038}}
-    .training__end {
-      margin-bottom: 1rem; }
-      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\000039}}
-      .training__end button {
-        width: 100%; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000315}}
+    .training__data p {
+      margin: unset; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000314}}
+  .training__end {
+    margin-bottom: 1rem; }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000315}}
+    .training__end button {
+      width: 100%; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000321}}
   .training__container {
     background-color: #454545;
     border: 1px solid #ff9900;
     border-radius: 4px;
     padding: 1rem; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000322}}
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000328}}
     .training__next {
       margin-top: 2rem;
       width: 100%; }
-      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000327}}
-      .training__images {
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000333}}
+      .training__images--desktop {
         border: 1px solid #999;
         border-radius: 4px;
+        display: unset;
         margin: 0.75rem;
         width: 65%; }
-        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000332}}
-        .training__images img {
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000339}}
+        .training__images--desktop img {
           border: 1px solid #999;
           border-radius: 4px;
           width: 100%;
           height: 100%; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000348}}
+  .training__images--mobile {
+    display: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000354}}
 .zoom parent-zoom {
   height: auto;
   width: auto; }
 
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000348}}
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000359}}
   label {
     font-size: 20px; }
 
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000352}}
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000363}}
     #type_of_diag {
       font-size: 14px;
       width: 100%; }
 
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000368}}
+      @media (max-width: 750px) {
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000368}}
+        .page-wrapper .content .training {
+          padding: unset;   }
+          @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000372}}
+          .training {
+            flex-direction: column-reverse;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000374}}
+            .training__actions {
+              display: flex;
+              flex-direction: column-reverse;
+              margin-left: -1rem;
+              margin-right: -1rem;
+              padding: unset;
+              width: unset;   }
+              @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000383}}
+              .training__images--mobile {
+                border: unset;
+                border-radius: unset;
+                display: unset;
+                margin: -1rem -1rem -6px -1rem;
+                width: unset;   }
+                @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000389}}
+                .training__images--mobile img {
+                  width: 100%;
+                  height: 100%;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\0000396}}
+            .training__images--desktop {
+              display: none;   }
+              @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003100}}
+              .training__container {
+                background-color: #333;
+                border: unset;
+                border-top: 2px solid #666;
+                border-bottom: 2px solid #666;
+                border-radius: unset;
+                padding: 1rem;   }
+                @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003107}}
+                .training__container .covid-button {
+                  border: 2px solid #888;
+                  background-color: #666;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003114}}
+            .training__data {
+              display: flex;   }
+              @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003116}}
+              .training__data .field {
+                font-size: 6.4vw;
+                width: 50%;   }
+                @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003119}}
+                .training__data .field strong {
+                  color: #ff9900;
+                  font-weight: bold;   }
+            @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003128}}
+            .training__select label {
+              float: left;   }
+              @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003132}}
+              .training__end {
+                margin: 0.5rem 0;
+                padding: 1rem;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/styles\/training\.scss}line{font-family:\00003139}}
+        #type_of_diag {
+          font-size: 4.45vw;
+          margin: 0;   }
+}
+
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/avatar\/avatar\.scss}line{font-family:\000031}}
 .avatar {
-  margin: auto;
-  margin-top: 1rem;
-  width: 120px; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/avatar\/avatar\.scss}line{font-family:\000035}}
+  height: 122px;
+  margin-top: 1rem; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/avatar\/avatar\.scss}line{font-family:\000034}}
   .avatar__image {
+    border: 1px solid grey;
     border-radius: 8px;
-    border: 1px solid grey; }
+    height: 120px;
+    width: 120px; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\000031}}
 .back-button {
@@ -385,39 +737,82 @@ img {
   border: none;
   color: #fff;
   cursor: pointer;
-  font-family: Calibri, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
-  left: 0.5rem;
-  outline: none;
-  position: fixed;
-  top: 1rem; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000312}}
+  margin-left: 0.5rem;
+  outline: none; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000310}}
   .back-button:hover {
     color: #ff9900; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000314}}
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000312}}
     .back-button:hover svg {
       fill: #ff9900; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000320}}
-  .back-button svg {
-    fill: #fff;
-    height: 21px;
-    width: 23px; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000318}}
+  .back-button__wrapper {
+    align-items: center;
+    display: flex;
+    height: 4rem;
+    left: 0;
+    position: fixed;
+    top: 0; }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000327}}
+    .back-button svg {
+      fill: #fff;
+      height: 21px;
+      width: 23px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000335}}
+@media (max-width: 750px) {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000335}}
+  .back-button {
+    margin-left: 0.25rem;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/back-button\/back-button\.scss}line{font-family:\0000337}}
+    .back-button__wrapper {
+      background-color: #333;
+      border-bottom: 1px solid #666;
+      width: 100%;   }
+}
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\000031}}
 .footer {
-  font-family: Calibri, sans-serif;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   height: 2rem;
+  justify-content: center;
   margin-top: auto;
   width: 100%; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\000036}}
-  .footer a {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\000039}}
+  .footer__link {
     color: #fff;
     text-decoration: none; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\000039}}
-    .footer a:hover {
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\0000312}}
+    .footer__link:hover {
       color: #ff9900;
       text-decoration: underline; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\0000319}}
+  .footer__separator, .footer__copyright {
+    margin: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\0000325}}
+@media (max-width: 800px) {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\0000325}}
+  .footer {
+    background-color: #191919;
+    border-top: 2px solid #666;
+    flex-direction: column;
+    height: 7rem;
+    padding-top: 0.75rem;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\0000331}}
+    .footer__separator {
+      display: none;   }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\0000335}}
+      .footer__link {
+        margin: 0.25rem;   }
+        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/footer\/footer\.scss}line{font-family:\0000339}}
+        .footer__copyright {
+          margin: 0.25rem 0 0.75rem;   }
+}
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\000031}}
 .home-button {
@@ -425,23 +820,41 @@ img {
   border: none;
   color: #fff;
   cursor: pointer;
-  font-family: Calibri, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
-  left: 0.5rem;
-  outline: none;
-  position: fixed;
-  top: 1rem; }
-  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000312}}
-  .home-button svg {
-    width: 1em;
-    height: 1em; }
-    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000319}}
-    .home-button svg path, .home-button svg polygon, .home-button svg rect {
-      fill: #fff; }
-      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000323}}
-      .home-button:hover {
-        color: #ff9900; }
-        @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000327}}
-        .home-button:hover svg path, .home-button:hover svg polygon,
-        .home-button:hover svg rect {
-          fill: #ff9900; }
+  margin-left: 0.5rem;
+  outline: none; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000310}}
+  .home-button:hover {
+    color: #ff9900; }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000314}}
+    .home-button:hover svg path, .home-button:hover svg polygon,
+    .home-button:hover svg rect {
+      fill: #ff9900; }
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000320}}
+  .home-button__wrapper {
+    align-items: center;
+    display: flex;
+    height: 4rem;
+    left: 0;
+    position: fixed;
+    top: 0; }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000329}}
+    .home-button svg {
+      width: 1em;
+      height: 1em; }
+      @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000336}}
+      .home-button svg path, .home-button svg polygon, .home-button svg rect {
+        fill: #fff; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000342}}
+@media (max-width: 750px) {
+  @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000342}}
+  .home-button {
+    margin-left: 0.25rem;   }
+    @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/pedrosolisgarcia\/Repositories\/Web\ Development\/covid19\/static\/\.\.\/templates\/snippets\/home-button\/home-button\.scss}line{font-family:\0000344}}
+    .home-button__wrapper {
+      background-color: #333;
+      border-bottom: 1px solid #666;
+      width: 100%;   }
+}

@@ -32,9 +32,10 @@
     a {
       color: #ff9900;
       text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -42,4 +43,43 @@
 #type_of_profile {
   margin-bottom: 1rem;
   width: 40%;
+}
+
+@media (max-width: 750px) {
+  .start {
+    padding: 1rem;
+
+    &__title {
+      color: #ff9900;
+      font-size: 9.2vw;
+      text-transform: uppercase;
+    }
+
+    &__label {
+      font-size: 5.5vw;
+      text-align: justify;
+    }
+
+    &__select {
+      margin: unset;
+    }
+
+    &__button {
+      width: unset;
+    }
+
+    &__logout {
+      color: #d9d9d9;
+      font-size: 3.75vw;
+
+      strong {
+        color: #fff;
+      }
+    }
+  }
+
+  #type_of_profile {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
 }

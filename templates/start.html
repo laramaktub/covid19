@@ -9,9 +9,8 @@
 {% include "snippets/back-button/back-button.html" %}
   <div class="content start">
     {% include "snippets/avatar/avatar.html" %}
-    <h2>Bienvenido a COVID-19 Training</h2>
-
-    Por favor, selecciona tu especialidad para continuar:
+    <h2 class="start__title">Bienvenido a COVID-19 Training</h2>
+    <p class="start__label">Por favor, selecciona tu especialidad para continuar:</p>
     <form action="/training" method="POST">
       {{ form.csrf_token }}
       <div class="start__select">

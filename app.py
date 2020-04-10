@@ -267,7 +267,7 @@ def results():
 class TrainingForm(FlaskForm):
  
     type_of_diag = SelectField(
-        u'Selecciona diagnóstico',
+        u'Selecciona diagnóstico:',
         choices=[('pat_covid_com', 'Patológico (compatible con COVID-19)'),
                  ('pat_no_covid_com', 'Patológico (NO compatible con COVID-19)'),
                  ('non_pat', 'No Patológico')])

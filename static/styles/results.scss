@@ -8,6 +8,28 @@
     width: 75%;
   }
 
+  &__note {
+    padding: 1rem;
+
+    a {
+      color: #ff9900;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    strong {
+      color: #ff9900;
+    }
+
+  }
+
   &__try-again {
     margin-bottom: 1rem;
 
@@ -53,11 +75,133 @@
     margin: 0;
   }
 
-  &__image {
-    img {
-      border-radius: 0.5rem;
-      height:100%;
-      width:100%;
+  &__image img {
+    border-radius: 0.5rem;
+    height:100%;
+    width:100%;
+  }
+}
+
+@media (max-width: 750px) {
+  .results {
+    &__title {
+      color: #ff9900;
+      font-size: 8vw;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      margin-top: 1rem;
+      text-transform: uppercase;
+    }
+
+    &__details {
+      background-color: unset;
+      border: unset;
+      border-radius: unset;
+      font-size: 20px;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: 100%;
+      text-align: left;
+
+      .list {
+        color: #ff9900;
+        line-height: 1.8rem;
+        padding-left: 1.5rem;
+
+        b {
+          color: #fff;
+        }
+      }
+    }
+
+    &__note {
+      background-color: #424242;
+      border: 2px solid #666;
+      font-size: 4.4vw;
+      margin-right: -2rem;
+      padding: 0.5rem;
+
+      a {
+        color: #ff9900;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      strong {
+        color: #ff9900;
+      }
+
+    }
+
+    &__paragraph-first, &__paragraph-again {
+      margin: 2rem 0 0;
+    }
+
+    &__paragraph {
+      &-first {
+        color: #d9d9d9
+      }
+
+      &-again {
+        font-size: 4.7vw;
+      }
+    }
+
+    &__try-again {
+      margin-bottom: 2rem;
+      padding: 1rem 0;
+  
+      button {
+        width: 100%;
+      }
+    }
+
+    &__separator {
+      display: none;
+    }
+
+    &__wrong-answers {
+      background-color: #424242;
+      border-top: 2px solid #ff9900;
+      margin: 0 -1rem -1rem -1rem;
+    }
+
+    &__subtitle {
+      font-size: 7vw;
+      margin-bottom: 3rem;
+      padding-top: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    &__card {
+      background-color: unset;
+      border: unset;
+      border-radius: unset;
+      border-top: 2px solid #666;
+      padding: unset;
+      width: unset;
+    }
+
+    &__element {
+      margin-bottom: unset;
+      background-color: #333;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    &__image img {
+      border-radius: unset;
+    }
+
+    &__correct {
+      color: #ff9900;
+    }
+  
+    &__wrong {
+      color: #d9d9d9;
+      margin: 0;
     }
   }
 }

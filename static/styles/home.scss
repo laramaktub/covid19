@@ -100,3 +100,63 @@
     font-size: 0.96vw;
   }
 }
+
+@media (max-width: 750px) {
+
+  .home {
+    &__title {
+      font-size: 8vw;
+      margin: 1rem auto 0;
+    }
+
+    &__paragraph {
+      font-size: 20px;
+      margin: 4rem auto 3rem;
+      text-align: justify;
+      width: 92%;
+    }
+
+    &__row {
+      flex-direction: column;
+    }
+
+    &__button, &__info {
+      padding: 0;
+      text-align: unset;
+      width: 100%;
+
+      button {
+        float: unset;
+        width: 100%;
+      }
+
+      a {
+        font-size: 4.6vw;
+      }
+    }
+
+    &__subtitle {
+      font-size: 7.7vw;
+      margin: 2.5rem auto;
+    }
+
+    &__column {
+      padding: 1rem;
+      width: 100%;
+  
+      h3 {
+        font-size: 7vw;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    &__circle {
+      width: 75%;
+    }
+
+    &__text {
+      font-size: 4.96vw;
+      margin-top: 0.5rem;
+    }
+  }
+}
