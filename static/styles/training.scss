@@ -66,7 +66,7 @@ label {
 }
 
 @media (max-width: 750px) {
-  .page-wrapper .content {
+  .page-wrapper .content .training {
     padding: unset;
   }
 
@@ -76,6 +76,8 @@ label {
     &__actions {
       display: flex;
       flex-direction: column-reverse;
+      margin-left: -1rem;
+      margin-right: -1rem;
       padding: unset;
       width: unset;
     }
@@ -84,8 +86,7 @@ label {
       border: unset;
       border-radius: unset;
       display: unset;
-      margin: unset;
-      margin-bottom: -6px;
+      margin: -1rem -1rem -6px -1rem;
       width: unset;
   
       img {
@@ -137,7 +138,7 @@ label {
   }
 
   #type_of_diag {
-    font-size: 4.6vw;
+    font-size: 4.45vw;
     margin: 0;
   }
 }
