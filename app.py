@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_babel import Babel, gettext
 from flask_assets import Environment, Bundle
 from flask_oidc import OpenIDConnect
 from flask_wtf import FlaskForm
@@ -17,8 +18,13 @@ app.config.update({
     'OIDC_CLIENT_SECRETS': 'client_secrets.json',
     'OIDC_ID_TOKEN_COOKIE_SECURE': False,
     'OIDC_REQUIRE_VERIFIED_EMAIL': False,
-    'OIDC_OPENID_REALM': 'http://localhost:5000/oidc_callback'
+    'OIDC_OPENID_REALM': 'http://localhost:5000/oidc_callback',
+    'LANGUAGES': {
+      'en': 'English',
+      'es': 'Spanish'
+    }
 })
+babel = Babel(app)
 oidc = OpenIDConnect(app)
 IMG_FOLDER = '/static/img/'
 
@@ -43,6 +49,10 @@ scss = Bundle(
 )
 assets.register('scss_all', scss)
 
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
     c = conn.cursor()
@@ -53,9 +63,9 @@ def get_random_img():
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
         age = int(row[0])
-        sex="Hombre"
+        sex=gettext("Hombre")
         if int(row[1])==2:
-           sex= "Mujer"
+           sex=gettext("Mujer")
         informe=int(row[3])
         diagnostico=row[4]
         diagnosis=row[5]
@@ -242,19 +252,19 @@ def results():
     try:
         sensitivity='%.2f'%(TP/(TP+FN))
     except:
-        sensitivity="Muestras insuficientes"
+        sensitivity=gettext("Muestras insuficientes")
     try:
         specificity='%.2f'%(TN/(TN+FP))
     except:
-        specificity="Muestras insuficientes"
+        specificity=gettext("Muestras insuficientes")
     try:
         pos_predval='%.2f'%(TP/(TP+FP))
     except:
-        pos_predval="Muestras insuficientes"
+        pos_predval=gettext("Muestras insuficientes")
     try:
         neg_predval='%.2f'%(TN/(TN+FN))
     except:
-        neg_predval="Muestras insuficientes"
+        neg_predval=gettext("Muestras insuficientes")
 
 
     res=[total_score, sensitivity,specificity, pos_predval, neg_predval, total_answered]
@@ -267,30 +277,29 @@ def results():
 class TrainingForm(FlaskForm):
  
     type_of_diag = SelectField(
-        u'Selecciona diagnóstico:',
-        choices=[('pat_covid_com', 'Patológico (compatible con COVID-19)'),
-                 ('pat_no_covid_com', 'Patológico (NO compatible con COVID-19)'),
-                 ('non_pat', 'No Patológico')])
+        gettext('Selecciona diagnóstico:'),
+        choices=[('pat_covid_com', gettext('Patológico (compatible con COVID-19)')),
+                 ('pat_no_covid_com', gettext('Patológico (NO compatible con COVID-19)')),
+                 ('non_pat', gettext('No Patológico'))])
     img_id = TextField(u'IMG ID','')
 
 class ProfileForm(FlaskForm):
     type_of_profile = SelectField(
-        u'Profile',
-        choices=[('noanswer','Click para seleccionar especialidad'),
-                 ('abdradio','Radiólogo abdominal'),
-                 ('Neuroradio','Neurorradiólogo'),
-                 ('breastradio','Radiólogo de mama'),
-                 ('muscradio','Radiólogo de músculo-esquelético'),
-                 ('generalradio','Radiólogo general'),
-                 ('interradio','Radiólogo intervencionista'),
-                 ('pediradio','Radiólogo pediátrico'),
-                 ('thoraradio','Radiólogo torácico'),
-                 ('radioresi','Residente de radiología'),
-                 ('resiother','Residente (especialidad distinta a la radiología)'),
-                 ('medicalstudent','Estudiante de medicina'),
-                 ('assophypulmo', 'Médico adjunto de neumología'),
-                 ('internassisphysi','Médico adjunto internista'),
-                 ('deputyemerg', 'Médico adjunto de urgencias'),
-                 ('assodoctorother', 'Médico adjunto de otra especialidad'),
-                 ('others', 'Otros')])
-    user_profile=TextField(u'USER PROFILE','')
+        'Profile',
+        choices=[('noanswer', gettext('Click para seleccionar especialidad')),
+                 ('abdradio', gettext('Radiólogo abdominal')),
+                 ('Neuroradio', gettext('Neurorradiólogo')),
+                 ('breastradio', gettext('Radiólogo de mama')),
+                 ('muscradio', gettext('Radiólogo de músculo-esquelético')),
+                 ('generalradio', gettext('Radiólogo general')),
+                 ('interradio', gettext('Radiólogo intervencionista')),
+                 ('pediradio', gettext('Radiólogo pediátrico')),
+                 ('thoraradio', gettext('Radiólogo torácico')),
+                 ('radioresi', gettext('Residente de radiología')),
+                 ('resiother', gettext('Residente (especialidad distinta a la radiología)')),
+                 ('medicalstudent', gettext('Estudiante de medicina')),
+                 ('assophypulmo', gettext('Médico adjunto de neumología')),
+                 ('internassisphysi', gettext('Médico adjunto internista')),
+                 ('deputyemerg', gettext('Médico adjunto de urgencias')),
+                 ('assodoctorother', gettext('Médico adjunto de otra especialidad')),
+                 ('others', gettext('Otros'))])
