@@ -1,19 +1,19 @@
 {% extends 'index.html' %}
-{% block title %}Inicio{% endblock %}
+{% block title %}{{ _('home.block-title') }}{% endblock %}
 
 {% block content %}
 <div class="home">
   <div class="home__container">
     <div class="home__section">
-      <h1 class="home__title">DIAGNOSTICA COVID-19 EN RADIOGRAFÍAS DE TÓRAX</h1>
-      <p class="home__paragraph">Aplicación de entrenamiento para radiólogos y para médicos de otras especialidades en diagnóstico de COVID-19 en radiografías de tórax. Calcula tu sensibilidad, especificidad, valor predictivo positivo, valor predictivo negativo y precisión global diagnosticando COVID-19.</p>
+      <h1 class="home__title">{{ _('home.title') }}</h1>
+      <p class="home__paragraph">{{ _('home.paragraph') }}</p>
       <div class="home__row">
         <div class="home__button">
           <button
             class="covid-button"
             onclick="document.location.href = '/login'"
           >
-            COVID-19 TRAINING
+          {{ _('home.login-button') }}
           </button>
         </div>
         <div class="home__info">
@@ -21,14 +21,14 @@
             href="https://api.cloud.ifca.es:8080/swift/v1/covid19/HallazgosCovid.pdf"
             target="_blank"
           >
-            ¿Cuáles son los hallazgos de COVID-19?
+            {{ _('home.info-link') }}
           </a>
         </div>
       </div>
     </div>
   </div>
   <div class="home__section">
-    <h2 class="home__subtitle">APLICACIÓN DISEÑADA PARA CUALQUIER TIPO DE PROFESIONAL MÉDICO</h2>
+    <h2 class="home__subtitle">{{ _('home.subtitle') }}</h2>
     <div class="home__row">
       <div class="home__column">
         <div class="home__circle">
@@ -38,8 +38,8 @@
             class="doctor"
           >
         </div>
-        <h3>Médicos</h3>
-        <p class="home__text">Para médicos de cualquier especialidad</p>
+        <h3>{{ _('home.column.medical-doctor.title') }}</h3>
+        <p class="home__text">{{ _('home.column.medical-doctor.content') }}</p>
       </div>
       <div class="home__column">
         <div class="home__circle">
@@ -49,8 +49,8 @@
             class="radiologist"
           >
         </div>
-        <h3>Radiólogos</h3>
-        <p class="home__text">Para todo tipo de radiólogos</p>
+        <h3>{{ _('home.column.radiologist.title') }}</h3>
+        <p class="home__text">{{ _('home.column.radiologist.content') }}</p>
       </div>
       <div class="home__column">
         <div class="home__circle">
@@ -60,8 +60,8 @@
             class="student"
           >
         </div>
-        <h3>Estudiantes</h3>
-        <p class="home__text">También para estudiantes</p>
+        <h3>{{ _('home.column.student.title') }}</h3>
+        <p class="home__text">{{ _('home.column.student.content') }}</p>
       </div>
     </div>
   </div>

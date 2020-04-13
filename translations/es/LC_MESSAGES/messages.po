@@ -1,0 +1,253 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-04-13 00:02+0200\n"
+"PO-Revision-Date: 2020-04-13 00:06+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: app.py:79
+msgid "Hombre"
+msgstr ""
+
+#: app.py:81
+msgid "Mujer"
+msgstr ""
+
+#: app.py:282 app.py:286 app.py:290 app.py:294
+msgid "Muestras insuficientes"
+msgstr ""
+
+#: app.py:307
+msgid "Selecciona diagnóstico:"
+msgstr ""
+
+#: app.py:308
+msgid "Patológico (compatible con COVID-19)"
+msgstr ""
+
+#: app.py:309
+msgid "Patológico (NO compatible con COVID-19)"
+msgstr ""
+
+#: app.py:310
+msgid "No Patológico"
+msgstr ""
+
+#: app.py:316
+msgid "Click para seleccionar especialidad"
+msgstr ""
+
+#: app.py:317
+msgid "Radiólogo abdominal"
+msgstr ""
+
+#: app.py:318
+msgid "Neurorradiólogo"
+msgstr ""
+
+#: app.py:319
+msgid "Radiólogo de mama"
+msgstr ""
+
+#: app.py:320
+msgid "Radiólogo de músculo-esquelético"
+msgstr ""
+
+#: app.py:321
+msgid "Radiólogo general"
+msgstr ""
+
+#: app.py:322
+msgid "Radiólogo intervencionista"
+msgstr ""
+
+#: app.py:323
+msgid "Radiólogo pediátrico"
+msgstr ""
+
+#: app.py:324
+msgid "Radiólogo torácico"
+msgstr ""
+
+#: app.py:325
+msgid "Residente de radiología"
+msgstr ""
+
+#: app.py:326
+msgid "Residente (especialidad distinta a la radiología)"
+msgstr ""
+
+#: app.py:327
+msgid "Estudiante de medicina"
+msgstr ""
+
+#: app.py:328
+msgid "Médico adjunto de neumología"
+msgstr ""
+
+#: app.py:329
+msgid "Médico adjunto internista"
+msgstr ""
+
+#: app.py:330
+msgid "Médico adjunto de urgencias"
+msgstr ""
+
+#: app.py:331
+msgid "Médico adjunto de otra especialidad"
+msgstr ""
+
+#: app.py:332
+msgid "Otros"
+msgstr ""
+
+#: templates/about.html:8
+msgid "ACERCA DE ESTE PROYECTO ..."
+msgstr ""
+
+#: templates/about.html:12
+msgid "¿Quién lo ha desarrollado?"
+msgstr ""
+
+#: templates/about.html:14
+msgid ""
+"Este proyecto ha sido desarrollado de manera altruista y desinteresada "
+"por el grupo de"
+msgstr ""
+
+#: templates/about.html:14
+msgid "Computación Avanzada y e-Ciencia"
+msgstr ""
+
+#: templates/about.html:14
+msgid "del IFCA y el"
+msgstr ""
+
+#: templates/about.html:14
+msgid "Servicio de Radiodiagnóstico"
+msgstr ""
+
+#: templates/about.html:14
+msgid ""
+"del Hospital Universitario Marqués de Valdecilla. Ha contado con el apoyo"
+" de otros profesionales que se han prestado a brindar sus servicios sin "
+"coste alguno: gracias a"
+msgstr ""
+
+#: templates/about.html:14
+msgid "por sus horas de programación; gracias a"
+msgstr ""
+
+#: templates/about.html:14
+msgid ""
+"por la asesoria jurídica y confección de los términos y condiciones de "
+"uso."
+msgstr ""
+
+#: templates/about.html:17
+msgid "¿Cuál es su finalidad?"
+msgstr ""
+
+#: templates/about.html:19
+msgid ""
+"Ante la situación de crisis motivada por la pandemia, múltiples "
+"profesionales sanitarios se han visto en la necesidad de aprender a "
+"identificar en radiografías de tórax los hallazgos característicos de "
+"COVID-19. La finalidad de este proyecto es la de facilitar este proceso a"
+" médicos, a residentes, a estudiantes y a todos aquellos interesados en "
+"adquirir esta competencia, proporcionando una herramienta que presenta "
+"ejemplos de radiografías de pacientes COVID-19 y ejemplos de radiografías"
+" de pacientes con hallazgos que podrían plantear diagnósticos "
+"diferenciales."
+msgstr ""
+
+#: templates/about.html:22
+msgid "Dedicado a ..."
+msgstr ""
+
+#: templates/about.html:24
+msgid "Dedicado a todos los profesionales del"
+msgstr ""
+
+#: templates/about.html:24
+msgid "Hospital Universitario Marqués de Valdecilla"
+msgstr ""
+
+#: templates/about.html:24
+msgid ""
+"y del resto de instituciones sanitarias, que de manera ejemplar han "
+"luchado desde el comienzo de esta pandemia por salvaguardar la salud y la"
+" vida de todos. Gracias al personal médico y de enfermería de los "
+"servicios de urgencias, de intensivos y de las plantas COVID-19; gracias "
+"a los radiólogos, técnicos y pacientes de los servicios de "
+"radiodiagnóstico; gracias al personal de limpieza, seguridad y "
+"mantenimiento; y a todos aquellos implicados de manera directa o "
+"indirecta en esta crisis sanitaria."
+msgstr ""
+
+#: templates/home.html
+msgid "home.block-title"
+msgstr "Inicio"
+
+msgid "home.title"
+msgstr "DIAGNOSTICA COVID-19 EN RADIOGRAFÍAS DE TÓRAX"
+
+msgid "home.paragraph"
+msgstr ""
+"Aplicación de entrenamiento para radiólogos y para médicos de otras "
+"especialidades en diagnóstico de COVID-19 en radiografías de tórax. "
+"Calcula tu sensibilidad, especificidad, valor predictivo positivo, valor "
+"predictivo negativo y precisión global diagnosticando COVID-19."
+
+msgid "home.login-button"
+msgstr "COVID-19 TRAINING"
+
+msgid "home.info-link"
+msgstr "¿Cuáles son los hallazgos de COVID-19?"
+
+msgid "home.subtitle"
+msgstr "APLICACIÓN DISEÑADA PARA CUALQUIER TIPO DE PROFESIONAL MÉDICO"
+
+msgid "home.column.medical-doctor.title"
+msgstr "Médicos"
+
+msgid "home.column.medical-doctor.content"
+msgstr "Para médicos de cualquier especialidad"
+
+msgid "home.column.radiologist.title"
+msgstr "Radiólogos"
+
+msgid "home.column.radiologist.content"
+msgstr "Para todo tipo de radiólogos"
+
+msgid "home.column.student.title"
+msgstr "Estudiantes"
+
+msgid "home.column.student.content"
+msgstr "También para estudiantes"
+
+#: templates/snippets/footer/footer.html:6
+msgid "Acerca de este proyecto y su finalidad"
+msgstr ""
+
+#: templates/snippets/footer/footer.html:12
+msgid "Términos y condiciones de uso"
+msgstr ""
+
+#: templates/snippets/footer/footer.html:17
+msgid "Contacta con nosotros"
+msgstr ""
+

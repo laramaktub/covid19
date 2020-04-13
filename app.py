@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, g
 from flask_babel import Babel, gettext
 from flask_assets import Environment, Bundle
 from flask_oidc import OpenIDConnect
@@ -51,7 +51,19 @@ assets.register('scss_all', scss)
 
 @babel.localeselector
 def get_locale():
-    return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    lang = request.path[1:].split('/', 1)[0]
+    if lang in app.config['LANGUAGES'].keys():
+        print('LANG in get_locale', lang)
+        return lang
+    else:
+        print('DEFAULT in get_locale')
+        return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+  
+@app.before_request
+def get_global_language():
+    g.babel = babel
+    g.language = get_locale()
+    print(g.language)
 
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
@@ -99,9 +111,23 @@ def delete_answers(user):
     conn.close()
     return
 
+@app.route("/")
+def default_route():
+    return redirect(url_for('home_'+g.language))
 
-@app.route('/')
+@app.route("/<lang>")
+def lang_route(lang):
+    if lang in app.config['LANGUAGES'].keys():
+        print('LANG in lang_route', lang)
+        return redirect(url_for('home_'+lang))
+    else:
+        print('DEFAULT in lang_route')
+        return redirect(url_for('home_'+g.language))
+
+@app.route("/es", endpoint="home_es")
+@app.route("/en", endpoint="home_en")
 def home():
+    print('Which one suits me better: ', request.accept_languages.best_match(app.config['LANGUAGES'].keys()))
     return render_template('home.html', loggedin=oidc.user_loggedin)
 
 @app.route('/about')
