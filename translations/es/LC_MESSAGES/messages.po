@@ -114,55 +114,37 @@ msgstr ""
 msgid "Otros"
 msgstr ""
 
-#: templates/about.html:8
-msgid "ACERCA DE ESTE PROYECTO ..."
-msgstr ""
+#: templates/about.html
+msgid "about.block-title"
+msgstr "Acerca de"
 
-#: templates/about.html:12
-msgid "¿Quién lo ha desarrollado?"
-msgstr ""
+msgid "about.title"
+msgstr "ACERCA DE ESTE PROYECTO ..."
 
-#: templates/about.html:14
-msgid ""
+msgid "about.paragraph.development.title"
+msgstr "¿Quién lo ha desarrollado?"
+
+msgid "about.paragraph.development.content"
+msgstr ""
 "Este proyecto ha sido desarrollado de manera altruista y desinteresada "
-"por el grupo de"
-msgstr ""
+"por el grupo de <a href=\"https://ifca.unican.es/es-es/investigacion"
+"/computacion-avanzada-y-e-ciencia\" target=\"_blank\">Computación "
+"Avanzada y e-Ciencia</a> del IFCA y el <a "
+"href=\"http://rxhumv.blogspot.com/?m=1\" target=\"_blank\">Servicio de "
+"Radiodiagnóstico</a> del Hospital Universitario Marqués de Valdecilla. Ha"
+" contado con el apoyo de otros profesionales que se han prestado a "
+"brindar sus servicios sin coste alguno: gracias a <a "
+"href=\"https://www.linkedin.com/in/pedrosolisgarcia/\" target=\"_blank\" "
+"rel=\"LinkedIn\">Pedro Solís García</a> por sus horas de programación; "
+"gracias a <a href=\"https://cafeconsultoriajuridica.negocio.site/\" "
+"target=\"_blank\">CAFE & ASOCIADOS</a> por la asesoria jurídica y "
+"confección de los términos y condiciones de uso."
 
-#: templates/about.html:14
-msgid "Computación Avanzada y e-Ciencia"
-msgstr ""
+msgid "about.paragraph.purpose.title"
+msgstr "¿Cuál es su finalidad?"
 
-#: templates/about.html:14
-msgid "del IFCA y el"
+msgid "about.paragraph.purpose.content"
 msgstr ""
-
-#: templates/about.html:14
-msgid "Servicio de Radiodiagnóstico"
-msgstr ""
-
-#: templates/about.html:14
-msgid ""
-"del Hospital Universitario Marqués de Valdecilla. Ha contado con el apoyo"
-" de otros profesionales que se han prestado a brindar sus servicios sin "
-"coste alguno: gracias a"
-msgstr ""
-
-#: templates/about.html:14
-msgid "por sus horas de programación; gracias a"
-msgstr ""
-
-#: templates/about.html:14
-msgid ""
-"por la asesoria jurídica y confección de los términos y condiciones de "
-"uso."
-msgstr ""
-
-#: templates/about.html:17
-msgid "¿Cuál es su finalidad?"
-msgstr ""
-
-#: templates/about.html:19
-msgid ""
 "Ante la situación de crisis motivada por la pandemia, múltiples "
 "profesionales sanitarios se han visto en la necesidad de aprender a "
 "identificar en radiografías de tórax los hallazgos característicos de "
@@ -172,31 +154,22 @@ msgid ""
 "ejemplos de radiografías de pacientes COVID-19 y ejemplos de radiografías"
 " de pacientes con hallazgos que podrían plantear diagnósticos "
 "diferenciales."
-msgstr ""
 
-#: templates/about.html:22
-msgid "Dedicado a ..."
-msgstr ""
+msgid "about.paragraph.dedications.title"
+msgstr "Dedicado a ..."
 
-#: templates/about.html:24
-msgid "Dedicado a todos los profesionales del"
+msgid "about.paragraph.dedications.content"
 msgstr ""
-
-#: templates/about.html:24
-msgid "Hospital Universitario Marqués de Valdecilla"
-msgstr ""
-
-#: templates/about.html:24
-msgid ""
-"y del resto de instituciones sanitarias, que de manera ejemplar han "
-"luchado desde el comienzo de esta pandemia por salvaguardar la salud y la"
-" vida de todos. Gracias al personal médico y de enfermería de los "
-"servicios de urgencias, de intensivos y de las plantas COVID-19; gracias "
-"a los radiólogos, técnicos y pacientes de los servicios de "
-"radiodiagnóstico; gracias al personal de limpieza, seguridad y "
-"mantenimiento; y a todos aquellos implicados de manera directa o "
-"indirecta en esta crisis sanitaria."
-msgstr ""
+"Dedicado a todos los profesionales del <a href=\"http://www.humv.es\" "
+"target=\"_blank\">Hospital Universitario Marqués de Valdecilla</a> y del "
+"resto de instituciones sanitarias, que de manera ejemplar han luchado "
+"desde el comienzo de esta pandemia por salvaguardar la salud y la vida de"
+" todos. Gracias al personal médico y de enfermería de los servicios de "
+"urgencias, de intensivos y de las plantas COVID-19; gracias a los "
+"radiólogos, técnicos y pacientes de los servicios de radiodiagnóstico; "
+"gracias al personal de limpieza, seguridad y mantenimiento; y a todos "
+"aquellos implicados de manera directa o indirecta en esta crisis "
+"sanitaria."
 
 #: templates/home.html
 msgid "home.block-title"
@@ -239,15 +212,15 @@ msgstr "Estudiantes"
 msgid "home.column.student.content"
 msgstr "También para estudiantes"
 
-#: templates/snippets/footer/footer.html:6
-msgid "Acerca de este proyecto y su finalidad"
-msgstr ""
+#: templates/snippets/footer/footer.html
+msgid "footer.about"
+msgstr "Acerca de este proyecto y su finalidad"
 
-#: templates/snippets/footer/footer.html:12
-msgid "Términos y condiciones de uso"
-msgstr ""
+msgid "footer.terms-and-conditions"
+msgstr "Términos y condiciones de uso"
 
-#: templates/snippets/footer/footer.html:17
-msgid "Contacta con nosotros"
-msgstr ""
+msgid "footer.contact-us"
+msgstr "Contacta con nosotros"
 
+msgid "footer.copyright"
+msgstr "Copyright &copy; IFCA - CSIC - HUMV"

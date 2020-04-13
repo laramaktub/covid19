@@ -114,89 +114,59 @@ msgstr ""
 msgid "Otros"
 msgstr ""
 
-#: templates/about.html:8
-msgid "ACERCA DE ESTE PROYECTO ..."
-msgstr ""
+#: templates/about.html
+msgid "about.block-title"
+msgstr "About"
 
-#: templates/about.html:12
-msgid "¿Quién lo ha desarrollado?"
-msgstr ""
+msgid "about.title"
+msgstr "ABOUT THIS PROJECT ..."
 
-#: templates/about.html:14
-msgid ""
-"Este proyecto ha sido desarrollado de manera altruista y desinteresada "
-"por el grupo de"
-msgstr ""
+msgid "about.paragraph.development.title"
+msgstr "Who has developed this application?"
 
-#: templates/about.html:14
-msgid "Computación Avanzada y e-Ciencia"
+msgid "about.paragraph.development.content"
 msgstr ""
+"This application was developed in an altruistic manner "
+"by the <a href=\"https://ifca.unican.es/en-us/research"
+"/advanced-computing-and-e-science\" target=\"_blank\">Advanced "
+"Computing and e-Science</a> group at IFCA (CSIC-UC) and the <a "
+"href=\"http://rxhumv.blogspot.com/?m=1\" target=\"_blank\">Radiology "
+"Department</a> at the Marqués de Valdecilla University Hospital "
+"(Santander, Spain). We would like to acknowledge the collaboration "
+"of other professionals that have volunteered their services free of charge: "
+"so thanks to <a href=\"https://www.linkedin.com/in/pedrosolisgarcia/\" "
+"target=\"_blank\" rel=\"LinkedIn\">Pedro Solís García</a> for their hours of "
+"programming; and thanks to <a href=\"https://cafeconsultoriajuridica.negocio.site/\" "
+"target=\"_blank\">CAFE & ASOCIADOS</a> for their legal advice and preparation "
+"of the terms and conditions of use document."
 
-#: templates/about.html:14
-msgid "del IFCA y el"
-msgstr ""
+msgid "about.paragraph.purpose.title"
+msgstr "What is the purpose of this project?"
 
-#: templates/about.html:14
-msgid "Servicio de Radiodiagnóstico"
+msgid "about.paragraph.purpose.content"
 msgstr ""
+"In the context of the COVID-19 pandemia, many physicians have been forced to "
+"acquire the capability of detecting signs of COVID-19 on chest X-rays. The aim of "
+"this project is to ease the learning process of evaluating COVID-19 X-rays for "
+"doctors, residents, students and for anybody else interested in acquiring this "
+"competence. For that purpose, we provide a tool which includes X-ray images from "
+"actual COVID-19 patients as well as some others that can be considered into the "
+"differential diagnoses."
 
-#: templates/about.html:14
-msgid ""
-"del Hospital Universitario Marqués de Valdecilla. Ha contado con el apoyo"
-" de otros profesionales que se han prestado a brindar sus servicios sin "
-"coste alguno: gracias a"
-msgstr ""
+msgid "about.paragraph.dedications.title"
+msgstr "Dedicated to..."
 
-#: templates/about.html:14
-msgid "por sus horas de programación; gracias a"
+msgid "about.paragraph.dedications.content"
 msgstr ""
-
-#: templates/about.html:14
-msgid ""
-"por la asesoria jurídica y confección de los términos y condiciones de "
-"uso."
-msgstr ""
-
-#: templates/about.html:17
-msgid "¿Cuál es su finalidad?"
-msgstr ""
-
-#: templates/about.html:19
-msgid ""
-"Ante la situación de crisis motivada por la pandemia, múltiples "
-"profesionales sanitarios se han visto en la necesidad de aprender a "
-"identificar en radiografías de tórax los hallazgos característicos de "
-"COVID-19. La finalidad de este proyecto es la de facilitar este proceso a"
-" médicos, a residentes, a estudiantes y a todos aquellos interesados en "
-"adquirir esta competencia, proporcionando una herramienta que presenta "
-"ejemplos de radiografías de pacientes COVID-19 y ejemplos de radiografías"
-" de pacientes con hallazgos que podrían plantear diagnósticos "
-"diferenciales."
-msgstr ""
-
-#: templates/about.html:22
-msgid "Dedicado a ..."
-msgstr ""
-
-#: templates/about.html:24
-msgid "Dedicado a todos los profesionales del"
-msgstr ""
-
-#: templates/about.html:24
-msgid "Hospital Universitario Marqués de Valdecilla"
-msgstr ""
-
-#: templates/about.html:24
-msgid ""
-"y del resto de instituciones sanitarias, que de manera ejemplar han "
-"luchado desde el comienzo de esta pandemia por salvaguardar la salud y la"
-" vida de todos. Gracias al personal médico y de enfermería de los "
-"servicios de urgencias, de intensivos y de las plantas COVID-19; gracias "
-"a los radiólogos, técnicos y pacientes de los servicios de "
-"radiodiagnóstico; gracias al personal de limpieza, seguridad y "
-"mantenimiento; y a todos aquellos implicados de manera directa o "
-"indirecta en esta crisis sanitaria."
-msgstr ""
+"Dedicated to all the professionals of the <a href=\"http://www.humv.es\" "
+"target=\"_blank\">Marqués de Valdecilla University Hospital</a> (Santander, "
+"Spain) and of all other Health Institutions, who have battled in an exemplary "
+"manner to safeguard the health and life of all citizens since the beginning "
+"of this pandemia. Thanks to the medical and nursing staff of the emergency "
+"departments, intensive care units and COVID-19 hospitals rooms; thanks "
+"to the radiologists, technicians and patients of the radiodiagnostic "
+"departments; thanks to the cleaning, security and maintenance staff; "
+"and to all those directly or indirectly involved in this health crisis."
 
 #: templates/home.html
 msgid "home.block-title"
@@ -239,15 +209,15 @@ msgstr "Students"
 msgid "home.column.student.content"
 msgstr "Also useful for students"
 
-#: templates/snippets/footer/footer.html:6
-msgid "Acerca de este proyecto y su finalidad"
-msgstr ""
+#: templates/snippets/footer/footer.html
+msgid "footer.about"
+msgstr "About this project and its purpose"
 
-#: templates/snippets/footer/footer.html:12
-msgid "Términos y condiciones de uso"
-msgstr ""
+msgid "footer.terms-and-conditions"
+msgstr "Terms and conditions of use"
 
-#: templates/snippets/footer/footer.html:17
-msgid "Contacta con nosotros"
-msgstr ""
+msgid "footer.contact-us"
+msgstr "Contact us"
 
+msgid "footer.copyright"
+msgstr "Copyright &copy; IFCA - CSIC - HUMV"

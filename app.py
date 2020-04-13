@@ -124,25 +124,34 @@ def lang_route(lang):
         print('DEFAULT in lang_route')
         return redirect(url_for('home_'+g.language))
 
+@app.route("/<lang>/<page>")
+def lang_route_page(lang, page):
+    if lang in app.config['LANGUAGES'].keys():
+        return redirect(url_for(page+'_'+lang))
+    else:
+        return redirect(url_for(page+'_'+g.language))
+
 @app.route("/es", endpoint="home_es")
 @app.route("/en", endpoint="home_en")
 def home():
-    print('Which one suits me better: ', request.accept_languages.best_match(app.config['LANGUAGES'].keys()))
-    return render_template('home.html', loggedin=oidc.user_loggedin)
+    return render_template('home.html')
 
-@app.route('/about')
+@app.route("/es/about", endpoint="about_es")
+@app.route("/en/about", endpoint="about_en")
 def about():
     return render_template('about.html')
 
-@app.route('/login')
+@app.route("/es/login", endpoint="login_es")
+@app.route("/en/login", endpoint="login_en")
 def login():
     if oidc.user_loggedin:
         print('User already logged in. Redirecting to next page...')
-        return redirect(url_for('start'))
+        return redirect(url_for('start_'+g.language))
     print('User not logged in. Rendering login page...')
     return render_template('login.html')
 
-@app.route('/start', methods=['GET'])
+@app.route("/es/start", endpoint="start_es")
+@app.route("/en/start", endpoint="start_en")
 @oidc.require_login
 def start():
     info = oidc.user_getinfo(['email'])
@@ -155,7 +164,7 @@ def start():
 @app.route('/logout')
 def logout():
     oidc.logout()
-    return redirect(url_for('home'))
+    return redirect(url_for('home_'+g.language))
 
 @app.route('/training', methods=['GET','POST'])
 @oidc.require_login
