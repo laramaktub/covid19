@@ -114,7 +114,7 @@ msgstr ""
 msgid "Otros"
 msgstr ""
 
-#: templates/about.html
+#: templates/about
 msgid "about.block-title"
 msgstr "About"
 
@@ -125,50 +125,22 @@ msgid "about.paragraph.development.title"
 msgstr "Who has developed this application?"
 
 msgid "about.paragraph.development.content"
-msgstr ""
-"This application was developed in an altruistic manner "
-"by the <a href=\"https://ifca.unican.es/en-us/research"
-"/advanced-computing-and-e-science\" target=\"_blank\">Advanced "
-"Computing and e-Science</a> group at IFCA (CSIC-UC) and the <a "
-"href=\"http://rxhumv.blogspot.com/?m=1\" target=\"_blank\">Radiology "
-"Department</a> at the Marqués de Valdecilla University Hospital "
-"(Santander, Spain). We would like to acknowledge the collaboration "
-"of other professionals that have volunteered their services free of charge: "
-"so thanks to <a href=\"https://www.linkedin.com/in/pedrosolisgarcia/\" "
-"target=\"_blank\" rel=\"LinkedIn\">Pedro Solís García</a> for their hours of "
-"programming; and thanks to <a href=\"https://cafeconsultoriajuridica.negocio.site/\" "
-"target=\"_blank\">CAFE & ASOCIADOS</a> for their legal advice and preparation "
-"of the terms and conditions of use document."
+msgstr "This application was developed in an altruistic manner by the <a href=\"https://ifca.unican.es/en-us/research/advanced-computing-and-e-science\" target=\"_blank\">Advanced Computing and e-Science</a> group at IFCA (CSIC-UC) and the <a href=\"http://rxhumv.blogspot.com/?m=1\" target=\"_blank\">Radiology Department</a> at the Marqués de Valdecilla University Hospital (Santander, Spain). We would like to acknowledge the collaboration of other professionals that have volunteered their services free of charge: so thanks to <a href=\"https://www.linkedin.com/in/pedrosolisgarcia/\" target=\"_blank\" rel=\"LinkedIn\">Pedro Solís García</a> for their hours of programming; and thanks to <a href=\"https://cafeconsultoriajuridica.negocio.site/\" target=\"_blank\">CAFE & ASOCIADOS</a> for their legal advice and preparation of the terms and conditions of use document."
 
 msgid "about.paragraph.purpose.title"
 msgstr "What is the purpose of this project?"
 
 msgid "about.paragraph.purpose.content"
-msgstr ""
-"In the context of the COVID-19 pandemia, many physicians have been forced to "
-"acquire the capability of detecting signs of COVID-19 on chest X-rays. The aim of "
-"this project is to ease the learning process of evaluating COVID-19 X-rays for "
-"doctors, residents, students and for anybody else interested in acquiring this "
-"competence. For that purpose, we provide a tool which includes X-ray images from "
-"actual COVID-19 patients as well as some others that can be considered into the "
-"differential diagnoses."
+msgstr "In the context of the COVID-19 pandemia, many physicians have been forced to acquire the capability of detecting signs of COVID-19 on chest X-rays. The aim of this project is to ease the learning process of evaluating COVID-19 X-rays for doctors, residents, students and for anybody else interested in acquiring this competence. For that purpose, we provide a tool which includes X-ray images from actual COVID-19 patients as well as some others that can be considered into the differential diagnoses."
 
 msgid "about.paragraph.dedications.title"
 msgstr "Dedicated to..."
 
 msgid "about.paragraph.dedications.content"
-msgstr ""
-"Dedicated to all the professionals of the <a href=\"http://www.humv.es\" "
-"target=\"_blank\">Marqués de Valdecilla University Hospital</a> (Santander, "
-"Spain) and of all other Health Institutions, who have battled in an exemplary "
-"manner to safeguard the health and life of all citizens since the beginning "
-"of this pandemia. Thanks to the medical and nursing staff of the emergency "
-"departments, intensive care units and COVID-19 hospitals rooms; thanks "
-"to the radiologists, technicians and patients of the radiodiagnostic "
-"departments; thanks to the cleaning, security and maintenance staff; "
-"and to all those directly or indirectly involved in this health crisis."
+msgstr "Dedicated to all the professionals of the <a href=\"http://www.humv.es\" target=\"_blank\">Marqués de Valdecilla University Hospital</a> (Santander, Spain) and of all other Health Institutions, who have battled in an exemplary manner to safeguard the health and life of all citizens since the beginning of this pandemia. Thanks to the medical and nursing staff of the emergency departments, intensive care units and COVID-19 hospitals rooms; thanks to the radiologists, technicians and patients of the radiodiagnostic departments; thanks to the cleaning, security and maintenance staff; and to all those directly or indirectly involved in this health crisis."
 
-#: templates/home.html
+
+#: templates/home
 msgid "home.block-title"
 msgstr "Home"
 
@@ -176,11 +148,7 @@ msgid "home.title"
 msgstr "COVID-19 ON CHEST X-RAY DIAGNOSIS TRAINING APPLICATION"
 
 msgid "home.paragraph"
-msgstr ""
-"This is an application for training radiologists and other medical doctors on "
-"diagnosing COVID-19 compatible chest X-rays. Using your answers it will calculate "
-"your sensitivity, specificity, positive predictive value, negative predictive value and "
-"global accuracy."
+msgstr "This is an application for training radiologists and other medical doctors on diagnosing COVID-19 compatible chest X-rays. Using your answers it will calculate your sensitivity, specificity, positive predictive value, negative predictive value and global accuracy."
 
 msgid "home.login-button"
 msgstr "COVID-19 TRAINING"

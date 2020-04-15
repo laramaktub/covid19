@@ -114,7 +114,7 @@ msgstr ""
 msgid "Otros"
 msgstr ""
 
-#: templates/about.html
+#: templates/about
 msgid "about.block-title"
 msgstr "Acerca de"
 
@@ -125,53 +125,22 @@ msgid "about.paragraph.development.title"
 msgstr "¿Quién lo ha desarrollado?"
 
 msgid "about.paragraph.development.content"
-msgstr ""
-"Este proyecto ha sido desarrollado de manera altruista y desinteresada "
-"por el grupo de <a href=\"https://ifca.unican.es/es-es/investigacion"
-"/computacion-avanzada-y-e-ciencia\" target=\"_blank\">Computación "
-"Avanzada y e-Ciencia</a> del IFCA y el <a "
-"href=\"http://rxhumv.blogspot.com/?m=1\" target=\"_blank\">Servicio de "
-"Radiodiagnóstico</a> del Hospital Universitario Marqués de Valdecilla. Ha"
-" contado con el apoyo de otros profesionales que se han prestado a "
-"brindar sus servicios sin coste alguno: gracias a <a "
-"href=\"https://www.linkedin.com/in/pedrosolisgarcia/\" target=\"_blank\" "
-"rel=\"LinkedIn\">Pedro Solís García</a> por sus horas de programación; "
-"gracias a <a href=\"https://cafeconsultoriajuridica.negocio.site/\" "
-"target=\"_blank\">CAFE & ASOCIADOS</a> por la asesoria jurídica y "
-"confección de los términos y condiciones de uso."
+msgstr "Este proyecto ha sido desarrollado de manera altruista y desinteresada por el grupo de <a href=\"https://ifca.unican.es/es-es/investigacion/computacion-avanzada-y-e-ciencia\" target=\"_blank\">Computación Avanzada y e-Ciencia</a> del IFCA y el <a href=\"http://rxhumv.blogspot.com/?m=1\" target=\"_blank\">Servicio de Radiodiagnóstico</a> del Hospital Universitario Marqués de Valdecilla. Ha contado con el apoyo de otros profesionales que se han prestado a brindar sus servicios sin coste alguno: gracias a <a href=\"https://www.linkedin.com/in/pedrosolisgarcia/\" target=\"_blank\" rel=\"LinkedIn\">Pedro Solís García</a> por sus horas de programación; gracias a <a href=\"https://cafeconsultoriajuridica.negocio.site/\" target=\"_blank\">CAFE & ASOCIADOS</a> por la asesoria jurídica y confección de los términos y condiciones de uso."
 
 msgid "about.paragraph.purpose.title"
 msgstr "¿Cuál es su finalidad?"
 
 msgid "about.paragraph.purpose.content"
-msgstr ""
-"Ante la situación de crisis motivada por la pandemia, múltiples "
-"profesionales sanitarios se han visto en la necesidad de aprender a "
-"identificar en radiografías de tórax los hallazgos característicos de "
-"COVID-19. La finalidad de este proyecto es la de facilitar este proceso a"
-" médicos, a residentes, a estudiantes y a todos aquellos interesados en "
-"adquirir esta competencia, proporcionando una herramienta que presenta "
-"ejemplos de radiografías de pacientes COVID-19 y ejemplos de radiografías"
-" de pacientes con hallazgos que podrían plantear diagnósticos "
-"diferenciales."
+msgstr "Ante la situación de crisis motivada por la pandemia, múltiples profesionales sanitarios se han visto en la necesidad de aprender a identificar en radiografías de tórax los hallazgos característicos de COVID-19. La finalidad de este proyecto es la de facilitar este proceso a médicos, a residentes, a estudiantes y a todos aquellos interesados en adquirir esta competencia, proporcionando una herramienta que presenta ejemplos de radiografías de pacientes COVID-19 y ejemplos de radiografías de pacientes con hallazgos que podrían plantear diagnósticos diferenciales."
 
 msgid "about.paragraph.dedications.title"
 msgstr "Dedicado a ..."
 
 msgid "about.paragraph.dedications.content"
-msgstr ""
-"Dedicado a todos los profesionales del <a href=\"http://www.humv.es\" "
-"target=\"_blank\">Hospital Universitario Marqués de Valdecilla</a> y del "
-"resto de instituciones sanitarias, que de manera ejemplar han luchado "
-"desde el comienzo de esta pandemia por salvaguardar la salud y la vida de"
-" todos. Gracias al personal médico y de enfermería de los servicios de "
-"urgencias, de intensivos y de las plantas COVID-19; gracias a los "
-"radiólogos, técnicos y pacientes de los servicios de radiodiagnóstico; "
-"gracias al personal de limpieza, seguridad y mantenimiento; y a todos "
-"aquellos implicados de manera directa o indirecta en esta crisis "
-"sanitaria."
+msgstr "Dedicado a todos los profesionales del <a href=\"http://www.humv.es\" target=\"_blank\">Hospital Universitario Marqués de Valdecilla</a> y del resto de instituciones sanitarias, que de manera ejemplar han luchado desde el comienzo de esta pandemia por salvaguardar la salud y la vida de todos. Gracias al personal médico y de enfermería de los servicios de urgencias, de intensivos y de las plantas COVID-19; gracias a los radiólogos, técnicos y pacientes de los servicios de radiodiagnóstico; gracias al personal de limpieza, seguridad y mantenimiento; y a todos aquellos implicados de manera directa o indirecta en esta crisis sanitaria."
 
-#: templates/home.html
+
+#: templates/home
 msgid "home.block-title"
 msgstr "Inicio"
 
@@ -179,11 +148,7 @@ msgid "home.title"
 msgstr "DIAGNOSTICA COVID-19 EN RADIOGRAFÍAS DE TÓRAX"
 
 msgid "home.paragraph"
-msgstr ""
-"Aplicación de entrenamiento para radiólogos y para médicos de otras "
-"especialidades en diagnóstico de COVID-19 en radiografías de tórax. "
-"Calcula tu sensibilidad, especificidad, valor predictivo positivo, valor "
-"predictivo negativo y precisión global diagnosticando COVID-19."
+msgstr "Aplicación de entrenamiento para radiólogos y para médicos de otras especialidades en diagnóstico de COVID-19 en radiografías de tórax. Calcula tu sensibilidad, especificidad, valor predictivo positivo, valor predictivo negativo y precisión global diagnosticando COVID-19."
 
 msgid "home.login-button"
 msgstr "COVID-19 TRAINING"
