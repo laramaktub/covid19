@@ -284,6 +284,7 @@ msgstr "About this project and its purpose"
 
 msgid "footer.terms-and-conditions"
 msgstr "Terms and conditions of use"
+msgstr "<a class=\"footer__link\" href=\"https://api.cloud.ifca.es:8080/swift/v1/covid19/TERMS%%20AND%%20CONDITIONS%%20OF%%20USE.pdf\" target=\"_blank\">Terms and conditions of use</a>"
 
 msgid "footer.contact-us"
 msgstr "Contact us"

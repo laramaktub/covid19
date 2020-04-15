@@ -283,7 +283,7 @@ msgid "footer.about"
 msgstr "Acerca de este proyecto y su finalidad"
 
 msgid "footer.terms-and-conditions"
-msgstr "Términos y condiciones de uso"
+msgstr "<a class=\"footer__link\" href='https://api.cloud.ifca.es:8080/swift/v1/covid19/AVISOLEGALYPOLITICADEPRIVACIDAD.pdf' target=\"_blank\">Términos y condiciones de uso</a>"
 
 msgid "footer.contact-us"
 msgstr "Contacta con nosotros"
