@@ -18,44 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: app.py:79
-msgid "Hombre"
-msgstr ""
 
 #: app.py:81
 msgid "Mujer"
 msgstr ""
-
-#: app.py:282 app.py:286 app.py:290 app.py:294
-msgid "Muestras insuficientes"
-msgstr ""
-
-#: app.py:307
-msgid "Selecciona diagnóstico:"
-msgstr ""
-
-#: app.py:308
-msgid "Patológico (compatible con COVID-19)"
-msgstr ""
-
-#: app.py:309
-msgid "Patológico (NO compatible con COVID-19)"
-msgstr ""
-
-#: app.py:310
-msgid "No Patológico"
-msgstr ""
-
-#: app.py:316
-msgid "Click para seleccionar especialidad"
-msgstr ""
-
-
-#: app.py:318
-msgid "Neurorradiólogo"
-
-#: app.py:319
-msgid "Radiólogo de mama"
 
 
 #: templates/about
@@ -205,6 +171,41 @@ msgstr "Empezar el Training"
 
 msgid "start.logout-label"
 msgstr "Logeado como <strong>%(email)s</strong>. Si quieres cerrar sesion y salir, haz <a href=\"/logout\">click aqui</a>."
+
+
+#: templates/training
+msgid "training.block-title"
+msgstr "Training"
+
+msgid "training.end-button"
+msgstr "Finalizar Test"
+
+msgid "training.sex.label"
+msgstr "<strong>Sexo:</strong>"
+
+msgid "training.sex.male.value"
+msgstr "Hombre"
+
+msgid "training.sex.female.value"
+msgstr "Mujer"
+
+msgid "training.age.label"
+msgstr "<strong>Edad:</strong>"
+
+msgid "training.diagnosis-select.label"
+msgstr "Selecciona diagnóstico:"
+
+msgid "training.diagnosis-select.pathological-covid"
+msgstr "Patológico (compatible con COVID-19)"
+
+msgid "training.diagnosis-select.pathological-non-covid"
+msgstr "Patológico (NO compatible con COVID-19)"
+
+msgid "training.diagnosis-select.non-pathological"
+msgstr "No Patológico"
+
+msgid "training.next-button"
+msgstr "Siguiente"
 
 
 #: templates/not-found

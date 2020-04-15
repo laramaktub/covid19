@@ -18,32 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: app.py:79
-msgid "Hombre"
-msgstr ""
 
 #: app.py:81
 msgid "Mujer"
-msgstr ""
-
-#: app.py:282 app.py:286 app.py:290 app.py:294
-msgid "Muestras insuficientes"
-msgstr ""
-
-#: app.py:307
-msgid "Selecciona diagnóstico:"
-msgstr ""
-
-#: app.py:308
-msgid "Patológico (compatible con COVID-19)"
-msgstr ""
-
-#: app.py:309
-msgid "Patológico (NO compatible con COVID-19)"
-msgstr ""
-
-#: app.py:310
-msgid "No Patológico"
 msgstr ""
 
 
@@ -194,6 +171,41 @@ msgstr "Start Training"
 
 msgid "start.logout-label"
 msgstr "You are logged as <strong>%(email)s</strong>. If you want to log out please, click <a href=\"/logout\">here</a>."
+
+
+#: templates/training
+msgid "training.block-title"
+msgstr "Training"
+
+msgid "training.end-button"
+msgstr "End Test"
+
+msgid "training.sex.label"
+msgstr "<strong>Sex:</strong>"
+
+msgid "training.sex.male.value"
+msgstr "Male"
+
+msgid "training.sex.female.value"
+msgstr "Female"
+
+msgid "training.age.label"
+msgstr "<strong>Age:</strong>"
+
+msgid "training.diagnosis-select.label"
+msgstr "Choose a diagnosis:"
+
+msgid "training.diagnosis-select.pathological-covid"
+msgstr "Pathological (compatible with COVID-19)"
+
+msgid "training.diagnosis-select.pathological-non-covid"
+msgstr "Pathological (non-compatible with COVID-19)"
+
+msgid "training.diagnosis-select.non-pathological"
+msgstr "Non-pathological"
+
+msgid "training.next-button"
+msgstr "Next"
 
 
 #: templates/not-found

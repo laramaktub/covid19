@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-{% block title %}Training{% endblock %}
+{% block title %}{{ _('training.block-title') }}{% endblock %}
 {% block head %}
   {{ super() }}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -20,26 +20,27 @@
         class="covid-button"
         onclick="document.location.href = '/results'"
       >
-        Finalizar test
+        {{ _('training.end-button') }}
       </button>
     </div>
     <div class="training__container">
       <form action="/send_results" method="POST">
         {{ form.csrf_token }}
         <div class="training__data">
-          <p class="field"><strong>Sexo:</strong> {{ sex }}</p>
-          <p class="field"><strong>Edad:</strong> {{ age }}</p>
+          <p class="field">{{ _('training.sex.label') }}&nbsp;{{ _(sex) }}</p>
+          <p class="field">{{ _('training.age.label') }}&nbsp;{{ age }}</p>
         </div>
         <div class="training__select">
           <br>{{ form.type_of_diag.label }}
           <br>{{ form.type_of_diag }}
         </div>
-        <input
+        <button
           class="training__next covid-button"
           type="submit"
           name="button_next"
-          value="Siguiente"
         >
+          {{ _('training.next-button') }}
+        </button>
       </form>
     </div>
   </div>    
