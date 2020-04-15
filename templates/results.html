@@ -1,78 +1,103 @@
 {% extends 'index.html' %}
 
-{% block title %}Resultados{% endblock %}
+{% block title %}{{ _('results.block-title') }}{% endblock %}
 
 {% block content %}
 {% include "snippets/home-button/home-button.html" %}
 <div class="content results">
-  <h1 class="results__title">Resultados del test</h1>
+  <h1 class="results__title">
+    {{ _('results.title') }}
+  </h1>
   {% if res[5]==0 %}
-    <p class="results__paragraph-first">No ha contestado a ninguna pregunta del test</p>
+    <p class="results__paragraph-first">
+      {{ _('results.message.no-question-answered') }}
+    </p>
   {% else %}
     <div class="results__details">
       <p class="list">
-        <b>Precisión global:</b>&nbsp;{{res[0]}}%<br>
-        <b>Sensibilidad:</b>&nbsp;{{res[1]}}<br>
-        <b>Especificidad:</b>&nbsp;{{res[2]}}<br>
-        <b>Valor predictivo positivo:</b>&nbsp;{{res[3]}}<br>
-        <b>Valor predictivo negativo:</b>&nbsp;{{res[4]}}
+        {{ _('results.details.accuracy.label') }}&nbsp;{{res[0]}}%<br>
+        {{ _('results.details.sensitivity.label') }}&nbsp;{{ _(res[1]) }}<br>
+        {{ _('results.details.specificity.label') }}&nbsp;{{ _(res[2]) }}<br>
+        {{ _('results.details.positive-predictive.label') }}&nbsp;{{ _(res[3]) }}<br>
+        {{ _('results.details.negative-predictive.label') }}&nbsp;{{ _(res[4]) }}
       </p>
       <div class="results__note">
-        <p><strong>NOTA:</strong> Valores calculados para COVID-19. Más información sobre estas métricas <a href="https://api.cloud.ifca.es:8080/swift/v1/covid19/CONOCE%20COMO%20SE%20HAN%20REALIZADO%20LOS%20C%C3%81LCULOS.pdf" target="_blank">aquí</a>.</p>
+        {{ _('results.details.note') }}
       </div>
     </div>
   {% endif %}
-  <p class="results__paragraph-again">¿Quieres intentarlo con nuevas imágenes?</p>
-
+  <p class="results__paragraph-again">
+    {{ _('results.try-again.label') }}
+  </p>
   <div class="results__try-again" >
     <button
       class="covid-button"
       onclick="document.location.href = '/training'"
     >
-      Inténtalo otra vez
+      {{ _('results.try-again.button') }}
     </button>
   </div>
   {% if res[0]==100 %}
-    <h2><b>Felicidades! Todas las respuestas correctas!</b></h2>
+    <h2>{{ _('results.message.all-answers-correct') }}</h2>
   {% else %}
     <div class="results__wrong-answers">
       {% if failed_answers|length!=0 %}
       <div class="results__separator"></div>
-        <h2 class="results__subtitle">Revisa tus respuestas erróneas</h2>
+        <h2 class="results__subtitle">
+          {{ _('results.wrong-answers.label') }}
+        </h2>
       {% endif%}
       {% for answer in failed_answers %}
         <div class="results__card">
           <div class="results__element">
             {% if answer[2]==1  %}
               <div class="results__answer">
-                <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">Patológico (compatible con COVID-19)</p>
+                {{ _('results.wrong-answers.correct-answer') }}&nbsp;
+                <p class="results__correct">
+                  {{ _('training.diagnosis-select.pathological-covid') }}
+                </p>
               </div>
             {% elif answer[2]==0  %} 
             <div class="results__answer">
-              <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">No Patológico</p>
+              {{ _('results.wrong-answers.correct-answer') }}&nbsp;
+              <p class="results__correct">
+                {{ _('training.diagnosis-select.non-pathological') }}
+              </p>
             </div>
             {% elif answer[2]==2  %} 
               <div class="results__answer">
-                <b>Respuesta correcta:</b>&nbsp;<p class="results__correct">Patológico ({{answer[4]}})</p>
+                {{ _('results.wrong-answers.correct-answer') }}&nbsp;
+                <p class="results__correct">
+                  {{ _('results.wrong-answers.pathological-detail', details=answer[4]) }}
+                </p>
               </div>
             {% endif %}
   
             {% if answer[3]==1  %}
               <div class="results__answer">
-                <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">Patológico (compatible con COVID-19)</p>
+                {{ _('results.wrong-answers.your-answer') }}&nbsp;
+                <p class="results__wrong">
+                  {{ _('training.diagnosis-select.pathological-covid') }}
+                </p>
               </div>
             {% elif answer[3]==0  %} 
               <div class="results__answer">
-                <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">No Patológico</p>
+                {{ _('results.wrong-answers.your-answer') }}&nbsp;
+                <p class="results__wrong">
+                  {{ _('training.diagnosis-select.non-pathological') }}
+                </p>
               </div>
             {% elif answer[3]==2  %} 
               <div class="results__answer">
-                <b>Tu respuesta:</b>&nbsp;<p class="results__wrong">Patológico ({{answer[4]}})</p>
+                {{ _('results.wrong-answers.your-answer') }}&nbsp;
+                <p class="results__wrong">
+                  {{ _('results.wrong-answers.pathological-detail', details=answer[4]) }}
+                </p>
               </div>
             {% endif %}
           </div>
           <div class="results__image">
-            <img src="static/img/{{answer[1]}}.DCM.JPG" width="57%">
+            <img src={{ answer[1] }}>
           </div>
         </div>
         <br><br><br>

@@ -1,0 +1,293 @@
+# English translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-04-13 00:02+0200\n"
+"PO-Revision-Date: 2020-04-13 00:06+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+
+#: templates/about
+msgid "about.block-title"
+msgstr "About"
+
+msgid "about.title"
+msgstr "ABOUT THIS PROJECT ..."
+
+msgid "about.paragraph.development.title"
+msgstr "Who has developed this application?"
+
+msgid "about.paragraph.development.content"
+msgstr "This application was developed in an altruistic manner by the <a href=\"https://ifca.unican.es/en-us/research/advanced-computing-and-e-science\" target=\"_blank\">Advanced Computing and e-Science</a> group at IFCA (CSIC-UC) and the <a href=\"http://rxhumv.blogspot.com/?m=1\" target=\"_blank\">Radiology Department</a> at the Marqués de Valdecilla University Hospital (Santander, Spain). We would like to acknowledge the collaboration of other professionals that have volunteered their services free of charge: so thanks to <a href=\"https://www.linkedin.com/in/pedrosolisgarcia/\" target=\"_blank\" rel=\"LinkedIn\">Pedro Solís García</a> for their hours of programming; and thanks to <a href=\"https://cafeconsultoriajuridica.negocio.site/\" target=\"_blank\">CAFE & ASOCIADOS</a> for their legal advice and preparation of the terms and conditions of use document."
+
+msgid "about.paragraph.purpose.title"
+msgstr "What is the purpose of this project?"
+
+msgid "about.paragraph.purpose.content"
+msgstr "In the context of the COVID-19 pandemia, many physicians have been forced to acquire the capability of detecting signs of COVID-19 on chest X-rays. The aim of this project is to ease the learning process of evaluating COVID-19 X-rays for doctors, residents, students and for anybody else interested in acquiring this competence. For that purpose, we provide a tool which includes X-ray images from actual COVID-19 patients as well as some others that can be considered into the differential diagnoses."
+
+msgid "about.paragraph.dedications.title"
+msgstr "Dedicated to..."
+
+msgid "about.paragraph.dedications.content"
+msgstr "Dedicated to all the professionals of the <a href=\"http://www.humv.es\" target=\"_blank\">Marqués de Valdecilla University Hospital</a> (Santander, Spain) and of all other Health Institutions, who have battled in an exemplary manner to safeguard the health and life of all citizens since the beginning of this pandemia. Thanks to the medical and nursing staff of the emergency departments, intensive care units and COVID-19 hospitals rooms; thanks to the radiologists, technicians and patients of the radiodiagnostic departments; thanks to the cleaning, security and maintenance staff; and to all those directly or indirectly involved in this health crisis."
+
+
+#: templates/home
+msgid "home.block-title"
+msgstr "Home"
+
+msgid "home.title"
+msgstr "COVID-19 ON CHEST X-RAY DIAGNOSIS TRAINING APPLICATION"
+
+msgid "home.paragraph"
+msgstr "This is an application for training radiologists and other medical doctors on diagnosing COVID-19 compatible chest X-rays. Using your answers it will calculate your sensitivity, specificity, positive predictive value, negative predictive value and global accuracy."
+
+msgid "home.login-button"
+msgstr "COVID-19 TRAINING"
+
+msgid "home.info-link"
+msgstr "Radiological features of COVID-19 on X-ray here."
+
+msgid "home.subtitle"
+msgstr "APPLICATION INTENDED TO BE USED BY ANY KIND OF MEDICAL DOCTOR"
+
+msgid "home.column.medical-doctor.title"
+msgstr "Medical doctors"
+
+msgid "home.column.medical-doctor.content"
+msgstr "For physicians of any speciality"
+
+msgid "home.column.radiologist.title"
+msgstr "Radiologists"
+
+msgid "home.column.radiologist.content"
+msgstr "For any kind of Radiologists"
+
+msgid "home.column.student.title"
+msgstr "Students"
+
+msgid "home.column.student.content"
+msgstr "Also useful for students"
+
+
+#: templates/login
+msgid "login.block-title"
+msgstr "Login"
+
+msgid "login.label"
+msgstr "Sign into COVID-19 Training"
+
+msgid "login.button"
+msgstr "Login"
+
+msgid "login.button-error"
+msgstr "You have not accepted the terms and conditions"
+
+msgid "login.terms-and-conditions.label"
+msgstr "I accept the terms and conditions of use"
+
+
+#: templates/start
+msgid "start.block-title"
+msgstr "Welcome"
+
+msgid "start.title"
+msgstr "Welcome to  COVID-19 Training"
+
+msgid "start.category-select.label"
+msgstr "Please, choose the category that best suits you to continue:"
+
+msgid "start.category-select.abdominal-radiologist"
+msgstr "Abdominal radiologist"
+
+msgid "start.category-select.neuroradiologist"
+msgstr "Neuroradiologist"
+
+msgid "start.category-select.breast-radiologist"
+msgstr "Breast radiologist"
+
+msgid "start.category-select.musculoskeletal-radiologist"
+msgstr "Musculoskeletal radiologist"
+
+msgid "start.category-select.general-radiologist"
+msgstr "General radiologist"
+
+msgid "start.category-select.interventional-radiologist"
+msgstr "Interventional radiologist"
+
+msgid "start.category-select.pediatric-radiologist"
+msgstr "Pediatric radiologist"
+
+msgid "start.category-select.thoracic-radiologist"
+msgstr "Thoracic radiologist"
+
+msgid "start.category-select.radiology-resident"
+msgstr "Radiology resident"
+
+msgid "start.category-select.resident-other"
+msgstr "Resident of other especiality"
+
+msgid "start.category-select.medical-student"
+msgstr "Medical student"
+
+msgid "start.category-select.pulmonology-physician"
+msgstr "Pulmonology physician"
+
+msgid "start.category-select.internal-physician"
+msgstr "Internal medicine physician"
+
+msgid "start.category-select.emergency-physician"
+msgstr "Emergency physician"
+
+msgid "start.category-select.intensive-physician"
+msgstr "Intensive care physician"
+
+msgid "start.category-select.physician-other"
+msgstr "Other kind of physician"
+
+msgid "start.category-select.other"
+msgstr "Other"
+
+msgid "start.button"
+msgstr "Start Training"
+
+msgid "start.logout-label"
+msgstr "You are logged as <strong>%(email)s</strong>. If you want to log out please, click <a href=\"/logout\">here</a>."
+
+
+#: templates/training
+msgid "training.block-title"
+msgstr "Training"
+
+msgid "training.end-button"
+msgstr "End Test"
+
+msgid "training.sex.label"
+msgstr "<strong>Sex:</strong>"
+
+msgid "training.sex.male.value"
+msgstr "Male"
+
+msgid "training.sex.female.value"
+msgstr "Female"
+
+msgid "training.age.label"
+msgstr "<strong>Age:</strong>"
+
+msgid "training.diagnosis-select.label"
+msgstr "Choose a diagnosis:"
+
+msgid "training.diagnosis-select.pathological-covid"
+msgstr "Pathological (compatible with COVID-19)"
+
+msgid "training.diagnosis-select.pathological-non-covid"
+msgstr "Pathological (non-compatible with COVID-19)"
+
+msgid "training.diagnosis-select.non-pathological"
+msgstr "Non-pathological"
+
+msgid "training.next-button"
+msgstr "Next"
+
+
+#: templates/results
+msgid "results.block-title"
+msgstr "Results"
+
+msgid "results.title"
+msgstr "Test results"
+
+msgid "results.message.no-question-answered"
+msgstr "You have not answered any test question"
+
+msgid "results.details.accuracy.label"
+msgstr "<b>Global accuracy:</b>"
+
+msgid "results.details.sensitivity.label"
+msgstr "<b>Sensitivity:</b>"
+
+msgid "results.details.specificity.label"
+msgstr "<b>Specificity:</b>"
+
+msgid "results.details.positive-predictive.label"
+msgstr "<b>Positive predictive value:</b>"
+
+msgid "results.details.negative-predictive.label"
+msgstr "<b>Negative predictive value:</b>"
+
+msgid "results.not-enough-samples"
+msgstr "Not enough samples"
+
+msgid "results.details.note"
+msgstr "<strong>NOTE:</strong> Values ​​calculated for COVID-19 diagnosis. Find more information on these metrics <a href='https://api.cloud.ifca.es:8080/swift/v1/covid19/DISCOVER%%20HOW%%20METRICS%%20WERE%%20CALCULATED.pdf' target=\"_blank\">here</a>."
+
+msgid "results.try-again.label"
+msgstr "Would you like to try again with further images?"
+
+msgid "results.try-again.button"
+msgstr "Try again"
+
+msgid "results.message.all-answers-correct"
+msgstr "<b>Congratulations! All answers are correct!</b>"
+
+msgid "results.wrong-answers.label"
+msgstr "Check your wrong answers"
+
+msgid "results.wrong-answers.correct-answer"
+msgstr "<b>Correct answer:</b>"
+
+msgid "results.wrong-answers.your-answer"
+msgstr "<b>Your answer:</b>"
+
+msgid "results.wrong-answers.pathological-detail"
+msgstr "Pathological (%(details)s)"
+
+
+#: templates/not-found
+msgid "not-found.block-title"
+msgstr "Not Found"
+
+msgid "not-found.title-error"
+msgstr "Error"
+
+msgid "not-found.title-404"
+msgstr "404"
+
+msgid "not-found.subtitle"
+msgstr "The page you are trying to reach was not found"
+
+msgid "not-found.button"
+msgstr "Back to Homepage"
+
+
+#: templates/snippets/back-button
+msgid "back-button.title"
+msgstr "Back"
+
+
+#: templates/snippets/footer
+msgid "footer.about"
+msgstr "About this project and its purpose"
+
+msgid "footer.terms-and-conditions"
+msgstr "Terms and conditions of use"
+msgstr "<a class=\"footer__link\" href=\"https://api.cloud.ifca.es:8080/swift/v1/covid19/TERMS%%20AND%%20CONDITIONS%%20OF%%20USE.pdf\" target=\"_blank\">Terms and conditions of use</a>"
+
+msgid "footer.contact-us"
+msgstr "Contact us"
+
+msgid "footer.copyright"
+msgstr "Copyright &copy; IFCA - CSIC - HUMV"

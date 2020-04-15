@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block title %}{{ _('not-found.block-title') }}{% endblock %}
+
+{% block content %}
+{% include "snippets/back-button/back-button.html" %}
+  <div class="content not-found">
+    <div class="not-found__title">
+      <p class="error">
+        {{ _('not-found.title-error') }}
+      </p>
+      &nbsp;
+      <p class="error-404">
+        {{ _('not-found.title-404') }}
+      </p>
+    </div>
+    <p class="not-found__subtitle">
+      {{ _('not-found.subtitle') }}
+    </p>
+    <div class="not-found__button">
+      <button
+        class="secondary-button"
+        onclick="document.location.href = '/'"
+      >
+      {{ _('not-found.button') }}
+      </button>
+    </div>
+  </div>
+{% endblock %}

@@ -2,20 +2,22 @@
   {% block footer %}
   <a
     class="footer__link"
-    href="/about"
-  >Acerca de este proyecto y su finalidad</a>
+    href="{{ g.language }}/about"
+  >
+    {{ _('footer.about') }}
+  </a>
   <p class="footer__separator">&nbsp;&nbsp;|&nbsp;&nbsp;</p>
-  <a
-    class="footer__link"
-    href="https://api.cloud.ifca.es:8080/swift/v1/covid19/AVISOLEGALYPOLITICADEPRIVACIDAD.pdf"
-    target="_blank"
-  >Términos y condiciones de uso</a>
+  {{ _('footer.terms-and-conditions') }}
   <p class="footer__separator">&nbsp;&nbsp;|&nbsp;&nbsp;</p>
   <a
     class="footer__link"
     href="mailto:covid19training@ifca.unican.es"
-  >Contacta con nosotros</a>
+  >
+    {{ _('footer.contact-us') }}
+  </a>
   <p class="footer__separator">&nbsp;&nbsp;|&nbsp;&nbsp;</p>
-  <p class="footer__copyright">Copyright &copy; IFCA - CSIC - HUMV</p>
+  <p class="footer__copyright">
+    {{ _('footer.copyright') }}
+  </p>
   {% endblock %}
 </footer>

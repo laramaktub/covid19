@@ -52,6 +52,31 @@ select {
   }
 }
 
+.secondary-button {
+  background-color: transparent;
+  border: 2px solid #ff9900;
+  border-radius: 4px;
+  color: #ff9900;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  width: 100%;
+
+  &:hover {
+    background-color: #ff9900;
+    color: #212121;
+  }
+
+  &:active {
+    background-color: #ff9900;
+    color: #212121;
+  }
+}
+
 .page-wrapper {
   color: #fff;
   display: flex;

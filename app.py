@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, g
+from flask_babel import Babel, lazy_gettext as _l
 from flask_assets import Environment, Bundle
 from flask_oidc import OpenIDConnect
 from flask_wtf import FlaskForm
@@ -17,8 +18,22 @@ app.config.update({
     'OIDC_CLIENT_SECRETS': 'client_secrets.json',
     'OIDC_ID_TOKEN_COOKIE_SECURE': False,
     'OIDC_REQUIRE_VERIFIED_EMAIL': False,
-    'OIDC_OPENID_REALM': 'http://localhost:5000/oidc_callback'
+    'OIDC_OPENID_REALM': 'http://localhost:5000/oidc_callback',
+    'PATHS': [
+      'about',
+      'login',
+      'logout',
+      'results',
+      'send_results',
+      'start',
+      'training'
+    ],
+    'LANGUAGES': {
+      'en': 'English',
+      'es': 'Spanish'
+    }
 })
+babel = Babel(app)
 oidc = OpenIDConnect(app)
 IMG_FOLDER = '/static/img/'
 
@@ -30,6 +45,7 @@ scss = Bundle(
   'styles/about.scss',
   'styles/home.scss',
   'styles/login.scss',
+  'styles/not-found.scss',
   'styles/results.scss',
   'styles/start.scss',
   'styles/styles.scss',
@@ -43,6 +59,24 @@ scss = Bundle(
 )
 assets.register('scss_all', scss)
 
+@app.before_request
+def get_global_language():
+    g.babel = babel
+    g.language = get_locale()
+
+@babel.localeselector
+def get_locale():
+    lang = request.path[1:].split('/', 1)[0]
+    if lang in app.config['LANGUAGES'].keys():
+        session['lang'] = lang
+        return lang
+    elif session.get('lang') is not None:
+        return session.get('lang')
+    else:
+        default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+        session['lang'] = default_lang
+        return default_lang
+
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
     c = conn.cursor()
@@ -53,9 +87,9 @@ def get_random_img():
         img = IMG_FOLDER + row[2] +'.DCM.JPG'
         img_id = row[2]
         age = int(row[0])
-        sex="Hombre"
+        sex="training.sex.male.value"
         if int(row[1])==2:
-           sex= "Mujer"
+           sex="training.sex.female.value"
         informe=int(row[3])
         diagnostico=row[4]
         diagnosis=row[5]
@@ -89,24 +123,63 @@ def delete_answers(user):
     conn.close()
     return
 
+def add_path_to_answers_images(answers):
+    for i, answer in enumerate(answers):
+        listAnswer = list(answer)
+        listAnswer[1] = IMG_FOLDER + answer[1] +'.DCM.JPG'
+        answers[i] = tuple(listAnswer)
+    return answers
 
-@app.route('/')
+@app.route('/', defaults={'path': ''}, methods=['GET','POST'])
+@app.route('/<path:path>', methods=['GET','POST'])
+def catch_all(path):
+    if path == '':
+        return redirect(url_for('home_'+g.language))
+    subpaths = path.split('/')
+    if len(subpaths) > 2:
+        subpaths.pop(0)
+    if subpaths[0] in app.config['LANGUAGES'].keys():
+        if len(subpaths) > 1:
+            if subpaths[1] in app.config['PATHS']:
+                return redirect(url_for(subpaths[1]+'_'+subpaths[0]))
+            else:
+                return redirect(url_for('not-found_'+subpaths[0]))
+        else:
+            return redirect(url_for('home_'+subpaths[0]))
+    else:
+        if subpaths[0] in app.config['PATHS']:
+            return redirect(url_for(subpaths[0]+'_'+g.language))
+        else:
+            if len(subpaths) > 1:
+                if subpaths[1] in app.config['PATHS']:
+                    return redirect(url_for(subpaths[1]+'_'+g.language))
+            else:
+                return redirect(url_for('not-found_'+g.language))
+
+@app.route("/es", endpoint="home_es")
+@app.route("/en", endpoint="home_en")
 def home():
-    return render_template('home.html', loggedin=oidc.user_loggedin)
+    return render_template('home.html')
 
-@app.route('/about')
+@app.route("/es/not-found", endpoint="not-found_es")
+@app.route("/en/not-found", endpoint="not-found_en")
+def not_found():
+    return render_template('not-found.html')
+
+@app.route("/es/about", endpoint="about_es")
+@app.route("/en/about", endpoint="about_en")
 def about():
     return render_template('about.html')
 
-@app.route('/login')
+@app.route("/es/login", endpoint="login_es")
+@app.route("/en/login", endpoint="login_en")
 def login():
     if oidc.user_loggedin:
-        print('User already logged in. Redirecting to next page...')
-        return redirect(url_for('start'))
-    print('User not logged in. Rendering login page...')
+        return redirect(url_for('start_'+g.language))
     return render_template('login.html')
 
-@app.route('/start', methods=['GET'])
+@app.route("/es/start", endpoint="start_es")
+@app.route("/en/start", endpoint="start_en")
 @oidc.require_login
 def start():
     info = oidc.user_getinfo(['email'])
@@ -116,12 +189,14 @@ def start():
     form = ProfileForm(request.form)
     return render_template('start.html', email=info.get('email'), form=form)
 
-@app.route('/logout')
+@app.route("/es/logout", endpoint="logout_es")
+@app.route("/en/logout", endpoint="logout_en")
 def logout():
     oidc.logout()
-    return redirect(url_for('home'))
+    return redirect(url_for('home_'+g.language))
 
-@app.route('/training', methods=['GET','POST'])
+@app.route("/es/training", methods=['GET','POST'], endpoint="training_es")
+@app.route("/en/training", methods=['GET','POST'], endpoint="training_en")
 @oidc.require_login
 def training():
     info = oidc.user_getinfo(['email', 'openid_id'])
@@ -200,9 +275,10 @@ def send_results():
     except Exception as e:
         print("Ooops! We had a problem")
         print(e)
-    return redirect(url_for('training'))
+    return redirect(url_for('training_'+session.get('lang')))
 
-@app.route('/results')
+@app.route("/es/results", endpoint="results_es")
+@app.route("/en/results", endpoint="results_en")
 @oidc.require_login
 def results():
     conn =sqlite3.connect('db/covid19.db')
@@ -242,55 +318,56 @@ def results():
     try:
         sensitivity='%.2f'%(TP/(TP+FN))
     except:
-        sensitivity="Muestras insuficientes"
+        sensitivity="results.not-enough-samples"
     try:
         specificity='%.2f'%(TN/(TN+FP))
     except:
-        specificity="Muestras insuficientes"
+        specificity="results.not-enough-samples"
     try:
         pos_predval='%.2f'%(TP/(TP+FP))
     except:
-        pos_predval="Muestras insuficientes"
+        pos_predval="results.not-enough-samples"
     try:
         neg_predval='%.2f'%(TN/(TN+FN))
     except:
-        neg_predval="Muestras insuficientes"
+        neg_predval="results.not-enough-samples"
 
 
     res=[total_score, sensitivity,specificity, pos_predval, neg_predval, total_answered]
 
     print("Deleting the answers for this session")
     delete_answers(user)
+
+    failed_answers_with_img_path = add_path_to_answers_images(failed_answers)
     
-    return render_template('results.html', res=res, failed_answers=failed_answers,  image=session['messages']['img'])
+    return render_template('results.html', res=res, failed_answers=failed_answers_with_img_path,  image=session['messages']['img'])
 
 class TrainingForm(FlaskForm):
  
     type_of_diag = SelectField(
-        u'Selecciona diagnóstico:',
-        choices=[('pat_covid_com', 'Patológico (compatible con COVID-19)'),
-                 ('pat_no_covid_com', 'Patológico (NO compatible con COVID-19)'),
-                 ('non_pat', 'No Patológico')])
+        _l('training.diagnosis-select.label'),
+        choices=[('pat_covid_com', _l('training.diagnosis-select.pathological-covid')),
+                 ('pat_no_covid_com', _l('training.diagnosis-select.pathological-non-covid')),
+                 ('non_pat', _l('training.diagnosis-select.non-pathological'))])
     img_id = TextField(u'IMG ID','')
 
 class ProfileForm(FlaskForm):
     type_of_profile = SelectField(
-        u'Profile',
-        choices=[('noanswer','Click para seleccionar especialidad'),
-                 ('abdradio','Radiólogo abdominal'),
-                 ('Neuroradio','Neurorradiólogo'),
-                 ('breastradio','Radiólogo de mama'),
-                 ('muscradio','Radiólogo de músculo-esquelético'),
-                 ('generalradio','Radiólogo general'),
-                 ('interradio','Radiólogo intervencionista'),
-                 ('pediradio','Radiólogo pediátrico'),
-                 ('thoraradio','Radiólogo torácico'),
-                 ('radioresi','Residente de radiología'),
-                 ('resiother','Residente (especialidad distinta a la radiología)'),
-                 ('medicalstudent','Estudiante de medicina'),
-                 ('assophypulmo', 'Médico adjunto de neumología'),
-                 ('internassisphysi','Médico adjunto internista'),
-                 ('deputyemerg', 'Médico adjunto de urgencias'),
-                 ('assodoctorother', 'Médico adjunto de otra especialidad'),
-                 ('others', 'Otros')])
-    user_profile=TextField(u'USER PROFILE','')
+        'Profile',
+        choices=[('abdradio', _l('start.category-select.abdominal-radiologist')),
+                 ('Neuroradio', _l('start.category-select.neuroradiologist')),
+                 ('breastradio', _l('start.category-select.breast-radiologist')),
+                 ('muscradio', _l('start.category-select.musculoskeletal-radiologist')),
+                 ('generalradio', _l('start.category-select.general-radiologist')),
+                 ('interradio', _l('start.category-select.interventional-radiologist')),
+                 ('pediradio', _l('start.category-select.pediatric-radiologist')),
+                 ('thoraradio', _l('start.category-select.thoracic-radiologist')),
+                 ('radioresi', _l('start.category-select.radiology-resident')),
+                 ('resiother', _l('start.category-select.resident-other')),
+                 ('medicalstudent', _l('start.category-select.medical-student')),
+                 ('assophypulmo', _l('start.category-select.pulmonology-physician')),
+                 ('internassisphysi', _l('start.category-select.internal-physician')),
+                 ('deputyemerg', _l('start.category-select.emergency-physician')),
+                 ('intcarephysi', _l('start.category-select.intensive-physician')),
+                 ('assodoctorother', _l('start.category-select.physician-other')),
+                 ('others', _l('start.category-select.other'))])
