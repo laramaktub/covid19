@@ -226,6 +226,13 @@ msgstr "The page you are trying to reach was not found"
 msgid "not-found.button"
 msgstr "Back to Homepage"
 
+
+#: templates/snippets/back-button
+msgid "back-button.title"
+msgstr "Back"
+
+
+#: templates/snippets/footer
 msgid "footer.about"
 msgstr "About this project and its purpose"
 

@@ -228,6 +228,14 @@ msgstr "La página a la que intenta acceder no se ha encontrado"
 
 msgid "not-found.button"
 msgstr "Volver a la página de inicio"
+
+
+#: templates/snippets/back-button
+msgid "back-button.title"
+msgstr "Volver"
+
+
+#: templates/snippets/footer
 msgid "footer.about"
 msgstr "Acerca de este proyecto y su finalidad"
 
