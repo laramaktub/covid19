@@ -1,0 +1,37 @@
+.not-found {
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: 5vw;
+    font-weight: bolder;
+    justify-content: center;
+
+    .error-404 {
+      color: #ff9900;;
+    }
+  }
+
+  &__subtitle {
+    color: #d9d9d9;
+  }
+
+  &__button {
+    width: 75%;
+    margin: 10rem auto 2rem
+  }
+}
+
+@media (max-width: 750px) {
+  .not-found {
+    &__title {
+      font-size: 15vw;
+    }
+  
+    &__button {
+      bottom: 12rem;
+      margin: unset;
+      position: absolute;
+      width: calc(100% - 2rem);
+    }
+  }
+}

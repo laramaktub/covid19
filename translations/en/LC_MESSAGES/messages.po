@@ -209,7 +209,23 @@ msgstr "Students"
 msgid "home.column.student.content"
 msgstr "Also useful for students"
 
-#: templates/snippets/footer/footer.html
+
+#: templates/not-found
+msgid "not-found.block-title"
+msgstr "Not Found"
+
+msgid "not-found.title-error"
+msgstr "Error"
+
+msgid "not-found.title-404"
+msgstr "404"
+
+msgid "not-found.subtitle"
+msgstr "The page you are trying to reach was not found"
+
+msgid "not-found.button"
+msgstr "Back to Homepage"
+
 msgid "footer.about"
 msgstr "About this project and its purpose"
 

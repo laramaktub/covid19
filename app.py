@@ -36,6 +36,7 @@ scss = Bundle(
   'styles/about.scss',
   'styles/home.scss',
   'styles/login.scss',
+  'styles/not-found.scss',
   'styles/results.scss',
   'styles/start.scss',
   'styles/styles.scss',
@@ -135,6 +136,11 @@ def lang_route_page(lang, page):
 @app.route("/en", endpoint="home_en")
 def home():
     return render_template('home.html')
+
+@app.route("/es/not-found", endpoint="not-found_es")
+@app.route("/en/not-found", endpoint="not-found_en")
+def not_found():
+    return render_template('not-found.html')
 
 @app.route("/es/about", endpoint="about_es")
 @app.route("/en/about", endpoint="about_en")

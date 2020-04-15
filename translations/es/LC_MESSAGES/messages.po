@@ -212,7 +212,22 @@ msgstr "Estudiantes"
 msgid "home.column.student.content"
 msgstr "También para estudiantes"
 
-#: templates/snippets/footer/footer.html
+
+#: templates/not-found
+msgid "not-found.block-title"
+msgstr "No Encontrado"
+
+msgid "not-found.title-error"
+msgstr "Error"
+
+msgid "not-found.title-404"
+msgstr "404"
+
+msgid "not-found.subtitle"
+msgstr "La página a la que intenta acceder no se ha encontrado"
+
+msgid "not-found.button"
+msgstr "Volver a la página de inicio"
 msgid "footer.about"
 msgstr "Acerca de este proyecto y su finalidad"
 
