@@ -19,11 +19,6 @@ msgstr ""
 "Generated-By: Babel 2.8.0\n"
 
 
-#: app.py:81
-msgid "Mujer"
-msgstr ""
-
-
 #: templates/about
 msgid "about.block-title"
 msgstr "Acerca de"
@@ -206,6 +201,59 @@ msgstr "No Patológico"
 
 msgid "training.next-button"
 msgstr "Siguiente"
+
+
+#: templates/results
+msgid "results.block-title"
+msgstr "Resultados"
+
+msgid "results.title"
+msgstr "Resultados del test"
+
+msgid "results.message.no-question-answered"
+msgstr "No ha contestado a ninguna pregunta del test"
+
+msgid "results.details.accuracy.label"
+msgstr "<b>Precisión global:</b>"
+
+msgid "results.details.sensitivity.label"
+msgstr "<b>Sensibilidad:</b>"
+
+msgid "results.details.specificity.label"
+msgstr "<b>Especificidad:</b>"
+
+msgid "results.details.positive-predictive.label"
+msgstr "<b>Valor predictivo positivo:</b>"
+
+msgid "results.details.negative-predictive.label"
+msgstr "<b>Valor predictivo negativo:</b>"
+
+msgid "results.not-enough-samples"
+msgstr "Muestras insuficientes"
+
+msgid "results.details.note"
+msgstr "<strong>NOTA:</strong> Valores calculados para COVID-19. Más información sobre estas métricas <a href=\"https://api.cloud.ifca.es:8080/swift/v1/covid19/CONOCE%%20COMO%%20SE%%20HAN%%20REALIZADO%%20LOS%%20C%%C3%%81LCULOS.pdf\" target=\"_blank\">aquí</a>."
+
+msgid "results.try-again.label"
+msgstr "¿Quieres intentarlo con nuevas imágenes?"
+
+msgid "results.try-again.button"
+msgstr "Inténtalo otra vez"
+
+msgid "results.message.all-answers-correct"
+msgstr "<b>Felicidades! Todas las respuestas correctas!</b>"
+
+msgid "results.wrong-answers.label"
+msgstr "Revisa tus respuestas erróneas"
+
+msgid "results.wrong-answers.correct-answer"
+msgstr "<b>Respuesta correcta:</b>"
+
+msgid "results.wrong-answers.user-answer"
+msgstr "<b>Tu respuesta:</b>"
+
+msgid "results.wrong-answers.pathological-detail"
+msgstr "Patológico (%(details)s)"
 
 
 #: templates/not-found
