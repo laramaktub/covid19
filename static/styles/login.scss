@@ -18,9 +18,10 @@
     color: #fff;
     font-size: 16px;
     font-weight: bold;
-    left: 3px;
-    position: absolute;
-    top: 35px;
+    padding: 0.25rem 1rem;
+    text-align: left;
+    margin: 0 0.25rem;
+    visibility: hidden
   }
   
   &__terms {
@@ -50,7 +51,9 @@
     }
 
     &__error {
-      font-size: 4.1vw;
+      font-size: 4vw;
+      margin: 0;
+      padding: 0.25rem 0.25rem 0.25rem 0.5rem;
     }
 
     &__terms {
@@ -64,7 +67,7 @@
       }
 
       label {
-        font-size: 4.5vw;
+        font-size: 4.4vw;
         margin-left: 0.25rem;
       }
     }

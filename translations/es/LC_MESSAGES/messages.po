@@ -178,6 +178,23 @@ msgid "home.column.student.content"
 msgstr "También para estudiantes"
 
 
+#: templates/login
+msgid "login.block-title"
+msgstr "Iniciar Sesión"
+
+msgid "login.label"
+msgstr "Inicia sesión en COVID-19 training"
+
+msgid "login.button"
+msgstr "Iniciar sesión"
+
+msgid "login.button-error"
+msgstr "No has aceptado los términos y condiciones"
+
+msgid "login.terms-and-conditions.label"
+msgstr "Acepto los términos y condiciones de uso"
+
+
 #: templates/not-found
 msgid "not-found.block-title"
 msgstr "No Encontrado"
