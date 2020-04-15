@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-{% block title %}Bienvenido{% endblock %}
+{% block title %}{{ _('start.block-title') }}{% endblock %}
 {% block head %}
   {{ super() }}
   <script src="{{ url_for('static',filename='controller/start.js') }}"></script>
@@ -9,18 +9,20 @@
 {% include "snippets/back-button/back-button.html" %}
   <div class="content start">
     {% include "snippets/avatar/avatar.html" %}
-    <h2 class="start__title">Bienvenido a COVID-19 Training</h2>
-    <p class="start__label">Por favor, selecciona tu especialidad para continuar:</p>
+    <h2 class="start__title">{{ _('start.title') }}</h2>
+    <p class="start__label">{{ _('start.category-select.label') }}</p>
     <form action="/training" method="POST">
       {{ form.csrf_token }}
       <div class="start__select">
-        {{ form.type_of_profile.label }}{{ form.type_of_profile }}
+        {{ form.type_of_profile }}
       </div>
       <div class="start__button">
-        <input class="covid-button" type="submit" name="button_start" value="Continuar">
+        <button class="covid-button" type="submit" name="button_start">
+          {{ _('start.button') }}
+        </button>
       </div>
       <div class="start__logout">
-        Logeado como <strong>{{ email }}</strong>. Si quieres cerrar sesion y salir, haz <a href="/logout">click aqui</a>.
+        {{ _('start.logout-label', email=email) }}
       </div>
     </form>
   </div>

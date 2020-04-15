@@ -46,73 +46,6 @@ msgstr ""
 msgid "No Patológico"
 msgstr ""
 
-#: app.py:316
-msgid "Click para seleccionar especialidad"
-msgstr ""
-
-#: app.py:317
-msgid "Radiólogo abdominal"
-msgstr ""
-
-#: app.py:318
-msgid "Neurorradiólogo"
-msgstr ""
-
-#: app.py:319
-msgid "Radiólogo de mama"
-msgstr ""
-
-#: app.py:320
-msgid "Radiólogo de músculo-esquelético"
-msgstr ""
-
-#: app.py:321
-msgid "Radiólogo general"
-msgstr ""
-
-#: app.py:322
-msgid "Radiólogo intervencionista"
-msgstr ""
-
-#: app.py:323
-msgid "Radiólogo pediátrico"
-msgstr ""
-
-#: app.py:324
-msgid "Radiólogo torácico"
-msgstr ""
-
-#: app.py:325
-msgid "Residente de radiología"
-msgstr ""
-
-#: app.py:326
-msgid "Residente (especialidad distinta a la radiología)"
-msgstr ""
-
-#: app.py:327
-msgid "Estudiante de medicina"
-msgstr ""
-
-#: app.py:328
-msgid "Médico adjunto de neumología"
-msgstr ""
-
-#: app.py:329
-msgid "Médico adjunto internista"
-msgstr ""
-
-#: app.py:330
-msgid "Médico adjunto de urgencias"
-msgstr ""
-
-#: app.py:331
-msgid "Médico adjunto de otra especialidad"
-msgstr ""
-
-#: app.py:332
-msgid "Otros"
-msgstr ""
 
 #: templates/about
 msgid "about.block-title"
@@ -183,7 +116,7 @@ msgid "login.block-title"
 msgstr "Login"
 
 msgid "login.label"
-msgstr "Sign into COVID-19 training"
+msgstr "Sign into COVID-19 Training"
 
 msgid "login.button"
 msgstr "Login"
@@ -193,6 +126,74 @@ msgstr "You have not accepted the terms and conditions"
 
 msgid "login.terms-and-conditions.label"
 msgstr "I accept the terms and conditions of use"
+
+
+#: templates/start
+msgid "start.block-title"
+msgstr "Welcome"
+
+msgid "start.title"
+msgstr "Welcome to  COVID-19 Training"
+
+msgid "start.category-select.label"
+msgstr "Please, choose the category that best suits you to continue:"
+
+msgid "start.category-select.abdominal-radiologist"
+msgstr "Abdominal radiologist"
+
+msgid "start.category-select.neuroradiologist"
+msgstr "Neuroradiologist"
+
+msgid "start.category-select.breast-radiologist"
+msgstr "Breast radiologist"
+
+msgid "start.category-select.musculoskeletal-radiologist"
+msgstr "Musculoskeletal radiologist"
+
+msgid "start.category-select.general-radiologist"
+msgstr "General radiologist"
+
+msgid "start.category-select.interventional-radiologist"
+msgstr "Interventional radiologist"
+
+msgid "start.category-select.pediatric-radiologist"
+msgstr "Pediatric radiologist"
+
+msgid "start.category-select.thoracic-radiologist"
+msgstr "Thoracic radiologist"
+
+msgid "start.category-select.radiology-resident"
+msgstr "Radiology resident"
+
+msgid "start.category-select.resident-other"
+msgstr "Resident of other especiality"
+
+msgid "start.category-select.medical-student"
+msgstr "Medical student"
+
+msgid "start.category-select.pulmonology-physician"
+msgstr "Pulmonology physician"
+
+msgid "start.category-select.internal-physician"
+msgstr "Internal medicine physician"
+
+msgid "start.category-select.emergency-physician"
+msgstr "Emergency physician"
+
+msgid "start.category-select.intensive-physician"
+msgstr "Intensive care physician"
+
+msgid "start.category-select.physician-other"
+msgstr "Other kind of physician"
+
+msgid "start.category-select.other"
+msgstr "Other"
+
+msgid "start.button"
+msgstr "Start Training"
+
+msgid "start.logout-label"
+msgstr "You are logged as <strong>%(email)s</strong>. If you want to log out please, click <a href=\"/logout\">here</a>."
 
 
 #: templates/not-found
