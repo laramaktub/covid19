@@ -76,7 +76,12 @@ def get_locale():
     ):
     return session.get('lang')
   else:
-    default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys(), 'es')
+    try:
+      print('Trying to get language from best match')
+      default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    except:
+      print('Exception while trying to get best match. setting to Spanish')
+      default_lang = 'es'
     session['lang'] = default_lang
     return default_lang
 
