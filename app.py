@@ -70,10 +70,13 @@ def get_locale():
     if lang in app.config['LANGUAGES'].keys():
         session['lang'] = lang
         return lang
-    elif session.get('lang') is not None:
+    elif (
+            session.get('lang') is not None and 
+            session.get('lang') in app.config['LANGUAGES'].keys()
+        ):
         return session.get('lang')
     else:
-        default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+        default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys(), 'es')
         session['lang'] = default_lang
         return default_lang
 

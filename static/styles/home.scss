@@ -15,6 +15,7 @@
     font-size: 2.5vw;
     margin: 2.5rem auto 0;
     margin: 3.7vh auto 0;
+    text-transform: uppercase;
   }
 
   .main {
@@ -53,6 +54,7 @@
 
     button {
       float: left;
+      text-transform: uppercase;
       width: 75%;
     }
 
@@ -71,6 +73,7 @@
     font-size: 1.9vw;
     margin: 2.5rem auto;
     margin: 3.7vh auto;
+    text-transform: uppercase;
   }
 
   &__column {

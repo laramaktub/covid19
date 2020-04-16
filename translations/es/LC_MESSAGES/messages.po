@@ -50,19 +50,19 @@ msgid "home.block-title"
 msgstr "Inicio"
 
 msgid "home.title"
-msgstr "DIAGNOSTICA COVID-19 EN RADIOGRAFÍAS DE TÓRAX"
+msgstr "Diagnostica COVID-19 en radiografías de tórax"
 
 msgid "home.paragraph"
 msgstr "Aplicación de entrenamiento para radiólogos y para médicos de otras especialidades en diagnóstico de COVID-19 en radiografías de tórax. Calcula tu sensibilidad, especificidad, valor predictivo positivo, valor predictivo negativo y precisión global diagnosticando COVID-19."
 
 msgid "home.login-button"
-msgstr "COVID-19 TRAINING"
+msgstr "COVID-19 training"
 
 msgid "home.info-link"
-msgstr "¿Cuáles son los hallazgos de COVID-19?"
+msgstr "<a href='https://api.cloud.ifca.es:8080/swift/v1/covid19/HallazgosCovid.pdf' target='_blank'>¿Cuáles son los hallazgos de COVID-19?</a>"
 
 msgid "home.subtitle"
-msgstr "APLICACIÓN DISEÑADA PARA CUALQUIER TIPO DE PROFESIONAL MÉDICO"
+msgstr "Aplicación diseñada para cualquier tipo de profesional médico"
 
 msgid "home.column.medical-doctor.title"
 msgstr "Médicos"
