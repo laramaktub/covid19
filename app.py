@@ -84,6 +84,8 @@ def get_locale():
   except:
     print('Exception while trying to get lang. setting to Spanish')
     default_lang = 'es'
+  if default_lang is None:
+    default_lang = 'es'
   session['lang'] = default_lang
   return default_lang
 
