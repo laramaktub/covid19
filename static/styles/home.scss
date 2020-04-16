@@ -15,6 +15,7 @@
     font-size: 2.5vw;
     margin: 2.5rem auto 0;
     margin: 3.7vh auto 0;
+    text-transform: uppercase;
   }
 
   .main {
@@ -53,6 +54,7 @@
 
     button {
       float: left;
+      text-transform: uppercase;
       width: 75%;
     }
 
@@ -71,6 +73,7 @@
     font-size: 1.9vw;
     margin: 2.5rem auto;
     margin: 3.7vh auto;
+    text-transform: uppercase;
   }
 
   &__column {
@@ -109,16 +112,20 @@
       margin: 1rem auto 0;
     }
 
+    &__section {
+      margin: auto 0.5rem;
+    }
+
     &__paragraph {
       font-size: 20px;
       margin: 4rem auto 3rem;
       text-align: justify;
-      width: 95%;
+      width: 98%;
     }
 
     &__row {
       flex-direction: column;
-      width: 95%;
+      width: calc(100% - 1rem);
     }
 
     &__button, &__info {

@@ -24,7 +24,7 @@ msgid "about.block-title"
 msgstr "About"
 
 msgid "about.title"
-msgstr "ABOUT THIS PROJECT ..."
+msgstr "About this project ..."
 
 msgid "about.paragraph.development.title"
 msgstr "Who has developed this application?"
@@ -50,19 +50,19 @@ msgid "home.block-title"
 msgstr "Home"
 
 msgid "home.title"
-msgstr "COVID-19 ON CHEST X-RAY DIAGNOSIS TRAINING APPLICATION"
+msgstr "Training application for COVID-19 chest x-ray diagnosis"
 
 msgid "home.paragraph"
 msgstr "This is an application for training radiologists and other medical doctors on diagnosing COVID-19 compatible chest X-rays. Using your answers it will calculate your sensitivity, specificity, positive predictive value, negative predictive value and global accuracy."
 
 msgid "home.login-button"
-msgstr "COVID-19 TRAINING"
+msgstr "COVID-19 training"
 
 msgid "home.info-link"
-msgstr "Radiological features of COVID-19 on X-ray here."
+msgstr "<a href='https://api.cloud.ifca.es:8080/swift/v1/covid19/IMPORTANCE,%%20FINDINGS%%20AND%%20REPORT.pdf' target='_blank'>Radiological features of COVID-19 on X-Ray</a>"
 
 msgid "home.subtitle"
-msgstr "APPLICATION INTENDED TO BE USED BY ANY KIND OF MEDICAL DOCTOR"
+msgstr "Application intended to be used by any kind of medical doctor"
 
 msgid "home.column.medical-doctor.title"
 msgstr "Medical doctors"
@@ -158,11 +158,14 @@ msgstr "Intensive care physician"
 msgid "start.category-select.physician-other"
 msgstr "Other kind of physician"
 
+msgid "start.category-select.tsid"
+msgstr "Technicial in imaging diagnosis"
+
 msgid "start.category-select.other"
 msgstr "Other"
 
 msgid "start.button"
-msgstr "Start Training"
+msgstr "Start Test"
 
 msgid "start.logout-label"
 msgstr "You are logged as <strong>%(email)s</strong>. If you want to log out please, click <a href=\"/logout\">here</a>."
