@@ -21,7 +21,7 @@
   &__wrapper {
     align-items: center;
     display: flex;
-    height: 4rem;
+    height: 3.5rem;
     left: 0;
     position: fixed;
     top: 0;
@@ -41,7 +41,7 @@
 
 @media (max-width: 750px) {
   .home-button {
-    margin-left: 0.25rem;
+    padding: 0;
 
     &__wrapper {
       background-color: #333;
