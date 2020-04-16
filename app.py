@@ -66,24 +66,26 @@ def get_global_language():
 
 @babel.localeselector
 def get_locale():
-  lang = request.path[1:].split('/', 1)[0]
-  if lang in app.config['LANGUAGES'].keys():
-    session['lang'] = lang
-    return lang
-  elif (
-      session.get('lang') is not None and 
+  try:
+    lang = request.path[1:].split('/', 1)[0]
+    if lang in app.config['LANGUAGES'].keys():
+      session['lang'] = lang
+      print('lang got from path')
+      return lang
+    elif (
+      session.get('lang') is not None and
       session.get('lang') in app.config['LANGUAGES'].keys()
-    ):
-    return session.get('lang')
-  else:
-    try:
-      print('Trying to get language from best match')
+      ):
+      print('lang got from session')
+      return session.get('lang')
+    else:
+      print('lang got from best match')
       default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
-    except:
-      print('Exception while trying to get best match. setting to Spanish')
-      default_lang = 'es'
-    session['lang'] = default_lang
-    return default_lang
+  except:
+    print('Exception while trying to get lang. setting to Spanish')
+    default_lang = 'es'
+  session['lang'] = default_lang
+  return default_lang
 
 def get_random_img():
   conn = sqlite3.connect('db/covid19.db')
@@ -97,7 +99,7 @@ def get_random_img():
     age = int(row[0])
     sex="training.sex.male.value"
     if int(row[1])==2:
-       sex="training.sex.female.value"
+      sex="training.sex.female.value"
     informe=int(row[3])
     diagnostico=row[4]
     diagnosis=row[5]
