@@ -66,16 +66,26 @@ def get_global_language():
 
 @babel.localeselector
 def get_locale():
-    lang = request.path[1:].split('/', 1)[0]
-    if lang in app.config['LANGUAGES'].keys():
-        session['lang'] = lang
-        return lang
-    elif session.get('lang') is not None:
-        return session.get('lang')
-    else:
-        default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
-        session['lang'] = default_lang
-        return default_lang
+    try:
+        lang = request.path[1:].split('/', 1)[0]
+        if lang in app.config['LANGUAGES'].keys():
+            session['lang'] = lang
+            print('lang got from path')
+            return lang
+        elif (
+                session.get('lang') is not None and 
+                session.get('lang') in app.config['LANGUAGES'].keys()
+            ):
+            print('lang got from session')
+            return session.get('lang')
+        else:
+            print('lang got from best match')
+            default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    except:
+        print('Exception while trying to get lang. setting to Spanish')
+        default_lang = 'es'
+    session['lang'] = default_lang
+    return default_lang
 
 def get_random_img():
     conn = sqlite3.connect('db/covid19.db')
