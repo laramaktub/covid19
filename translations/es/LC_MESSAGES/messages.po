@@ -24,7 +24,7 @@ msgid "about.block-title"
 msgstr "Acerca de"
 
 msgid "about.title"
-msgstr "ACERCA DE ESTE PROYECTO ..."
+msgstr "Acerca de este proyecto ..."
 
 msgid "about.paragraph.development.title"
 msgstr "¿Quién lo ha desarrollado?"
@@ -165,7 +165,7 @@ msgid "start.category-select.other"
 msgstr "Otros"
 
 msgid "start.button"
-msgstr "Empezar el Training"
+msgstr "Comenzar el Test"
 
 msgid "start.logout-label"
 msgstr "Logeado como <strong>%(email)s</strong>. Si quieres cerrar sesion y salir, haz <a href=\"/logout\">click aqui</a>."

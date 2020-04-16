@@ -1,6 +1,12 @@
 .start {
   &__select {
-    margin: 0.5rem;
+    margin: auto;
+    width: 50%;
+
+    select {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
 
     label {
       display: none;
@@ -12,7 +18,7 @@
     position: relative;
     width: 50%;
 
-    input {
+    button {
       width: 100%;
     }
   }
@@ -40,11 +46,6 @@
   }
 }
 
-#type_of_profile {
-  margin-bottom: 1rem;
-  width: 40%;
-}
-
 @media (max-width: 750px) {
   .start {
     padding: 1rem;
@@ -61,7 +62,11 @@
     }
 
     &__select {
-      margin: unset;
+      width: 100%;
+
+      select {
+        margin-bottom: 0.5rem;
+      }
     }
 
     &__button {
@@ -76,10 +81,5 @@
         color: #fff;
       }
     }
-  }
-
-  #type_of_profile {
-    margin-bottom: 0.5rem;
-    width: 100%;
   }
 }

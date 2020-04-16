@@ -24,7 +24,7 @@ msgid "about.block-title"
 msgstr "About"
 
 msgid "about.title"
-msgstr "ABOUT THIS PROJECT ..."
+msgstr "About this project ..."
 
 msgid "about.paragraph.development.title"
 msgstr "Who has developed this application?"
@@ -165,7 +165,7 @@ msgid "start.category-select.other"
 msgstr "Other"
 
 msgid "start.button"
-msgstr "Start Training"
+msgstr "Start Test"
 
 msgid "start.logout-label"
 msgstr "You are logged as <strong>%(email)s</strong>. If you want to log out please, click <a href=\"/logout\">here</a>."
