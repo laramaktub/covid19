@@ -373,4 +373,5 @@ class ProfileForm(FlaskForm):
                  ('deputyemerg', _l('start.category-select.emergency-physician')),
                  ('intcarephysi', _l('start.category-select.intensive-physician')),
                  ('assodoctorother', _l('start.category-select.physician-other')),
+                 ('tsid', _l('start.category-select.tsid')),
                  ('others', _l('start.category-select.other'))])

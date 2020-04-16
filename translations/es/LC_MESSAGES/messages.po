@@ -158,6 +158,9 @@ msgstr "Médico especialista en cuidados intensivos"
 msgid "start.category-select.physician-other"
 msgstr "Médico adjunto de otra especialidad"
 
+msgid "start.category-select.tsid"
+msgstr "TSID"
+
 msgid "start.category-select.other"
 msgstr "Otros"
 

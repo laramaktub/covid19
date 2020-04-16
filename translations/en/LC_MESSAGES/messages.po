@@ -158,6 +158,9 @@ msgstr "Intensive care physician"
 msgid "start.category-select.physician-other"
 msgstr "Other kind of physician"
 
+msgid "start.category-select.tsid"
+msgstr "Technicial in imaging diagnosis"
+
 msgid "start.category-select.other"
 msgstr "Other"
 
