@@ -275,10 +275,11 @@ def training():
     row = c.fetchone()
     if row[0] == 0:
       c.execute(
-        "INSERT INTO users(id, name, email, profile) VALUES('%s', '%s', '%s', '')" % (
+        "INSERT INTO users(id, name, email, profile) VALUES('%s', '%s', '%s', '%s')" % (
           info.get('email'),
           info.get('name'),
-          info.get('email')
+          info.get('email'),
+          profile
         )
       )
     conn.commit()
