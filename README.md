@@ -5,6 +5,7 @@ What you need to run this app:
 * `Python` and `Flask`.
 
 * Ensure you're running the latest versions of Python `3.x` and Flask `1.x`.
+* Also to not encounter any issues when compiling from libraries such as `Flask-Babel`, be sure that you run Jinja v. `2.5.2` or later.
 
 > **Note:** For Mac users, it is recommended to first install **Homebrew**, as it will smooth the process of installing first dependencies. You can check it out [here](https://brew.sh/).
 
@@ -44,17 +45,22 @@ Same as happened with the [Library dependencies](#library-dependencies), certain
 > **Note:** In order to get those files, please request them through the email shared in the [contact us](#contact-us) section.
 
 ## Running the app
-Now that we have installed all dependencies and we have our virtual environment activated, it's time to run the project:
+Now that we have installed all dependencies and we have our virtual environment activated, we can finally runthe project. Just keep in mind that, before the first time you run run it, you must choose under which `environment` you want the project to run. The options are:
+* `development`: environment to be used while making changes on the code. This modes enables auto-detention of any saved change, so you just need to refresh the browser to see your changes applied.
+* `production`: It simulates the behaviour of the project being live. It also needs to be set before creating the build release.
+So then for development purposes, we will run the command to set the environment, followed by the comman to run the project:
 ```bash
+$ export FLASK_ENV=development
 $ flask run
 ```
-> **Note:** The project will most probably be running in http://localhost:5000/
+> **Note:** You only need to set the environment once. It will remain unless is set to another one by the developer. The project will most probably be running in http://localhost:5000/
 
 
 ### Detecting changes
-Sometimes, while running and making changes, the app does not refresh automatically, specially if changes relate to `template` or `static` files (`.js`, `.css`, etc).
+When running on `production` environment, if you save any changes on the code, the app does not refresh automatically, specially if changes relate to `template` or `static` files (`.js`, `.css`, etc).
 * In case of `.css` files, simply full refresh `localhost` by pressing `SHIFT+Cmd+R` or by clicking refresh button while pressing `SHIFT`.
 * For `.html` files, sames steps described above, but right after entering `flask run` again.
+This is why we recommend making use of the development environment. If any changes may not be detected, simply apply full refresh the same way described avobe.
 
 # Useful Information
 ## Use a Flask-aware editor
@@ -65,9 +71,11 @@ These are some well known editors which can be used to edit the project:
 
 
 ## Further Information
-For more about Flask and Jinja, you can refer to the [user's guide](https://flask.palletsprojects.com/en/1.1.x/)
+* For more about Flask and Jinja, you can refer to the [user's guide](https://flask.palletsprojects.com/en/1.1.x/).
+* For more information about `Flask-Babel` and how to proceed with translation keys, please check [the official documentation](https://pythonhosted.org/Flask-Babel/).
 
 
 ### Contact us
 
 * Generic mail: covid19training@ifca.unican.es
+* Comments regarding Frontend: solisgpedro@gmail.com

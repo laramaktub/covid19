@@ -28,10 +28,17 @@ app.config.update({
     'start',
     'training'
   ],
-  'LANGUAGES': {
-    'en': 'English',
-    'es': 'Spanish'
-  }
+  'BABEL_DEFAULT_LOCALE': 'es',
+  'BABEL_LOCALES': [
+    'en',
+    'en-CA',
+    'en-IE',
+    'en-GB',
+    'en-US',
+    'es',
+    'es-ES',
+    'es-MX'
+  ]
 })
 babel = Babel(app)
 oidc = OpenIDConnect(app)
@@ -64,30 +71,41 @@ def get_global_language():
   g.babel = babel
   g.language = get_locale()
 
+
 @babel.localeselector
 def get_locale():
-  try:
-    lang = request.path[1:].split('/', 1)[0]
-    if lang in app.config['LANGUAGES'].keys():
-      session['lang'] = lang
-      print('lang got from path')
-      return lang
-    elif (
-      session.get('lang') is not None and
-      session.get('lang') in app.config['LANGUAGES'].keys()
-      ):
-      print('lang got from session')
-      return session.get('lang')
-    else:
-      print('lang got from best match')
-      default_lang = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
-  except:
-    print('Exception while trying to get lang. setting to Spanish')
-    default_lang = 'es'
-  if default_lang is None:
-    default_lang = 'es'
+  lang = request.path[1:].split('/', 1)[0]
+
+  if lang in app.config['BABEL_LOCALES']:
+    session['lang'] = lang
+    return lang
+
+  if (lang_in_session()):
+    return session.get('lang')
+
+  default_lang = fallback_lang()
   session['lang'] = default_lang
   return default_lang
+
+
+def lang_in_session():
+  return (
+    session.get('lang') is not None and
+    session.get('lang') in app.config['BABEL_LOCALES']
+  )
+
+
+def fallback_lang():
+  best_match = request.accept_languages.best_match(app.config['BABEL_LOCALES'])
+
+  if best_match is None:
+    return app.config['BABEL_DEFAULT_LOCALE']
+
+  if 'en' in best_match:
+    return 'en'
+
+  return 'es'
+
 
 def get_random_img():
   conn = sqlite3.connect('db/covid19.db')
@@ -109,6 +127,7 @@ def get_random_img():
   conn.close()
   return age, sex, img_id, img, informe, diagnostico, diagnosis
 
+
 def check_images_left():
   conn = sqlite3.connect('db/covid19.db')
   c = conn.cursor()
@@ -120,6 +139,7 @@ def check_images_left():
     return False
   else:
     return True
+
 
 def delete_answers(user):
   now = datetime.now()
@@ -135,12 +155,14 @@ def delete_answers(user):
   conn.close()
   return
 
+
 def add_path_to_answers_images(answers):
   for i, answer in enumerate(answers):
     listAnswer = list(answer)
     listAnswer[1] = IMG_FOLDER + answer[1] +'.DCM.JPG'
     answers[i] = tuple(listAnswer)
   return answers
+
 
 @app.route('/', defaults={'path': ''}, methods=['GET','POST'])
 @app.route('/<path:path>', methods=['GET','POST'])
@@ -150,7 +172,7 @@ def catch_all(path):
   subpaths = path.split('/')
   if len(subpaths) > 2:
     subpaths.pop(0)
-  if subpaths[0] in app.config['LANGUAGES'].keys():
+  if subpaths[0] in app.config['BABEL_LOCALES']:
     if len(subpaths) > 1:
       if subpaths[1] in app.config['PATHS']:
         return redirect(url_for(subpaths[1]+'_'+subpaths[0]))
@@ -168,20 +190,24 @@ def catch_all(path):
       else:
         return redirect(url_for('not-found_'+g.language))
 
+
 @app.route("/es", endpoint="home_es")
 @app.route("/en", endpoint="home_en")
 def home():
   return render_template('home.html')
+
 
 @app.route("/es/not-found", endpoint="not-found_es")
 @app.route("/en/not-found", endpoint="not-found_en")
 def not_found():
   return render_template('not-found.html')
 
+
 @app.route("/es/about", endpoint="about_es")
 @app.route("/en/about", endpoint="about_en")
 def about():
   return render_template('about.html')
+
 
 @app.route("/es/login", endpoint="login_es")
 @app.route("/en/login", endpoint="login_en")
@@ -189,6 +215,7 @@ def login():
   if oidc.user_loggedin:
     return redirect(url_for('start_'+g.language))
   return render_template('login.html')
+
 
 @app.route("/es/start", endpoint="start_es")
 @app.route("/en/start", endpoint="start_en")
@@ -201,11 +228,13 @@ def start():
   form = ProfileForm(request.form)
   return render_template('start.html', email=info.get('email'), form=form)
 
+
 @app.route("/es/logout", endpoint="logout_es")
 @app.route("/en/logout", endpoint="logout_en")
 def logout():
   oidc.logout()
   return redirect(url_for('home_'+g.language))
+
 
 @app.route("/es/training", methods=['GET','POST'], endpoint="training_es")
 @app.route("/en/training", methods=['GET','POST'], endpoint="training_en")
@@ -260,6 +289,7 @@ def training():
     print(e)
     return 'Ooops!, <a href="/start">Log in</a>'
 
+
 @app.route('/send_results', methods=['POST'])
 @oidc.require_login
 def send_results():
@@ -294,6 +324,7 @@ def send_results():
     print("Ooops! We had a problem")
     print(e)
   return redirect(url_for('training_'+session.get('lang')))
+
 
 @app.route("/es/results", endpoint="results_es")
 @app.route("/en/results", endpoint="results_en")
@@ -360,6 +391,7 @@ def results():
   
   return render_template('results.html', res=res, failed_answers=failed_answers_with_img_path,  image=session['messages']['img'])
 
+
 class TrainingForm(FlaskForm):
   type_of_diag = SelectField(
     _l('training.diagnosis-select.label'),
@@ -370,6 +402,7 @@ class TrainingForm(FlaskForm):
     ]
   )
   img_id = TextField(u'IMG ID','')
+
 
 class ProfileForm(FlaskForm):
   type_of_profile = SelectField(

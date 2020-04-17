@@ -49,6 +49,9 @@ msgstr "Dedicado a todos los profesionales del <a href=\"http://www.humv.es\" ta
 msgid "home.block-title"
 msgstr "Inicio"
 
+msgid "home.lang-switch"
+msgstr "<a class='home__lang__link' href='/en'>ENG</a>"
+
 msgid "home.title"
 msgstr "Diagnostica COVID-19 en radiografías de tórax"
 

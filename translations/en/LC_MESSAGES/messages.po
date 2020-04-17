@@ -49,6 +49,9 @@ msgstr "Dedicated to all the professionals of the <a href=\"http://www.humv.es\"
 msgid "home.block-title"
 msgstr "Home"
 
+msgid "home.lang-switch"
+msgstr "<a class='home__lang__link' href='/es'>ESP</a>"
+
 msgid "home.title"
 msgstr "Training application for COVID-19 chest x-ray diagnosis"
 

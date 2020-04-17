@@ -4,6 +4,14 @@
 {% block content %}
 <div class="home">
   <div class="home__container">
+    <div class="home__lang">
+      {{ _('home.lang-switch') }}&nbsp;
+      {% if g.language=='es' %}
+        <img src="{{ url_for('static',filename='assets/flag_en.svg') }}" alt="flag_en">
+      {% else %}
+        <img src="{{ url_for('static',filename='assets/flag_es.svg') }}" alt="flag_es">
+      {% endif%}
+    </div>
     <div class="home__section">
       <h1 class="home__title">{{ _('home.title') }}</h1>
       <p class="home__paragraph">{{ _('home.paragraph') }}</p>
