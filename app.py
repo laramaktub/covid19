@@ -3,7 +3,7 @@ from flask_babel import Babel, lazy_gettext as _l
 from flask_assets import Environment, Bundle
 from flask_oidc import OpenIDConnect
 from flask_wtf import FlaskForm
-from wtforms import SelectField, TextField
+from wtforms import SelectField, TextField, validators
 from datetime import datetime
 
 import sqlite3
@@ -255,11 +255,10 @@ def training():
   except Exception as e:
     print("Ooops! We had a problem")
     print(e)
-  print("profile ---> " ,profile)
   type_of_profile = profile['type_of_profile'].data
   conn = sqlite3.connect('db/covid19.db')
   c = conn.cursor()
-  if (type_of_profile !="noanswer"):
+  if (type_of_profile is not None):
     c.execute("UPDATE users set profile = '%s' WHERE id  ='%s'" % (type_of_profile, user))
     print("Type of profile updated : ", type_of_profile)
   else:
@@ -420,6 +419,7 @@ class ProfileForm(FlaskForm):
   type_of_profile = SelectField(
     'Profile',
     choices = [
+      (None, _l('start.category-select.noanswer')),
       ('abdradio', _l('start.category-select.abdominal-radiologist')),
       ('Neuroradio', _l('start.category-select.neuroradiologist')),
       ('breastradio', _l('start.category-select.breast-radiologist')),
@@ -437,6 +437,8 @@ class ProfileForm(FlaskForm):
       ('intcarephysi', _l('start.category-select.intensive-physician')),
       ('assodoctorother', _l('start.category-select.physician-other')),
       ('tsid', _l('start.category-select.tsid')),
-      ('others', _l('start.category-select.other'))
-    ]
+      ('others', _l('start.category-select.other'))],
+      validators=[validators.Required("Select your profile.")],
+      default=None,
+      coerce=str
   )

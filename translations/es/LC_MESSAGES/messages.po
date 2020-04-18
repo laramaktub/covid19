@@ -62,7 +62,7 @@ msgid "home.login-button"
 msgstr "COVID-19 training"
 
 msgid "home.info-link"
-msgstr "<a href='https://api.cloud.ifca.es:8080/swift/v1/covid19/HallazgosCovid.pdf' target='_blank'>¿Cuáles son los hallazgos de COVID-19?</a>"
+msgstr "<a href='https://api.cloud.ifca.es:8080/swift/v1/covid19/Presentaci%C3%B3n%20Educativa%20COVID.pdf' target='_blank'>¿Cuáles son los hallazgos de COVID-19?</a>"
 
 msgid "home.subtitle"
 msgstr "Aplicación diseñada para cualquier tipo de profesional médico"
@@ -110,8 +110,8 @@ msgstr "Bienvenido"
 msgid "start.title"
 msgstr "Bienvenido a COVID-19 Training"
 
-msgid "start.category-select.label"
-msgstr "Por favor, selecciona tu especialidad para continuar:"
+msgid "start.category-select.noanswer"
+msgstr "Por favor, selecciona tu perfil para continuar:"
 
 msgid "start.category-select.abdominal-radiologist"
 msgstr "Radiólogo abdominal"
