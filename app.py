@@ -227,7 +227,7 @@ def start():
   print ("Deleting answers before starting the session")
   delete_answers(user)
   form = ProfileForm(request.form)
-  return render_template('start.html', email=info.get('email'), form=form, language=g.language)
+  return render_template('start.html', email=info.get('email'), form=form)
 
 
 @app.route("/es/logout", endpoint="logout_es")
@@ -420,7 +420,7 @@ class ProfileForm(FlaskForm):
   type_of_profile = SelectField(
     'Profile',
     choices = [
-      ("", _l('start.category-select.label')),
+      ("", _l('start.category-select.noanswer')),
       ('abdradio', _l('start.category-select.abdominal-radiologist')),
       ('Neuroradio', _l('start.category-select.neuroradiologist')),
       ('breastradio', _l('start.category-select.breast-radiologist')),
@@ -440,6 +440,6 @@ class ProfileForm(FlaskForm):
       ('assodoctorother', _l('start.category-select.physician-other')),
       ('tsid', _l('start.category-select.tsid')),
       ('others', _l('start.category-select.other'))],
-      validators=[validators.DataRequired("Select your profile.")],
+      validators=[validators.DataRequired(message="You must select your message to continue")],
       default=None
   )

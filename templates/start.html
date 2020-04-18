@@ -11,7 +11,7 @@
     {% include "snippets/avatar/avatar.html" %}
     <h2 class="start__title">{{ _('start.title') }}</h2>
     <p class="start__label">{{ _('start.category-select.label') }}</p>
-    <form action="/{{language}}/training" method="POST">
+    <form action="/{{ g.language }}/training" method="POST">
       {{ form.csrf_token }}
       <div class="start__select">
         {{ form.type_of_profile }}
@@ -21,9 +21,9 @@
           {{ _('start.button') }}
         </button>
       </div>
-      <div class="start__logout">
-        {{ _('start.logout-label', email=email) }}
-      </div>
     </form>
+    <div class="start__logout">
+      {{ _('start.logout-label', email=email) }}
+    </div>
   </div>
 {% endblock %}
