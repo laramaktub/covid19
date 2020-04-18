@@ -221,12 +221,13 @@ def login():
 @app.route("/en/start", endpoint="start_en")
 @oidc.require_login
 def start():
+  
   info = oidc.user_getinfo(['email'])
   user = info.get('email')
   print ("Deleting answers before starting the session")
   delete_answers(user)
   form = ProfileForm(request.form)
-  return render_template('start.html', email=info.get('email'), form=form)
+  return render_template('start.html', email=info.get('email'), form=form, language=g.language)
 
 
 @app.route("/es/logout", endpoint="logout_es")
@@ -248,11 +249,21 @@ def training():
     return redirect(url_for('results'))
   age, sex,  img_id, img, informe, diagnostico, diagnosis = get_random_img() #get_random
   form = TrainingForm(request.form)
-  profile= ProfileForm(request.form)
+
+  try:
+    profile= ProfileForm(request.form)
+  except Exception as e:
+    print("Ooops! We had a problem")
+    print(e)
+  print("profile ---> " ,profile)
   type_of_profile = profile['type_of_profile'].data
   conn = sqlite3.connect('db/covid19.db')
   c = conn.cursor()
-  c.execute("UPDATE users set profile = '%s' WHERE id  ='%s' and profile is null or profile = 'noanswer' " % (type_of_profile, user)).fetchall()
+  if (type_of_profile !="noanswer"):
+    c.execute("UPDATE users set profile = '%s' WHERE id  ='%s'" % (type_of_profile, user))
+    print("Type of profile updated : ", type_of_profile)
+  else:
+    print("No answer given for profile")
   form.img_id = img_id
   session['messages'] = {'id_image': img_id, 'img': img, 'informe': int(informe), 'diagnostico': diagnostico, 'diagnosis': diagnosis}
   if request.method == 'POST':
@@ -279,7 +290,7 @@ def training():
           info.get('email'),
           info.get('name'),
           info.get('email'),
-          profile
+          type_of_profile
         )
       )
     conn.commit()

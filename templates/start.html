@@ -11,7 +11,7 @@
     {% include "snippets/avatar/avatar.html" %}
     <h2 class="start__title">{{ _('start.title') }}</h2>
     <p class="start__label">{{ _('start.category-select.label') }}</p>
-    <form action="/training" method="POST">
+    <form action="/{{language}}/training" method="POST">
       {{ form.csrf_token }}
       <div class="start__select">
         {{ form.type_of_profile }}
