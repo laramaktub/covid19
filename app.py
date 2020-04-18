@@ -258,7 +258,8 @@ def training():
   type_of_profile = profile['type_of_profile'].data
   conn = sqlite3.connect('db/covid19.db')
   c = conn.cursor()
-  if (type_of_profile is not None):
+  print("tipo de respuesta : " , type(type_of_profile))
+  if ((type_of_profile is not None) and (type_of_profile != "None")):
     c.execute("UPDATE users set profile = '%s' WHERE id  ='%s'" % (type_of_profile, user))
     print("Type of profile updated : ", type_of_profile)
   else:
@@ -419,7 +420,7 @@ class ProfileForm(FlaskForm):
   type_of_profile = SelectField(
     'Profile',
     choices = [
-      (None, _l('start.category-select.noanswer')),
+      ("", _l('start.category-select.noanswer')),
       ('abdradio', _l('start.category-select.abdominal-radiologist')),
       ('Neuroradio', _l('start.category-select.neuroradiologist')),
       ('breastradio', _l('start.category-select.breast-radiologist')),
@@ -438,7 +439,6 @@ class ProfileForm(FlaskForm):
       ('assodoctorother', _l('start.category-select.physician-other')),
       ('tsid', _l('start.category-select.tsid')),
       ('others', _l('start.category-select.other'))],
-      validators=[validators.Required("Select your profile.")],
-      default=None,
-      coerce=str
+      validators=[validators.DataRequired("Select your profile.")],
+      default=None
   )

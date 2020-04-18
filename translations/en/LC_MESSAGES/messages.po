@@ -110,7 +110,7 @@ msgstr "Welcome"
 msgid "start.title"
 msgstr "Welcome to  COVID-19 Training"
 
-msgid "start.category-select.label"
+msgid "start.category-select.noanswer"
 msgstr "Please, choose the category that best suits you to continue:"
 
 msgid "start.category-select.abdominal-radiologist"

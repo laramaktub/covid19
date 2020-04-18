@@ -111,7 +111,7 @@ msgid "start.title"
 msgstr "Bienvenido a COVID-19 Training"
 
 msgid "start.category-select.noanswer"
-msgstr "Por favor, selecciona tu perfil para continuar:"
+msgstr "Por favor, selecciona tu especialidad para continuar"
 
 msgid "start.category-select.abdominal-radiologist"
 msgstr "Radiólogo abdominal"
