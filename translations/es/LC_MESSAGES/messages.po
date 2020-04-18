@@ -137,6 +137,9 @@ msgstr "Radiólogo pediátrico"
 msgid "start.category-select.thoracic-radiologist"
 msgstr "Radiólogo torácico"
 
+msgid "start.category-select.emergency-radio"
+msgstr "Radiólogo de urgencias"
+
 msgid "start.category-select.radiology-resident"
 msgstr "Residente de radiología"
 
