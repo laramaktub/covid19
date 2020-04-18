@@ -110,7 +110,7 @@ msgstr "Bienvenido"
 msgid "start.title"
 msgstr "Bienvenido a COVID-19 Training"
 
-msgid "start.category-select.noanswer"
+msgid "start.category-select.label"
 msgstr "Por favor, selecciona tu especialidad para continuar"
 
 msgid "start.category-select.abdominal-radiologist"
@@ -137,7 +137,7 @@ msgstr "Radiólogo pediátrico"
 msgid "start.category-select.thoracic-radiologist"
 msgstr "Radiólogo torácico"
 
-msgid "start.category-select.emergency-radio"
+msgid "start.category-select.emergency-radiologist"
 msgstr "Radiólogo de urgencias"
 
 msgid "start.category-select.radiology-resident"

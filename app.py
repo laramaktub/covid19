@@ -259,7 +259,7 @@ def training():
   conn = sqlite3.connect('db/covid19.db')
   c = conn.cursor()
   print("tipo de respuesta : " , type(type_of_profile))
-  if ((type_of_profile is not None) and (type_of_profile != "None")):
+  if (type_of_profile != ""):
     c.execute("UPDATE users set profile = '%s' WHERE id  ='%s'" % (type_of_profile, user))
     print("Type of profile updated : ", type_of_profile)
   else:
@@ -420,7 +420,7 @@ class ProfileForm(FlaskForm):
   type_of_profile = SelectField(
     'Profile',
     choices = [
-      ("", _l('start.category-select.noanswer')),
+      ("", _l('start.category-select.label')),
       ('abdradio', _l('start.category-select.abdominal-radiologist')),
       ('Neuroradio', _l('start.category-select.neuroradiologist')),
       ('breastradio', _l('start.category-select.breast-radiologist')),
@@ -429,6 +429,7 @@ class ProfileForm(FlaskForm):
       ('interradio', _l('start.category-select.interventional-radiologist')),
       ('pediradio', _l('start.category-select.pediatric-radiologist')),
       ('thoraradio', _l('start.category-select.thoracic-radiologist')),
+      ('radioemer', _l('start.category-select.emergency-radiologist')),
       ('radioresi', _l('start.category-select.radiology-resident')),
       ('resiother', _l('start.category-select.resident-other')),
       ('medicalstudent', _l('start.category-select.medical-student')),
