@@ -111,7 +111,7 @@ msgid "start.title"
 msgstr "Welcome to  COVID-19 Training"
 
 msgid "start.category-select.label"
-msgstr "Please, select your category to continue"
+msgstr "Please, choose the category that best suits you to continue:"
 
 msgid "start.category-select.noanswer"
 msgstr "Click to select category"
