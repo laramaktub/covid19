@@ -110,8 +110,11 @@ msgstr "Welcome"
 msgid "start.title"
 msgstr "Welcome to  COVID-19 Training"
 
-msgid "start.category-select.noanswer"
+msgid "start.category-select.label"
 msgstr "Please, choose the category that best suits you to continue:"
+
+msgid "start.category-select.noanswer"
+msgstr "Click to select category"
 
 msgid "start.category-select.abdominal-radiologist"
 msgstr "Abdominal radiologist"
@@ -140,7 +143,6 @@ msgstr "Thoracic radiologist"
 msgid "start.category-select.emergency-radiologist"
 msgstr "Emergency radiologist"
 
-
 msgid "start.category-select.radiology-resident"
 msgstr "Radiology resident"
 
@@ -158,7 +160,6 @@ msgstr "Internal medicine physician"
 
 msgid "start.category-select.emergency-physician"
 msgstr "Emergency physician"
-
 
 msgid "start.category-select.intensive-physician"
 msgstr "Intensive care physician"
