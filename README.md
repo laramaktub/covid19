@@ -33,7 +33,7 @@ $ pip install Flask
 By now, all the dependencies needed to being able to run our project are installed. However, if you try to run the app now with `flask run`, you will be surprised by some unexpected errors such as `ModuleNotFoundError: No module named 'flask_wtf'`. This is because certain libraries used by the project are not installed automatically.
 In order to install them, simply run the command:
 ```bash
-$ pip install flask-assets flask-oidc flask-wtf pandas pyscss
+$ pip install flask-assets Flask-Babel flask-oidc flask-wtf pandas pyscss
 ```
 > **Note:** Here are included only the dependencies required at the time this file was written. If more dependencies would be required, just refer to the [app.py](https://github.com/laramaktub/covid19/blob/master/app.py) file and check the modules imported.
 
