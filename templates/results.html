@@ -68,7 +68,11 @@
               <div class="results__answer">
                 {{ _('results.wrong-answers.correct-answer') }}&nbsp;
                 <p class="results__correct">
+                {% if g.language == 'es' %}
                   {{ _('results.wrong-answers.pathological-detail', details=answer[4]) }}
+                {% elif g.language == 'en'  %}
+                  {{ _('results.wrong-answers.pathological-detail', details=answer[5]) }}
+                {% endif %}
                 </p>
               </div>
             {% endif %}
@@ -91,7 +95,11 @@
               <div class="results__answer">
                 {{ _('results.wrong-answers.your-answer') }}&nbsp;
                 <p class="results__wrong">
+                {% if g.language == 'es' %}
                   {{ _('results.wrong-answers.pathological-detail', details=answer[4]) }}
+                {% elif g.language == 'en'  %}
+                  {{ _('results.wrong-answers.pathological-detail', details=answer[5]) }}
+                {% endif %}
                 </p>
               </div>
             {% endif %}
