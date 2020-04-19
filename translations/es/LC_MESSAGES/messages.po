@@ -261,7 +261,7 @@ msgstr "Revisa tus respuestas erróneas"
 msgid "results.wrong-answers.correct-answer"
 msgstr "<b>Respuesta correcta:</b>"
 
-msgid "results.wrong-answers.user-answer"
+msgid "results.wrong-answers.your-answer"
 msgstr "<b>Tu respuesta:</b>"
 
 msgid "results.wrong-answers.pathological-detail"
