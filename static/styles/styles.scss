@@ -1,91 +1,90 @@
+@import "./common";
+
 body {
-  background-color: #212121;
+  background-color: $covid-black;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
 select {
-  background-color: #636363;
-  border: 2px solid #ff9900;
+  background-color: $covid-gray;
+  border: 2px solid $covid-gray;
   border-radius: 4px;
-  color: #fff;
+  color: $covid-white;
   cursor: pointer;
   font-size: 16px;
-  height: 1.75rem;
-  margin-top: 0.5rem;
+  height: $space-7;
+  margin-top: $space-2;
   outline: none;
 
   &:hover {
-    background-color: rgba(255, 153, 0, 0.75);
-    color: #212121;
+    background-color: $covid-gray;
+    color: $covid-white;
   }
 
   option {
     &:hover {
-      background-color: #ff9900;
-      color: #212121;
+      background-color: $covid-gray;
+      color: $covid-white;
     }
   }
 }
 
 .covid-button {
-  background-color: #ff9900;
-  border: 2px solid #ff9900;
+  background-color: $covid-organge;
+  border: 2px solid $covid-organge;
   border-radius: 4px;
-  color: #fff;
+  color: $covid-white;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: bold;
   outline: none;
-  padding: 0.75rem;
+  padding: $space-3;
   text-decoration: none;
 
   &:focus {
-    color: #212121;
+    color: $covid-black;
   }
 }
 
 .secondary-button {
   background-color: transparent;
-  border: 2px solid #ff9900;
+  border: 2px solid $covid-organge;
   border-radius: 4px;
-  color: #ff9900;
+  color: $covid-organge;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: bold;
   outline: none;
-  padding: 0.75rem;
+  padding: $space-3;
   text-decoration: none;
   width: 100%;
 
   &:focus {
-    background-color: #ff9900;
-    color: #212121;
+    background-color: $covid-organge;
+    color: $covid-black;
   }
 
   &:active {
-    background-color: #ff9900;
-    color: #212121;
+    background-color: $covid-organge;
+    color: $covid-black;
   }
 }
 
 .page-wrapper {
-  color: #fff;
+  color: $covid-white;
   display: flex;
   flex-direction: column;
   font-size: 24px;
   margin: auto;
-  min-height: 98vh;
+  min-height: 100vh;
   text-align: center;
 
   .content {
-    background-color: #353535;
-    border: 1px solid #ff9900;
-    border-radius: 4px;
-    margin: 3.5rem auto 2rem;
-    padding: 1rem;
+    margin: 3.5rem auto $space-8;
+    padding: $space-4;
     width: 70%;
 
     &__wrapper {
@@ -109,24 +108,9 @@ img {
   }
 
   .page-wrapper {
-    min-height: 100vh;
-
     .content {
-      background-color: unset;
-      border: unset;
-      border-radius: unset;
       margin: 3.5rem auto auto;
       width: unset;
-    }
-  }
-
-  select {
-    background-color: #666;
-    border-color: #666;
-  
-    &:hover {
-      background-color: #666;
-      color: #fff;
     }
   }
 

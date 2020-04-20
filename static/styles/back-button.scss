@@ -1,32 +1,37 @@
+@import "common";
+
 .back-button {
-  background-color: rgba(0,0,0,0);
+  background-color: transparent;
   border: none;
-  color: #fff;
+  color: $covid-white;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
-  margin-left: 0.5rem;
+  font-size: $space-6;
+  margin-left: $space-2;
   outline: none;
 
   &:hover {
-    color: #ff9900;
+    color: $covid-organge;
 
     svg {
-      fill: #ff9900;
+      fill: $covid-organge;
     }
   }
 
   &__wrapper {
     align-items: center;
+    background-color: $covid-dark-gray;
+    border-bottom: 1px solid $covid-gray;
     display: flex;
     height: 3.5rem;
     left: 0;
     position: fixed;
     top: 0;
+    width: 100%;
   }
 
   svg {
-    fill: #fff;
+    fill: $covid-white;
     height: 21px;
     width: 23px;
   }
@@ -35,11 +40,5 @@
 @media (max-width: 750px) {
   .back-button {
     padding: 0;
-
-    &__wrapper {
-      background-color: #333;
-      border-bottom: 1px solid #666;
-      width: 100%;
-    }
   }
 }

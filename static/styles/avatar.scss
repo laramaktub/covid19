@@ -1,6 +1,8 @@
+@import "common";
+
 .avatar {
   height: 122px;
-  margin-top: 1rem;
+  margin-top: $space-4;
 
   &__image {
     border: 1px solid grey;
