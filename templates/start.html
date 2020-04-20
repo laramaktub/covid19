@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 {% block title %}{{ _('start.block-title') }}{% endblock %}
 {% block head %}
+
   {{ super() }}
   <script src="{{ url_for('static',filename='controller/start.js') }}"></script>
 {% endblock %}
