@@ -66,6 +66,29 @@ scss = Bundle(
 )
 assets.register('scss_all', scss)
 
+specialities = [
+  ("", _l('start.speciality-select.noanswer')),
+  ('abdradio', _l('start.speciality-select.abdominal-radiologist')),
+  ('Neuroradio', _l('start.speciality-select.neuroradiologist')),
+  ('breastradio', _l('start.speciality-select.breast-radiologist')),
+  ('muscradio', _l('start.speciality-select.musculoskeletal-radiologist')),
+  ('generalradio', _l('start.speciality-select.general-radiologist')),
+  ('interradio', _l('start.speciality-select.interventional-radiologist')),
+  ('pediradio', _l('start.speciality-select.pediatric-radiologist')),
+  ('thoraradio', _l('start.speciality-select.thoracic-radiologist')),
+  ('radioemer', _l('start.speciality-select.emergency-radiologist')),
+  ('radioresi', _l('start.speciality-select.radiology-resident')),
+  ('resiother', _l('start.speciality-select.resident-other')),
+  ('medicalstudent', _l('start.speciality-select.medical-student')),
+  ('assophypulmo', _l('start.speciality-select.pulmonology-physician')),
+  ('internassisphysi', _l('start.speciality-select.internal-physician')),
+  ('deputyemerg', _l('start.speciality-select.emergency-physician')),
+  ('intcarephysi', _l('start.speciality-select.intensive-physician')),
+  ('assodoctorother', _l('start.speciality-select.physician-other')),
+  ('tsid', _l('start.speciality-select.tsid')),
+  ('others', _l('start.speciality-select.other'))
+]
+
 @app.before_request
 def get_global_language():
   g.babel = babel
@@ -221,13 +244,34 @@ def login():
 @app.route("/en/start", endpoint="start_en")
 @oidc.require_login
 def start():
-  
-  info = oidc.user_getinfo(['email'])
+  info = oidc.user_getinfo(['email', 'openid_id'])
   user = info.get('email')
+  conn = sqlite3.connect('db/covid19.db')
+  c = conn.cursor()
+  user_data = c.execute("SELECT profile FROM users WHERE  id='%s'" % user).fetchone()
+  conn.close()
+  if user_data[0] == 'None':
+    user_data = ['',]
+  speciality = [item for item in specialities if item[0] == user_data[0]][0]
+  print('USER SPECIALITY: ', speciality)
+  form = ProfileForm(request.form)
   print ("Deleting answers before starting the session")
   delete_answers(user)
-  form = ProfileForm(request.form)
-  return render_template('start.html', email=info.get('email'), form=form)
+  return render_template('start.html', email=user, form=form, speciality=speciality)
+
+
+@app.route("/del_profile", endpoint="del_profile")
+@oidc.require_login
+def del_profile():  
+  print ("Deleting profile")
+  conn = sqlite3.connect('db/covid19.db')
+  c = conn.cursor()
+  info = oidc.user_getinfo(['email', 'openid_id'])
+  user = info.get('email')
+  c.execute("UPDATE users SET profile='' WHERE  id='%s'" % user).fetchone()
+  conn.commit()
+  conn.close()
+  return redirect(url_for('start_'+g.language))
 
 
 @app.route("/es/logout", endpoint="logout_es")
@@ -258,8 +302,7 @@ def training():
   type_of_profile = profile['type_of_profile'].data
   conn = sqlite3.connect('db/covid19.db')
   c = conn.cursor()
-  print("tipo de respuesta : " , type(type_of_profile))
-  if (type_of_profile != ""):
+  if type_of_profile != "None" and type_of_profile != "":
     c.execute("UPDATE users set profile = '%s' WHERE id  ='%s'" % (type_of_profile, user))
     print("Type of profile updated : ", type_of_profile)
   else:
@@ -419,27 +462,7 @@ class TrainingForm(FlaskForm):
 class ProfileForm(FlaskForm):
   type_of_profile = SelectField(
     'Profile',
-    choices = [
-      ("", _l('start.category-select.noanswer')),
-      ('abdradio', _l('start.category-select.abdominal-radiologist')),
-      ('Neuroradio', _l('start.category-select.neuroradiologist')),
-      ('breastradio', _l('start.category-select.breast-radiologist')),
-      ('muscradio', _l('start.category-select.musculoskeletal-radiologist')),
-      ('generalradio', _l('start.category-select.general-radiologist')),
-      ('interradio', _l('start.category-select.interventional-radiologist')),
-      ('pediradio', _l('start.category-select.pediatric-radiologist')),
-      ('thoraradio', _l('start.category-select.thoracic-radiologist')),
-      ('radioemer', _l('start.category-select.emergency-radiologist')),
-      ('radioresi', _l('start.category-select.radiology-resident')),
-      ('resiother', _l('start.category-select.resident-other')),
-      ('medicalstudent', _l('start.category-select.medical-student')),
-      ('assophypulmo', _l('start.category-select.pulmonology-physician')),
-      ('internassisphysi', _l('start.category-select.internal-physician')),
-      ('deputyemerg', _l('start.category-select.emergency-physician')),
-      ('intcarephysi', _l('start.category-select.intensive-physician')),
-      ('assodoctorother', _l('start.category-select.physician-other')),
-      ('tsid', _l('start.category-select.tsid')),
-      ('others', _l('start.category-select.other'))],
-      validators=[validators.DataRequired(message="You must select your message to continue")],
-      default=None
+    choices = specialities,
+    validators=[validators.DataRequired(message="You must select your message to continue")],
+    default=None
   )

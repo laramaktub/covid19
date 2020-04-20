@@ -1,4 +1,15 @@
 .start {
+  &__title {
+    color: #ff9900;
+    text-transform: uppercase;
+  }
+
+  &__user-speciality {
+    button {
+      margin: 0.5rem auto;
+    }
+  }
+
   &__select {
     margin: auto;
     width: 50%;
@@ -51,9 +62,7 @@
     padding: 1rem;
 
     &__title {
-      color: #ff9900;
       font-size: 9.2vw;
-      text-transform: uppercase;
     }
 
     &__label {

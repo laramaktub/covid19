@@ -29,7 +29,7 @@ select {
 }
 
 .covid-button {
-  background-color: #636363;
+  background-color: #ff9900;
   border: 2px solid #ff9900;
   border-radius: 4px;
   color: #fff;
@@ -41,13 +41,7 @@ select {
   padding: 0.75rem;
   text-decoration: none;
 
-  &:hover {
-    background-color: rgba(255, 153, 0, 0.75);
-    color: #212121;
-  }
-
-  &:active {
-    background-color: #ff9900;
+  &:focus {
     color: #212121;
   }
 }
@@ -66,7 +60,7 @@ select {
   text-decoration: none;
   width: 100%;
 
-  &:hover {
+  &:focus {
     background-color: #ff9900;
     color: #212121;
   }
@@ -107,11 +101,9 @@ img {
 
 @media (max-width: 800px) {
   .covid-button {
-    background-color: #ff9900;
     width: 100%;
 
     &:hover {
-      background-color: #ff9900;
       color: unset;
     }
   }

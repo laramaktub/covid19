@@ -110,68 +110,74 @@ msgstr "Bienvenido"
 msgid "start.title"
 msgstr "Bienvenido a COVID-19 Training"
 
-msgid "start.category-select.label"
+msgid "start.speciality-select.label"
 msgstr "Por favor, selecciona tu especialidad para continuar"
 
-msgid "start.category-select.noanswer"
+msgid "start.speciality-select.noanswer"
 msgstr "Click para seleccionar especialidad"
 
-msgid "start.category-select.abdominal-radiologist"
+msgid "start.speciality-select.abdominal-radiologist"
 msgstr "Radiólogo abdominal"
 
-msgid "start.category-select.neuroradiologist"
+msgid "start.speciality-select.neuroradiologist"
 msgstr "Neurorradiólogo"
 
-msgid "start.category-select.breast-radiologist"
+msgid "start.speciality-select.breast-radiologist"
 msgstr "Radiólogo de mama"
 
-msgid "start.category-select.musculoskeletal-radiologist"
+msgid "start.speciality-select.musculoskeletal-radiologist"
 msgstr "Radiólogo de músculo-esquelético"
 
-msgid "start.category-select.general-radiologist"
+msgid "start.speciality-select.general-radiologist"
 msgstr "Radiólogo general"
 
-msgid "start.category-select.interventional-radiologist"
+msgid "start.speciality-select.interventional-radiologist"
 msgstr "Radiólogo intervencionista"
 
-msgid "start.category-select.pediatric-radiologist"
+msgid "start.speciality-select.pediatric-radiologist"
 msgstr "Radiólogo pediátrico"
 
-msgid "start.category-select.thoracic-radiologist"
+msgid "start.speciality-select.thoracic-radiologist"
 msgstr "Radiólogo torácico"
 
-msgid "start.category-select.emergency-radiologist"
+msgid "start.speciality-select.emergency-radiologist"
 msgstr "Radiólogo de urgencias"
 
-msgid "start.category-select.radiology-resident"
+msgid "start.speciality-select.radiology-resident"
 msgstr "Residente de radiología"
 
-msgid "start.category-select.resident-other"
+msgid "start.speciality-select.resident-other"
 msgstr "Residente (especialidad distinta a la radiología)"
 
-msgid "start.category-select.medical-student"
+msgid "start.speciality-select.medical-student"
 msgstr "Estudiante de medicina"
 
-msgid "start.category-select.pulmonology-physician"
+msgid "start.speciality-select.pulmonology-physician"
 msgstr "Médico adjunto de neumología"
 
-msgid "start.category-select.internal-physician"
+msgid "start.speciality-select.internal-physician"
 msgstr "Médico adjunto internista"
 
-msgid "start.category-select.emergency-physician"
+msgid "start.speciality-select.emergency-physician"
 msgstr "Médico adjunto de urgencias"
 
-msgid "start.category-select.intensive-physician"
+msgid "start.speciality-select.intensive-physician"
 msgstr "Médico especialista en cuidados intensivos"
 
-msgid "start.category-select.physician-other"
+msgid "start.speciality-select.physician-other"
 msgstr "Médico adjunto de otra especialidad"
 
-msgid "start.category-select.tsid"
+msgid "start.speciality-select.tsid"
 msgstr "TSID"
 
-msgid "start.category-select.other"
+msgid "start.speciality-select.other"
 msgstr "Otros"
+
+msgid "start.user-speciality.label"
+msgstr "Especialidad seleccionada: <b>%(speciality)s</b>"
+
+msgid "start.user-speciality.button"
+msgstr "Cambiar especialidad"
 
 msgid "start.button"
 msgstr "Comenzar el Test"
@@ -302,3 +308,6 @@ msgstr "Contacta con nosotros"
 
 msgid "footer.copyright"
 msgstr "Copyright &copy; IFCA - CSIC - HUMV"
+
+msgid "footer.delete-profile"
+msgstr "Eliminar especialidad asignada"

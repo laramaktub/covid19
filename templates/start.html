@@ -10,12 +10,29 @@
   <div class="content start">
     {% include "snippets/avatar/avatar.html" %}
     <h2 class="start__title">{{ _('start.title') }}</h2>
-    <p class="start__label">{{ _('start.category-select.label') }}</p>
-    <form action="/{{ g.language }}/training" method="POST">
-      {{ form.csrf_token }}
-      <div class="start__select">
-        {{ form.type_of_profile }}
+    {% if speciality[0] == '' %}
+      <p class="start__label">{{ _('start.speciality-select.label') }}</p>
+    {% endif %}
+    {% if speciality[0] != '' %}
+      <div class="start__user-speciality">
+        {{ _('start.user-speciality.label', speciality=speciality[1]) }}
+        <div class="start__button">
+          <button
+            class="secondary-button"
+            onclick="document.location.href = '/del_profile'"
+          >
+            {{ _('start.user-speciality.button') }}
+          </button>
+        </div>
       </div>
+    {% endif %}
+    <form action="/{{ g.language }}/training" method="POST">
+      {% if speciality[0] == '' %}
+        {{ form.csrf_token }}
+        <div class="start__select">
+          {{ form.type_of_profile }}
+        </div>
+      {% endif %}
       <div class="start__button">
         <button class="covid-button" type="submit" name="button_start">
           {{ _('start.button') }}

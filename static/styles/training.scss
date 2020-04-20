@@ -25,6 +25,11 @@
     border: 1px solid #ff9900;
     border-radius: 4px;
     padding: 1rem;
+
+    .covid-button {
+      border: 2px solid #888;
+      background-color: #666;
+    }
   }
 
   &__next {
@@ -107,11 +112,6 @@ label {
       border-bottom: 2px solid #666;
       border-radius: unset;
       padding: 1rem;
-
-      .covid-button {
-        border: 2px solid #888;
-        background-color: #666;
-      }
     }
 
     &__data {
