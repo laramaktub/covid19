@@ -226,8 +226,17 @@ def start():
   user = info.get('email')
   print ("Deleting answers before starting the session")
   delete_answers(user)
-  form = ProfileForm(request.form)
-  return render_template('start.html', email=info.get('email'), form=form)
+  conn = sqlite3.connect('db/covid19.db')
+  c = conn.cursor()
+  info = oidc.user_getinfo(['email', 'openid_id'])
+  user = info.get('email')
+  x = c.execute("SELECT profile FROM users WHERE  id='%s'" % user).fetchone()
+  conn.close()
+  if x[0] != '':
+      return redirect(url_for('training_'+g.language))
+  else:
+      form = ProfileForm(request.form)
+      return render_template('start.html', email=info.get('email'), form=form)
 
 
 @app.route("/es/logout", endpoint="logout_es")
@@ -235,6 +244,21 @@ def start():
 def logout():
   oidc.logout()
   return redirect(url_for('home_'+g.language))
+
+@app.route("/del_profile", endpoint="del_profile")
+@oidc.require_login
+def del_profile():  
+  info = oidc.user_getinfo(['email'])
+  user = info.get('email')
+  print ("Deleting profile")
+  conn = sqlite3.connect('db/covid19.db')
+  c = conn.cursor()
+  info = oidc.user_getinfo(['email', 'openid_id'])
+  user = info.get('email')
+  c.execute("UPDATE users SET profile='' WHERE  id='%s'" % user).fetchone()
+  conn.commit()
+  conn.close()
+  return redirect(url_for('start_'+g.language))
 
 
 @app.route("/es/training", methods=['GET','POST'], endpoint="training_es")

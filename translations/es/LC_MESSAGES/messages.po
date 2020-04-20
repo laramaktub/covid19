@@ -302,3 +302,6 @@ msgstr "Contacta con nosotros"
 
 msgid "footer.copyright"
 msgstr "Copyright &copy; IFCA - CSIC - HUMV"
+
+msgid "footer.delete-profile"
+msgstr "Eliminar especialidad asignada"
