@@ -21,7 +21,7 @@
   &__wrapper {
     align-items: center;
     background-color: $covid-dark-gray;
-    border-bottom: 1px solid $covid-gray;
+    border-bottom: 2px solid $covid-gray;
     display: flex;
     height: 3.5rem;
     left: 0;
@@ -40,5 +40,9 @@
 @media (max-width: 750px) {
   .back-button {
     padding: 0;
+
+    &__wrapper {
+      border-bottom-width: 1px;
+    }
   }
 }
