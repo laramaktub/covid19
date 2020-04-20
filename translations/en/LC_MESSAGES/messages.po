@@ -110,68 +110,74 @@ msgstr "Welcome"
 msgid "start.title"
 msgstr "Welcome to  COVID-19 Training"
 
-msgid "start.category-select.label"
-msgstr "Please, choose the category that best suits you to continue:"
+msgid "start.speciality-select.label"
+msgstr "Please, choose the speciality that best suits you to continue:"
 
-msgid "start.category-select.noanswer"
-msgstr "Click to select category"
+msgid "start.speciality-select.noanswer"
+msgstr "Click to select speciality"
 
-msgid "start.category-select.abdominal-radiologist"
+msgid "start.speciality-select.abdominal-radiologist"
 msgstr "Abdominal radiologist"
 
-msgid "start.category-select.neuroradiologist"
+msgid "start.speciality-select.neuroradiologist"
 msgstr "Neuroradiologist"
 
-msgid "start.category-select.breast-radiologist"
+msgid "start.speciality-select.breast-radiologist"
 msgstr "Breast radiologist"
 
-msgid "start.category-select.musculoskeletal-radiologist"
+msgid "start.speciality-select.musculoskeletal-radiologist"
 msgstr "Musculoskeletal radiologist"
 
-msgid "start.category-select.general-radiologist"
+msgid "start.speciality-select.general-radiologist"
 msgstr "General radiologist"
 
-msgid "start.category-select.interventional-radiologist"
+msgid "start.speciality-select.interventional-radiologist"
 msgstr "Interventional radiologist"
 
-msgid "start.category-select.pediatric-radiologist"
+msgid "start.speciality-select.pediatric-radiologist"
 msgstr "Pediatric radiologist"
 
-msgid "start.category-select.thoracic-radiologist"
+msgid "start.speciality-select.thoracic-radiologist"
 msgstr "Thoracic radiologist"
 
-msgid "start.category-select.emergency-radiologist"
+msgid "start.speciality-select.emergency-radiologist"
 msgstr "Emergency radiologist"
 
-msgid "start.category-select.radiology-resident"
+msgid "start.speciality-select.radiology-resident"
 msgstr "Radiology resident"
 
-msgid "start.category-select.resident-other"
+msgid "start.speciality-select.resident-other"
 msgstr "Resident of other especiality"
 
-msgid "start.category-select.medical-student"
+msgid "start.speciality-select.medical-student"
 msgstr "Medical student"
 
-msgid "start.category-select.pulmonology-physician"
+msgid "start.speciality-select.pulmonology-physician"
 msgstr "Pulmonology physician"
 
-msgid "start.category-select.internal-physician"
+msgid "start.speciality-select.internal-physician"
 msgstr "Internal medicine physician"
 
-msgid "start.category-select.emergency-physician"
+msgid "start.speciality-select.emergency-physician"
 msgstr "Emergency physician"
 
-msgid "start.category-select.intensive-physician"
+msgid "start.speciality-select.intensive-physician"
 msgstr "Intensive care physician"
 
-msgid "start.category-select.physician-other"
+msgid "start.speciality-select.physician-other"
 msgstr "Other kind of physician"
 
-msgid "start.category-select.tsid"
+msgid "start.speciality-select.tsid"
 msgstr "Technicial in imaging diagnosis"
 
-msgid "start.category-select.other"
+msgid "start.speciality-select.other"
 msgstr "Other"
+
+msgid "start.user-speciality.label"
+msgstr "Speciality selected: <b>%(speciality)s</b>"
+
+msgid "start.user-speciality.button"
+msgstr "Change speciality"
 
 msgid "start.button"
 msgstr "Start Test"
