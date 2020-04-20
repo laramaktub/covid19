@@ -1,18 +1,39 @@
+@import "common";
+
 .results {
+  &__title {
+    color: $covid-organge;
+    text-transform: uppercase;
+  }
+
   &__details {
-    background-color: #545454;
-    border: 1px solid #999;
-    border-radius: 16px;
+    background-color: $covid-dark-gray;
+    border: 1px solid $covid-light-gray;
+    border-radius: 8px;
     font-size: 20px;
     margin: auto;
+    text-align: left;
     width: 75%;
+
+    .list {
+      color: $covid-organge;
+      line-height: 1.8rem;
+      padding-left: $space-6;
+
+      b {
+        color: $covid-white;
+      }
+    }
   }
 
   &__note {
-    padding: 1rem;
+    background-color: #424242;
+    border-top: 1px solid $covid-light-gray;
+    border-radius: 0 0 8px 8px;
+    padding: $space-4;
 
     a {
-      color: #ff9900;
+      color: $covid-organge;
       text-decoration: none;
 
       &:hover {
@@ -25,13 +46,18 @@
     }
 
     strong {
-      color: #ff9900;
+      color: $covid-organge;
     }
+  }
 
+  &__paragraph {
+    &-first {
+      color: $covid-clear-gray
+    }
   }
 
   &__try-again {
-    margin-bottom: 1rem;
+    margin-bottom: $space-4;
 
     button {
       width: 50%;
@@ -40,43 +66,47 @@
 
   &__separator {
     height: 1px;
-    background-color: #ff9900;
+    background-color: $covid-organge;
     width: 90%;
-    margin: 3rem auto;
+    margin: $space-12 auto;
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
   }
 
   &__card {
-    background-color: #545454;
-    border: 1px solid #999;
-    border-radius: 16px;
+    background-color: $covid-dark-gray;
+    border: 1px solid $covid-light-gray;
+    border-radius: 8px;
     width: 70%;
     margin: auto;
-    padding: 1rem;
+    padding: $space-4;
   }
 
   &__element {
     display: inline-grid;
-    margin-bottom: 1rem;
+    margin-bottom: $space-4;
   }
 
   &__answer {
     display: inline-flex;
     font-size: 18px;
-    margin: 0.25rem 0;
+    margin: $space 0;
   }
 
   &__correct {
-    color: green;
+    color: $covid-organge;
     margin: 0;
   }
 
   &__wrong {
-    color: red;
+    color: $covid-clear-gray;
     margin: 0;
   }
 
   &__image img {
-    border-radius: 0.5rem;
+    border-radius: $space-2;
     height:100%;
     width:100%;
   }
@@ -85,44 +115,30 @@
 @media (max-width: 750px) {
   .results {
     &__title {
-      color: #ff9900;
       font-size: 8vw;
-      margin-left: -1rem;
-      margin-right: -1rem;
-      margin-top: 1rem;
-      text-transform: uppercase;
+      margin-left: -$space-4;
+      margin-right: -$space-4;
+      margin-top: $space-4;
     }
 
     &__details {
       background-color: unset;
       border: unset;
       border-radius: unset;
-      font-size: 20px;
-      margin-left: -1rem;
-      margin-right: -1rem;
+      margin-left: -$space-4;
+      margin-right: -$space-4;
       width: 100%;
-      text-align: left;
-
-      .list {
-        color: #ff9900;
-        line-height: 1.8rem;
-        padding-left: 1.5rem;
-
-        b {
-          color: #fff;
-        }
-      }
     }
 
     &__note {
-      background-color: #424242;
-      border: 2px solid #666;
+      border: 2px solid $covid-gray;
+      border-radius: unset;
       font-size: 4.4vw;
-      margin-right: -2rem;
-      padding: 0.5rem;
+      margin-right: -$space-8;
+      padding: $space-2;
 
       a {
-        color: #ff9900;
+        color: $covid-organge;
       }
 
       p {
@@ -130,28 +146,22 @@
       }
 
       strong {
-        color: #ff9900;
+        color: $covid-organge;
       }
 
     }
 
     &__paragraph-first, &__paragraph-again {
-      margin: 2rem 0 0;
+      margin: $space-8 0 0;
     }
 
-    &__paragraph {
-      &-first {
-        color: #d9d9d9
-      }
-
-      &-again {
-        font-size: 4.7vw;
-      }
+    &__paragraph-again {
+      font-size: 4.7vw;
     }
 
     &__try-again {
-      margin-bottom: 2rem;
-      padding: 1rem 0;
+      margin-bottom: $space-8;
+      padding: $space-4 0;
   
       button {
         width: 100%;
@@ -164,44 +174,34 @@
 
     &__wrong-answers {
       background-color: #424242;
-      border-top: 2px solid #ff9900;
-      margin: 0 -1rem -1rem -1rem;
+      border-top: 2px solid $covid-organge;
+      margin: 0 -$space-4 -$space-4 -$space-4;
     }
 
     &__subtitle {
       font-size: 7vw;
-      margin-bottom: 3rem;
-      padding-top: 0.25rem;
-      text-transform: uppercase;
+      margin-bottom: $space-12;
+      padding-top: $space;
     }
 
     &__card {
       background-color: unset;
       border: unset;
       border-radius: unset;
-      border-top: 2px solid #666;
+      border-top: 2px solid $covid-gray;
       padding: unset;
       width: unset;
     }
 
     &__element {
       margin-bottom: unset;
-      background-color: #333;
-      padding: 1rem;
+      background-color: $covid-dark-gray;
+      padding: $space-4;
       text-align: left;
     }
 
     &__image img {
       border-radius: unset;
-    }
-
-    &__correct {
-      color: #ff9900;
-    }
-  
-    &__wrong {
-      color: #d9d9d9;
-      margin: 0;
     }
   }
 }

@@ -57,10 +57,10 @@ scss = Bundle(
   'styles/start.scss',
   'styles/styles.scss',
   'styles/training.scss',
-  '../templates/snippets/avatar/avatar.scss',
-  '../templates/snippets/back-button/back-button.scss',
-  '../templates/snippets/footer/footer.scss',
-  '../templates/snippets/home-button/home-button.scss',
+  'styles/avatar.scss',
+  'styles/back-button.scss',
+  'styles/footer.scss',
+  'styles/home-button.scss',
   filters='pyscss',
   output='styles/main.css'
 )

@@ -1,9 +1,11 @@
+@import "common";
+
 .training {
   display: flex;
 
   &__actions {
     width: 35%;
-    padding: 0.75rem;
+    padding: $space-3;
   }
 
   &__data {
@@ -13,7 +15,7 @@
   }
 
   &__end {
-    margin-bottom: 1rem;
+    margin-bottom: $space-4;
 
     button {
       width: 100%;
@@ -21,31 +23,26 @@
   }
 
   &__container {
-    background-color: #454545;
-    border: 1px solid #ff9900;
+    background-color: $covid-dark-gray;
+    border: 2px solid $covid-gray;
     border-radius: 4px;
-    padding: 1rem;
-
-    .covid-button {
-      border: 2px solid #888;
-      background-color: #666;
-    }
+    padding: $space-4;
   }
 
   &__next {
-    margin-top: 2rem;
+    margin-top: $space-8;
     width: 100%;
   }
 
   &__images--desktop {
-    border: 1px solid #999;
+    border: 1px solid $covid-light-gray;
     border-radius: 4px;
     display: unset;
-    margin: 0.75rem;
+    margin: $space-3;
     width: 65%;
 
     img {
-      border: 1px solid #999;
+      border: 1px solid $covid-light-gray;
       border-radius: 4px;
       width:100%;
       height:100%;
@@ -82,8 +79,8 @@ label {
     &__actions {
       display: flex;
       flex-direction: column-reverse;
-      margin-left: -1rem;
-      margin-right: -1rem;
+      margin-left: -$space-4;
+      margin-right: -$space-4;
       padding: unset;
       width: unset;
     }
@@ -92,7 +89,7 @@ label {
       border: unset;
       border-radius: unset;
       display: unset;
-      margin: -1rem -1rem -6px -1rem;
+      margin: -$space-4 -$space-4 -6px -$space-4;
       width: unset;
   
       img {
@@ -106,12 +103,12 @@ label {
     }
 
     &__container {
-      background-color: #333;
+      background-color: $covid-dark-gray;
       border: unset;
-      border-top: 2px solid #666;
-      border-bottom: 2px solid #666;
+      border-top: 2px solid $covid-gray;
+      border-bottom: 2px solid $covid-gray;
       border-radius: unset;
-      padding: 1rem;
+      padding: $space-4;
     }
 
     &__data {
@@ -122,7 +119,7 @@ label {
         width: 50%;
 
         strong {
-          color: #ff9900;
+          color: $covid-organge;
           font-weight: bold;
         }
       }
@@ -133,8 +130,8 @@ label {
     }
 
     &__end {
-      margin: 0.5rem 0;
-      padding: 1rem;
+      margin: $space-2 0;
+      padding: $space-4;
     }
   }
 

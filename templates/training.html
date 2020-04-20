@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-{% include "snippets/back-button/back-button.html" %}
+{% include "snippets/back-button.html" %}
 <div class="content training">
   <div class="training__actions">
     <div class="training__end" >
@@ -36,7 +36,7 @@
           <br>{{ form.type_of_diag }}
         </div>
         <button
-          class="training__next covid-button"
+          class="training__next secondary-button"
           type="submit"
           name="button_next"
         >

@@ -1,3 +1,5 @@
+@import "common";
+
 .not-found {
   &__title {
     align-items: center;
@@ -7,17 +9,17 @@
     justify-content: center;
 
     .error-404 {
-      color: #ff9900;;
+      color: $covid-organge;;
     }
   }
 
   &__subtitle {
-    color: #d9d9d9;
+    color: $covid-clear-gray;
   }
 
   &__button {
     width: 75%;
-    margin: 10rem auto 2rem
+    margin: 10rem auto $space-8
   }
 }
 
@@ -28,10 +30,10 @@
     }
   
     &__button {
-      bottom: 12rem;
+      bottom: 1$space-8;
       margin: unset;
       position: absolute;
-      width: calc(100% - 2rem);
+      width: calc(100% - $space-8);
     }
   }
 }

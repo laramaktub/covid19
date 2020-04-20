@@ -1,27 +1,28 @@
+@import "common";
+
 .home {
-  background-color: #212121;
-  margin: 0px auto 2rem;
-  margin: 0px auto 2.9vh;
+  background-color: $covid-black;
+  margin: 0 auto;
 
   &__container {
-    background-color: #333;
-    border-bottom: 2px solid #666;
-    padding-top: 2rem;
+    background-color: $covid-dark-gray;
+    border-bottom: 2px solid $covid-gray;
+    padding-top: $space-8;
     padding-top: 2.9vh;
   }
 
   &__lang {
     align-items: center;
-    color: #ff9900;
+    color: $covid-organge;
     display: flex;
     justify-content: flex-end;
-    margin-right: 1rem;
+    margin-right: $space-4;
     position: absolute;
     right: 0;
-    top: 0.75rem;
+    top: $space-3;
 
     a {
-      color: #ff9900;
+      color: $covid-organge;
       font-size: 18px;
     }
 
@@ -31,15 +32,15 @@
   }
 
   &__title {
-    color: #ff9900;
+    color: $covid-organge;
     font-size: 2.5vw;
-    margin: 2.5rem auto 0;
-    margin: 3.7vh auto 0;
+    margin: $space-10 auto 0;
+    margin: 3vh auto 0;
     text-transform: uppercase;
   }
 
   .main {
-    background-color: #333;
+    background-color: $covid-dark-gray;
   }
 
   &__section {
@@ -54,19 +55,19 @@
     width: 90%;
 
     .first {
-      margin: 2rem;
+      margin: $space-8;
     }
   }
 
   &__paragraph {
     font-size: 1.2vw;
-    margin: 4rem auto 3rem;
+    margin: 4rem auto $space-12;
     margin: 5.9vh auto 4.4vh;
     width: 78%;
   }
 
   &__button, &__info {
-    margin-bottom: 2.5rem;
+    margin-bottom: $space-10;
     margin-bottom: 3.7vh;
     padding: 0 8%;
     text-align: right;
@@ -79,38 +80,38 @@
     }
 
     a {
-      color: #fff;
+      color: $covid-white;
       font-size: 20px;
       font-size: 1.2vw;
 
       &:hover {
-        color: #ff9900;
+        color: $covid-organge;
       }
     }
   }
 
   &__subtitle {
     font-size: 1.9vw;
-    margin: 2.5rem auto;
+    margin: $space-10 auto;
     margin: 3.7vh auto;
     text-transform: uppercase;
   }
 
   &__column {
-    padding: 1rem;
+    padding: $space-4;
     padding: 1.42vh;
     width: 30%;
 
     h3 {
-      color: #ff9900;
+      color: $covid-organge;
       font-size: 1.4vw;
       margin: 2.4vh auto;
     }
   }
 
   &__circle {
-    background-color: #333;
-    border: 2px solid #666;
+    background-color: $covid-dark-gray;
+    border: 2px solid $covid-gray;
     border-radius: 50%;
     margin: auto;
     max-height: 300px;
@@ -127,17 +128,20 @@
 @media (max-width: 750px) {
 
   .home {
+    margin: 0px auto $space-8;
+    margin: 0px auto 2.9vh;
+
     &__container {
       padding-top: 5vh;
     }
 
     &__title {
       font-size: 8vw;
-      margin: 1rem auto 0;
+      margin: $space-4 auto 0;
     }
 
     &__lang {
-      margin-right: 0.75rem;
+      margin-right: $space-3;
   
       a {
         font-size: 20px;
@@ -149,19 +153,19 @@
     }
 
     &__section {
-      margin: 1.5rem 0.5rem auto;
+      margin: $space-6 $space-2 auto;
     }
 
     &__paragraph {
       font-size: 20px;
-      margin: 4rem auto 3rem;
+      margin: 4rem auto $space-12;
       text-align: justify;
       width: 98%;
     }
 
     &__row {
       flex-direction: column;
-      width: calc(100% - 1rem);
+      width: calc(100% - $space-4);
     }
 
     &__button, &__info {
@@ -181,16 +185,16 @@
 
     &__subtitle {
       font-size: 7.7vw;
-      margin: 2.5rem auto;
+      margin: $space-10 auto;
     }
 
     &__column {
-      padding: 1rem;
+      padding: $space-4;
       width: 100%;
   
       h3 {
         font-size: 7vw;
-        margin-bottom: 0.5rem;
+        margin-bottom: $space-2;
       }
     }
 
@@ -200,7 +204,7 @@
 
     &__text {
       font-size: 4.96vw;
-      margin-top: 0.5rem;
+      margin-top: $space-2;
     }
   }
 }

@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block content %}
-{% include "snippets/back-button/back-button.html" %}
+{% include "snippets/back-button.html" %}
   <div class="content start">
-    {% include "snippets/avatar/avatar.html" %}
+    {% include "snippets/avatar.html" %}
     <h2 class="start__title">{{ _('start.title') }}</h2>
     {% if speciality[0] == '' %}
       <p class="start__label">{{ _('start.speciality-select.label') }}</p>
