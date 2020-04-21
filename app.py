@@ -250,7 +250,7 @@ def start():
   c = conn.cursor()
   user_data = c.execute("SELECT profile FROM users WHERE  id='%s'" % user).fetchone()
   conn.close()
-  if user_data[0] == 'None':
+  if user_data == None or user_data[0] == 'None':
     user_data = ['',]
   speciality = [item for item in specialities if item[0] == user_data[0]][0]
   print('USER SPECIALITY: ', speciality)
