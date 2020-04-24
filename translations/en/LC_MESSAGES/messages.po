@@ -168,7 +168,7 @@ msgid "start.speciality-select.physician-other"
 msgstr "Other kind of physician"
 
 msgid "start.speciality-select.tsid"
-msgstr "Technicial in imaging diagnosis"
+msgstr "Diagnostic Imaging Technician"
 
 msgid "start.speciality-select.other"
 msgstr "Other"
